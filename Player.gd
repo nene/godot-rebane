@@ -16,4 +16,4 @@ func _physics_process(delta):
     if direction.x != 0 && direction.y != 0:
         direction = direction.normalized()
     
-    move_and_collide(speed * direction * delta)
+    move_and_slide(speed * direction)
