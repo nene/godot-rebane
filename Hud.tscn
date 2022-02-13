@@ -1,0 +1,26 @@
+[gd_scene format=2]
+
+[node name="Hud" type="CanvasLayer"]
+
+[node name="ColorRect" type="ColorRect" parent="."]
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+margin_left = -8.0
+margin_top = -16.0
+margin_right = 8.0
+color = Color( 0.560784, 0.337255, 0.231373, 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ColorRect" type="ColorRect" parent="ColorRect"]
+margin_left = 1.0
+margin_top = 1.0
+margin_right = 15.0
+margin_bottom = 15.0
+color = Color( 0.721569, 0.560784, 0.380392, 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
