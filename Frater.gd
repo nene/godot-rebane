@@ -1,5 +1,7 @@
 extends KinematicBody2D
 
+const Direction = preload("res://Direction.gd")
+
 export var speed = 50
 var direction = Vector2.ZERO
 var facing = "down"
@@ -16,31 +18,12 @@ func change_direction():
         direction = Vector2.DOWN.rotated(rng.randf() * 2 * PI)
 
 func _physics_process(delta):
-    if is_moving(direction):
-        facing = direction_to_facing(direction)
+    if Direction.is_moving(direction):
+        facing = Direction.to_facing(direction)
 
-    $AnimationPlayer.play(choose_animation(is_moving(direction), facing))
+    $AnimationPlayer.play(Direction.animation_name(Direction.is_moving(direction), facing))
 
     if direction.x != 0 && direction.y != 0:
         direction = direction.normalized()
     
     move_and_slide(speed * direction)
-
-func is_moving(direction: Vector2) -> bool:
-    return direction != Vector2.ZERO
-
-func direction_to_facing(direction: Vector2) -> String:
-    if direction.x > 0:
-        return "right"
-    elif direction.x < 0:
-        return "left"
-    elif direction.y < 0:
-        return "up"
-    else:
-        return "down"
-
-func choose_animation(moving: bool, facing: String) -> String:
-    if moving:
-        return "w-" + facing
-    else:
-        return facing.substr(0, 1).to_upper()
