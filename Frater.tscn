@@ -184,6 +184,7 @@ anims/w-right = SubResource( 9 )
 anims/w-up = SubResource( 10 )
 
 [node name="Sprite" type="Sprite" parent="."]
+position = Vector2( 0, -15 )
 texture = SubResource( 11 )
 hframes = 7
 vframes = 6
@@ -193,7 +194,6 @@ __meta__ = {
 }
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2( 0, 15 )
 shape = SubResource( 12 )
 
 [node name="Timer" type="Timer" parent="."]

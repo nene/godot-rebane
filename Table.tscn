@@ -36,8 +36,8 @@ extents = Vector2( 32, 13 )
 [node name="Table" type="StaticBody2D"]
 
 [node name="AnimatedSprite" type="AnimatedSprite" parent="."]
+position = Vector2( 0, -3 )
 frames = SubResource( 6 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2( 0, 3 )
 shape = SubResource( 7 )
