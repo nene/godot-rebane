@@ -17,7 +17,7 @@ func _physics_process(delta):
     if is_moving(direction):
         facing = direction_to_facing(direction)
 
-    $AnimatedSprite.play(choose_animation(is_moving(direction), facing))
+    $AnimationPlayer.play(choose_animation(is_moving(direction), facing))
 
     if direction.x != 0 && direction.y != 0:
         direction = direction.normalized()
@@ -39,6 +39,6 @@ func direction_to_facing(direction: Vector2) -> String:
 
 func choose_animation(moving: bool, facing: String) -> String:
     if moving:
-        return "walk-" + facing
+        return "w-" + facing
     else:
-        return "stand-" + facing
+        return facing.substr(0, 1).to_upper()
