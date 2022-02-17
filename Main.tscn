@@ -2,13 +2,13 @@
 
 [ext_resource path="res://Player.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Table.tscn" type="PackedScene" id=2]
-[ext_resource path="res://Background.tscn" type="PackedScene" id=3]
 [ext_resource path="res://Hud.tscn" type="PackedScene" id=4]
 [ext_resource path="res://Frater.tscn" type="PackedScene" id=5]
+[ext_resource path="res://BackgroundMap.tscn" type="PackedScene" id=6]
 
 [node name="Main" type="Node"]
 
-[node name="Background" parent="." instance=ExtResource( 3 )]
+[node name="BackgroundMap" parent="." instance=ExtResource( 6 )]
 
 [node name="YSort" type="YSort" parent="."]
 
