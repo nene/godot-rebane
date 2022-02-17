@@ -2,20 +2,15 @@
 
 [ext_resource path="res://Frater.tscn" type="PackedScene" id=1]
 
-[sub_resource type="StreamTexture" id=2]
+[sub_resource type="StreamTexture" id=1]
 load_path = "res://.import/cfe-ksv-sass.png-f615bf315f38db4a2c21f3ebef5650ae.stex"
 
-[sub_resource type="AnimationNodeStateMachinePlayback" id=1]
+[sub_resource type="AnimationNodeStateMachinePlayback" id=2]
 
-[node name="KsvSass" type="Node2D"]
+[node name="KsvSass" instance=ExtResource( 1 )]
 
-[node name="Frater" parent="." instance=ExtResource( 1 )]
+[node name="Sprite" parent="." index="1"]
+texture = SubResource( 1 )
 
-[node name="Sprite" parent="Frater" index="1"]
-position = Vector2( 0, 1 )
-texture = SubResource( 2 )
-
-[node name="AnimationTree" parent="Frater" index="4"]
-parameters/playback = SubResource( 1 )
-
-[editable path="Frater"]
+[node name="AnimationTree" parent="." index="4"]
+parameters/playback = SubResource( 2 )
