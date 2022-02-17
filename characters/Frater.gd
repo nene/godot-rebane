@@ -27,6 +27,17 @@ func _physics_process(delta):
     
     move_and_slide(speed * direction)
 
+    if Input.is_action_pressed("ui_greet"):
+        explode()
+
 func set_animation_direction(direction: Vector2):
     $AnimationTree.set("parameters/Idle/blend_position", direction)
     $AnimationTree.set("parameters/Walk/blend_position", direction)
+
+func explode():
+    var Explosion = load("res://Explosion.tscn")
+    var expl = Explosion.instance()
+    var world = get_tree().current_scene
+    world.add_child(expl)
+    expl.global_position = global_position
+    queue_free()
