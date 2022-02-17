@@ -172,7 +172,7 @@ tracks/0/keys = {
 animation = "L"
 
 [sub_resource type="AnimationNodeAnimation" id=26]
-animation = "D"
+animation = "idle"
 
 [sub_resource type="AnimationNodeAnimation" id=27]
 animation = "R"
