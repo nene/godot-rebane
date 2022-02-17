@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/fireplace.png-6e025f0798587317075ab191fbc0d1a3.stex"
+path="res://.import/fireplace.png-f006012da3aa224ab7a7ec3458dfccc6.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://data/fireplace.png"
-dest_files=[ "res://.import/fireplace.png-6e025f0798587317075ab191fbc0d1a3.stex" ]
+source_file="res://furniture/fireplace.png"
+dest_files=[ "res://.import/fireplace.png-f006012da3aa224ab7a7ec3458dfccc6.stex" ]
 
 [params]
 
