@@ -38,10 +38,13 @@ drag_margin_v_enabled = true
 position = Vector2( 194, 88 )
 
 [node name="Table" parent="YSort" instance=ExtResource( 2 )]
-position = Vector2( 78, 97 )
+position = Vector2( 48, 109 )
+
+[node name="Table2" parent="YSort" instance=ExtResource( 2 )]
+position = Vector2( 112, 109 )
 
 [node name="Fireplace" parent="YSort" instance=ExtResource( 3 )]
-position = Vector2( 88, 52 )
+position = Vector2( 96, 52 )
 
 [node name="Countertop" parent="YSort" instance=ExtResource( 7 )]
 position = Vector2( 232, 128 )
