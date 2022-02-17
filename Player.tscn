@@ -1,8 +1,8 @@
-[gd_scene load_steps=28 format=2]
+[gd_scene load_steps=32 format=2]
 
 [ext_resource path="res://Player.gd" type="Script" id=2]
 
-[sub_resource type="StreamTexture" id=2]
+[sub_resource type="StreamTexture" id=35]
 load_path = "res://.import/cfe-reb.png-ca8881f8e3edad7339bb620b88f46909.stex"
 
 [sub_resource type="RectangleShape2D" id=1]
@@ -86,6 +86,35 @@ tracks/0/keys = {
 "transitions": PoolRealArray( 1 ),
 "update": 1,
 "values": [ 1.0 ]
+}
+
+[sub_resource type="Animation" id=36]
+length = 1.1
+tracks/0/type = "value"
+tracks/0/path = NodePath("Sprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = false
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.4, 0.5, 0.6, 0.7 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1 ),
+"update": 1,
+"values": [ 50.0, 51.0, 52.0, 53.0, 54.0 ]
+}
+tracks/1/type = "method"
+tracks/1/path = NodePath(".")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 1.1 ),
+"transitions": PoolRealArray( 1 ),
+"values": [ {
+"args": [  ],
+"method": "finish_greet"
+} ]
 }
 
 [sub_resource type="Animation" id=8]
@@ -218,16 +247,26 @@ min_space = Vector2( -1, -1.1 )
 max_space = Vector2( 1, 1.1 )
 blend_mode = 1
 
+[sub_resource type="AnimationNodeAnimation" id=37]
+animation = "greet"
+
 [sub_resource type="AnimationNodeStateMachineTransition" id=23]
 
 [sub_resource type="AnimationNodeStateMachineTransition" id=24]
+
+[sub_resource type="AnimationNodeStateMachineTransition" id=38]
+
+[sub_resource type="AnimationNodeStateMachineTransition" id=39]
+switch_mode = 2
 
 [sub_resource type="AnimationNodeStateMachine" id=33]
 states/Idle/node = SubResource( 17 )
 states/Idle/position = Vector2( 342, 73.5 )
 states/Walk/node = SubResource( 22 )
 states/Walk/position = Vector2( 559.5, 71.5 )
-transitions = [ "Idle", "Walk", SubResource( 23 ), "Walk", "Idle", SubResource( 24 ) ]
+states/greet/node = SubResource( 37 )
+states/greet/position = Vector2( 329, 169 )
+transitions = [ "Idle", "Walk", SubResource( 23 ), "Walk", "Idle", SubResource( 24 ), "Idle", "greet", SubResource( 38 ), "greet", "Idle", SubResource( 39 ) ]
 start_node = "Idle"
 
 [sub_resource type="AnimationNodeStateMachinePlayback" id=34]
@@ -237,12 +276,12 @@ script = ExtResource( 2 )
 
 [node name="Sprite" type="Sprite" parent="."]
 position = Vector2( 0, -15 )
-texture = SubResource( 2 )
+texture = SubResource( 35 )
 hframes = 8
 vframes = 7
 frame = 2
 __meta__ = {
-"_editor_description_": "YXNlcHJpdGVfd2l6YXJkX2NvbmZpZwpwbGF5ZXJ8PUFuaW1hdGlvblBsYXllcgpzb3VyY2V8PXJlczovL2FydC9jaGFycy9jZmUtcmViLmFzZXByaXRlCmxheWVyfD0Kb3BfZXhwfD1UcnVlCm9fZm9sZGVyfD0Kb19uYW1lfD0Kb25seV92aXNpYmxlfD1UcnVlCm9fZXhfcHw9Cg=="
+"_editor_description_": "YXNlcHJpdGVfd2l6YXJkX2NvbmZpZwpwbGF5ZXJ8PUFuaW1hdGlvblBsYXllcgpzb3VyY2V8PXJlczovL2FydC9jaGFycy9jZmUtcmViLmFzZXByaXRlCmxheWVyfD0Kb3BfZXhwfD1GYWxzZQpvX2ZvbGRlcnw9Cm9fbmFtZXw9Cm9ubHlfdmlzaWJsZXw9VHJ1ZQpvX2V4X3B8PQo="
 }
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
@@ -254,6 +293,7 @@ anims/D = SubResource( 4 )
 anims/L = SubResource( 5 )
 anims/R = SubResource( 6 )
 anims/U = SubResource( 7 )
+anims/greet = SubResource( 36 )
 anims/idle = SubResource( 8 )
 anims/w-down = SubResource( 9 )
 anims/w-left = SubResource( 10 )
