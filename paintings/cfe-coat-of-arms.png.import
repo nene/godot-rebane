@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/color-shield.png-c1049328c6299ae2427e2dcaadcf8fef.stex"
+path="res://.import/cfe-coat-of-arms.png-981ad207be67c60bda16e61a598c8553.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://data/color-shield.png"
-dest_files=[ "res://.import/color-shield.png-c1049328c6299ae2427e2dcaadcf8fef.stex" ]
+source_file="res://paintings/cfe-coat-of-arms.png"
+dest_files=[ "res://.import/cfe-coat-of-arms.png-981ad207be67c60bda16e61a598c8553.stex" ]
 
 [params]
 

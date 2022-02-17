@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/bulletin-board.png-577bcb02f59d502eefa32f4b0cb26a2e.stex"
+path="res://.import/polonia-cartel.png-f30f3f04094a28b0c46eef13aaee3bdc.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://data/bulletin-board.png"
-dest_files=[ "res://.import/bulletin-board.png-577bcb02f59d502eefa32f4b0cb26a2e.stex" ]
+source_file="res://paintings/polonia-cartel.png"
+dest_files=[ "res://.import/polonia-cartel.png-f30f3f04094a28b0c46eef13aaee3bdc.stex" ]
 
 [params]
 
