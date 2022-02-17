@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/countertop.png-a0beb7d45382d2b7878f1432aeb9fec2.stex"
+path="res://.import/countertop.png-85e1f451e738674bafafcb4fdf851391.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://data/countertop.png"
-dest_files=[ "res://.import/countertop.png-a0beb7d45382d2b7878f1432aeb9fec2.stex" ]
+source_file="res://furniture/countertop.png"
+dest_files=[ "res://.import/countertop.png-85e1f451e738674bafafcb4fdf851391.stex" ]
 
 [params]
 

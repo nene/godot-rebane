@@ -31,15 +31,16 @@ animations = [ {
 } ]
 
 [sub_resource type="RectangleShape2D" id=7]
-extents = Vector2( 31, 10.5 )
+extents = Vector2( 31, 5 )
 
 [node name="Fireplace" type="StaticBody2D"]
 
 [node name="AnimatedSprite" type="AnimatedSprite" parent="."]
 position = Vector2( 0, -15 )
 frames = SubResource( 6 )
+frame = 4
 playing = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2( 0, -4.5 )
+position = Vector2( 0, 1 )
 shape = SubResource( 7 )
