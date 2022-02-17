@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/cfe-ksv-koppel.png-e14cc97f34220cb6da879cb9cabf7e85.stex"
+path="res://.import/cfe-ksv-koppel.png-cabcf62e746deedda369f763e7ba1e11.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://cfe-ksv-koppel.png"
-dest_files=[ "res://.import/cfe-ksv-koppel.png-e14cc97f34220cb6da879cb9cabf7e85.stex" ]
+source_file="res://characters/cfe-ksv-koppel.png"
+dest_files=[ "res://.import/cfe-ksv-koppel.png-cabcf62e746deedda369f763e7ba1e11.stex" ]
 
 [params]
 

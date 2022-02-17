@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=2]
+[gd_scene load_steps=13 format=2]
 
 [ext_resource path="res://Player.tscn" type="PackedScene" id=1]
 [ext_resource path="res://furniture/Table.tscn" type="PackedScene" id=2]
@@ -11,6 +11,41 @@
 [ext_resource path="res://paintings/color-shield.png" type="Texture" id=9]
 [ext_resource path="res://furniture/StaircaseDoor.tscn" type="PackedScene" id=10]
 [ext_resource path="res://characters/KsvSass.tscn" type="PackedScene" id=12]
+
+[sub_resource type="GDScript" id=1]
+script/source = "extends KinematicBody2D
+
+const Direction = preload(\"res://Direction.gd\")
+
+export var speed = 50
+var direction = Vector2.ZERO
+var rng = RandomNumberGenerator.new()
+onready var animationState = $AnimationTree.get(\"parameters/playback\")
+
+func _ready():
+    rng.randomize()
+    set_animation_direction(Vector2.DOWN)
+
+func change_direction():
+    var nr = rng.randf()
+    if nr < 0.05:
+        direction = Vector2.ZERO
+    elif nr < 0.1:
+        direction = Vector2.DOWN.rotated(rng.randf() * 2 * PI).normalized()
+
+func _physics_process(delta):
+    if Direction.is_moving(direction):
+        set_animation_direction(direction)
+        animationState.travel(\"Walk\")
+    else:
+        animationState.travel(\"Idle\")
+    
+    move_and_slide(speed * direction)
+
+func set_animation_direction(direction: Vector2):
+    $AnimationTree.set(\"parameters/Idle/blend_position\", direction)
+    $AnimationTree.set(\"parameters/Walk/blend_position\", direction)
+"
 
 [node name="Main" type="Node"]
 
@@ -53,8 +88,10 @@ position = Vector2( 192, 48 )
 
 [node name="KsvSass" parent="YSort" instance=ExtResource( 12 )]
 position = Vector2( 64, 155 )
+script = SubResource( 1 )
 
 [node name="KsvKoppel" parent="YSort" instance=ExtResource( 5 )]
 position = Vector2( 201, 94 )
+script = SubResource( 1 )
 
 [node name="Hud" parent="." instance=ExtResource( 4 )]
