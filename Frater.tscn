@@ -3,7 +3,7 @@
 [ext_resource path="res://Frater.gd" type="Script" id=1]
 
 [sub_resource type="Animation" id=1]
-length = 0.1
+length = 0.2
 loop = true
 tracks/0/type = "value"
 tracks/0/path = NodePath("Sprite:frame")
@@ -12,10 +12,10 @@ tracks/0/loop_wrap = false
 tracks/0/imported = false
 tracks/0/enabled = true
 tracks/0/keys = {
-"times": PoolRealArray( 0 ),
-"transitions": PoolRealArray( 1 ),
+"times": PoolRealArray( 0, 0.1 ),
+"transitions": PoolRealArray( 1, 1 ),
 "update": 1,
-"values": [ 4.0 ]
+"values": [ 4.0, 5.0 ]
 }
 
 [sub_resource type="Animation" id=2]
@@ -95,7 +95,7 @@ tracks/0/keys = {
 "times": PoolRealArray( 0, 0.4, 0.5, 0.6, 0.7 ),
 "transitions": PoolRealArray( 1, 1, 1, 1, 1 ),
 "update": 1,
-"values": [ 37.0, 38.0, 39.0, 40.0, 41.0 ]
+"values": [ 38.0, 39.0, 40.0, 41.0, 42.0 ]
 }
 
 [sub_resource type="Animation" id=7]
@@ -111,7 +111,7 @@ tracks/0/keys = {
 "times": PoolRealArray( 0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7 ),
 "transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1, 1 ),
 "update": 1,
-"values": [ 21.0, 22.0, 23.0, 24.0, 25.0, 26.0, 27.0, 28.0 ]
+"values": [ 22.0, 23.0, 24.0, 25.0, 26.0, 27.0, 28.0, 29.0 ]
 }
 
 [sub_resource type="Animation" id=8]
@@ -127,7 +127,7 @@ tracks/0/keys = {
 "times": PoolRealArray( 0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7 ),
 "transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1, 1 ),
 "update": 1,
-"values": [ 13.0, 14.0, 15.0, 16.0, 17.0, 18.0, 19.0, 20.0 ]
+"values": [ 14.0, 15.0, 16.0, 17.0, 18.0, 19.0, 20.0, 21.0 ]
 }
 
 [sub_resource type="Animation" id=9]
@@ -143,7 +143,7 @@ tracks/0/keys = {
 "times": PoolRealArray( 0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7 ),
 "transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1, 1 ),
 "update": 1,
-"values": [ 5.0, 6.0, 7.0, 8.0, 9.0, 10.0, 11.0, 12.0 ]
+"values": [ 6.0, 7.0, 8.0, 9.0, 10.0, 11.0, 12.0, 13.0 ]
 }
 
 [sub_resource type="Animation" id=10]
@@ -159,10 +159,10 @@ tracks/0/keys = {
 "times": PoolRealArray( 0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7 ),
 "transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1, 1 ),
 "update": 1,
-"values": [ 29.0, 30.0, 31.0, 32.0, 33.0, 34.0, 35.0, 36.0 ]
+"values": [ 30.0, 31.0, 32.0, 33.0, 34.0, 35.0, 36.0, 37.0 ]
 }
 
-[sub_resource type="StreamTexture" id=11]
+[sub_resource type="StreamTexture" id=35]
 load_path = "res://.import/cfe-ksv-koppel.png-e14cc97f34220cb6da879cb9cabf7e85.stex"
 
 [sub_resource type="RectangleShape2D" id=12]
@@ -249,12 +249,12 @@ anims/w-up = SubResource( 10 )
 
 [node name="Sprite" type="Sprite" parent="."]
 position = Vector2( 0, -15 )
-texture = SubResource( 11 )
+texture = SubResource( 35 )
 hframes = 7
-vframes = 6
+vframes = 7
 frame = 2
 __meta__ = {
-"_editor_description_": "YXNlcHJpdGVfd2l6YXJkX2NvbmZpZwpwbGF5ZXJ8PUFuaW1hdGlvblBsYXllcgpzb3VyY2V8PXJlczovL2FydC9jaGFycy9jZmUta3N2LWtvcHBlbC5hc2Vwcml0ZQpsYXllcnw9Cm9wX2V4cHw9VHJ1ZQpvX2ZvbGRlcnw9Cm9fbmFtZXw9Cm9ubHlfdmlzaWJsZXw9RmFsc2UKb19leF9wfD0K"
+"_editor_description_": "YXNlcHJpdGVfd2l6YXJkX2NvbmZpZwpwbGF5ZXJ8PUFuaW1hdGlvblBsYXllcgpzb3VyY2V8PXJlczovL2FydC9jaGFycy9jZmUta3N2LWtvcHBlbC5hc2Vwcml0ZQpsYXllcnw9Cm9wX2V4cHw9RmFsc2UKb19mb2xkZXJ8PQpvX25hbWV8PQpvbmx5X3Zpc2libGV8PVRydWUKb19leF9wfD0K"
 }
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
