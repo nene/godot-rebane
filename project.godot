@@ -9,12 +9,18 @@
 config_version=4
 
 _global_script_classes=[ {
+"base": "Node2D",
+"class": "GameItem",
+"language": "GDScript",
+"path": "res://items/GameItem.gd"
+}, {
 "base": "Panel",
 "class": "Slot",
 "language": "GDScript",
 "path": "res://ui/Slot.gd"
 } ]
 _global_script_class_icons={
+"GameItem": "",
 "Slot": ""
 }
 
