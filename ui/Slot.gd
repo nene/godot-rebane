@@ -33,3 +33,19 @@ func make_texture_slice(rect: Rect2) -> StyleBoxTexture:
     slice.texture = slot_texture
     slice.region_rect = rect
     return slice
+
+func has_item() -> bool:
+    return !!item
+
+func pick_item():
+    remove_child(item)
+    var removed_item = item
+    item = null
+    refresh_styles()
+    return removed_item
+
+func put_item(new_item):
+    item = new_item
+    item.position = Vector2.ZERO
+    add_child(item)
+    refresh_styles()

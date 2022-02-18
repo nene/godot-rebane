@@ -5,6 +5,7 @@
 [node name="TextureRect" type="TextureRect" parent="."]
 margin_right = 16.0
 margin_bottom = 16.0
+mouse_filter = 2
 __meta__ = {
 "_edit_use_anchors_": false
 }

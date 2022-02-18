@@ -5,21 +5,8 @@
 
 [node name="Hud" type="CanvasLayer"]
 
-[node name="ColorRect" type="ColorRect" parent="."]
-margin_left = 82.0
-margin_top = 52.0
-margin_right = 197.0
-margin_bottom = 127.0
-color = Color( 0.721569, 0.560784, 0.380392, 1 )
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
 [node name="HudInventory" parent="." instance=ExtResource( 1 )]
 position = Vector2( 127, 182 )
 
 [node name="InventoryGrid" parent="." instance=ExtResource( 2 )]
-margin_left = 126.0
-margin_top = 56.0
-margin_right = 193.0
-margin_bottom = 123.0
+position = Vector2( 140, 52 )
