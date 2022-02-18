@@ -1,4 +1,5 @@
 extends Panel
+class_name Slot
 
 var slot_texture = preload("res://ui/slot.png")
 var empty_style: StyleBoxTexture = make_texture_slice(Rect2(0, 0, 16, 16))

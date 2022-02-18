@@ -8,6 +8,16 @@
 
 config_version=4
 
+_global_script_classes=[ {
+"base": "Panel",
+"class": "Slot",
+"language": "GDScript",
+"path": "res://ui/Slot.gd"
+} ]
+_global_script_class_icons={
+"Slot": ""
+}
+
 [application]
 
 config/name="Rebane"

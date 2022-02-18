@@ -1,6 +1,5 @@
 extends Node2D
 
-const Slot = preload("res://ui/Slot.gd")
 var holding_item = null
 
 func _ready():
