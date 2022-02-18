@@ -2,7 +2,7 @@
 
 [ext_resource path="res://BeerGlass.tscn" type="PackedScene" id=1]
 
-[node name="Slot" type="ColorRect"]
+[node name="SlotOLd" type="ColorRect"]
 anchor_left = 0.5
 anchor_top = 1.0
 anchor_right = 0.5
