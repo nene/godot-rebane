@@ -1,0 +1,10 @@
+[gd_scene format=2]
+
+[node name="BaseItem" type="Node2D"]
+
+[node name="TextureRect" type="TextureRect" parent="."]
+margin_right = 16.0
+margin_bottom = 16.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
