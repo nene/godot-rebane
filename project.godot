@@ -9,19 +9,55 @@
 config_version=4
 
 _global_script_classes=[ {
+"base": "GameItem",
+"class": "Book",
+"language": "GDScript",
+"path": "res://items/Book.gd"
+}, {
+"base": "GameItem",
+"class": "BottleOpener",
+"language": "GDScript",
+"path": "res://items/BottleOpener.gd"
+}, {
+"base": "GameItem",
+"class": "Drain",
+"language": "GDScript",
+"path": "res://items/Drain.gd"
+}, {
+"base": "Reference",
+"class": "GameItem",
+"language": "GDScript",
+"path": "res://items/GameItem.gd"
+}, {
 "base": "Node2D",
 "class": "GameItemView",
 "language": "GDScript",
 "path": "res://items/GameItemView.gd"
 }, {
+"base": "GameItem",
+"class": "Ocean",
+"language": "GDScript",
+"path": "res://items/Ocean.gd"
+}, {
 "base": "Panel",
 "class": "Slot",
 "language": "GDScript",
 "path": "res://ui/Slot.gd"
+}, {
+"base": "GameItem",
+"class": "Tap",
+"language": "GDScript",
+"path": "res://items/Tap.gd"
 } ]
 _global_script_class_icons={
+"Book": "",
+"BottleOpener": "",
+"Drain": "",
+"GameItem": "",
 "GameItemView": "",
-"Slot": ""
+"Ocean": "",
+"Slot": "",
+"Tap": ""
 }
 
 [application]

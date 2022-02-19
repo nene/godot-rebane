@@ -2,13 +2,16 @@ extends Panel
 class_name Slot
 
 var slot_texture = preload("res://ui/slot.png")
+var GameItemViewNode = preload("res://items/GameItemView.tscn")
 var empty_style: StyleBoxTexture = make_texture_slice(Rect2(0, 0, 16, 16))
 var full_style: StyleBoxTexture = make_texture_slice(Rect2(16, 0, 16, 16))
 var locked_style: StyleBoxTexture = make_texture_slice(Rect2(32, 0, 16, 16))
 
 var itemClasses = [
-    preload("res://items/Book.tscn"),
-    preload("res://items/BottleOpener.tscn"),
+    Ocean,
+    Tap,
+    BottleOpener,
+    Book,
 ]
 
 var item: GameItemView = null
@@ -21,7 +24,10 @@ func _ready():
 
 func random_item() -> GameItemView:
     var randomIndex = randi() % itemClasses.size()
-    return itemClasses[randomIndex].instance()
+    var item = itemClasses[randomIndex].new()
+    var item_view = GameItemViewNode.instance()
+    item_view.set_item(item)
+    return item_view
 
 func refresh_styles():
     if item == null:
