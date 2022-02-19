@@ -5,6 +5,7 @@ var GameItemViewNode = preload("res://items/GameItemView.tscn")
 var holding_item: GameItemView = null
 
 var inventory = [
+    BeerGlass.new(),
     Book.new(),
     BottleOpener.new(),
     Drain.new(),
