@@ -11,7 +11,7 @@ var itemClasses = [
     preload("res://items/BottleOpener.tscn"),
 ]
 
-var item: GameItem = null
+var item: GameItemView = null
 
 func _ready():
     if randi() % 2 == 0:
@@ -19,7 +19,7 @@ func _ready():
         add_child(item)
     refresh_styles()
 
-func random_item() -> GameItem:
+func random_item() -> GameItemView:
     var randomIndex = randi() % itemClasses.size()
     return itemClasses[randomIndex].instance()
 
@@ -38,14 +38,14 @@ func make_texture_slice(rect: Rect2) -> StyleBoxTexture:
 func has_item() -> bool:
     return !!item
 
-func pick_item() -> GameItem:
+func pick_item() -> GameItemView:
     remove_child(item)
     var removed_item = item
     item = null
     refresh_styles()
     return removed_item
 
-func put_item(new_item: GameItem):
+func put_item(new_item: GameItemView):
     item = new_item
     item.position = Vector2.ZERO
     add_child(item)

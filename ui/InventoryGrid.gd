@@ -1,6 +1,6 @@
 extends Node2D
 
-var holding_item: GameItem = null
+var holding_item: GameItemView = null
 
 func _ready():
     for slot in $GridContainer.get_children():
