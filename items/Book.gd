@@ -5,4 +5,4 @@ func get_name():
     return "Majaraamat"
     
 func get_texture():
-    return texture_from_atlas(0)
+    return GameItemTextures.create(GameItemTextures.ITEM, Vector2(0, 0))
