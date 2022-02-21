@@ -2,8 +2,6 @@ extends Node2D
 
 var GameItemViewNode = preload("res://ui/GameItemView.tscn")
 
-var holding_item: GameItem = null
-
 var inventory = [
     BeerGlass.new(Drink.PILSNER, BeerGlass.FULL),
     BeerGlass.new(Drink.ALEXANDER, BeerGlass.EMPTY),
@@ -27,29 +25,24 @@ func _ready():
 func slot_gui_input(event: InputEvent, slot: Slot):
     if event is InputEventMouseButton:
         if event.button_index == BUTTON_LEFT && event.pressed:
-            if holding_item:
-                if slot.has_same_item(holding_item) && !slot_is_full(slot):
-                    var counts = sum_counts(slot.get_item(), holding_item)
+            if get_holding_item():
+                if slot.has_same_item(get_holding_item()) && !slot_is_full(slot):
+                    var counts = sum_counts(slot.get_item(), get_holding_item())
                     slot.update_count(counts["slot"])
                     if counts["holding"] > 0:
-                        holding_item.count = counts["holding"]
-                        $HoldingItemView.set_item(holding_item)
+                        get_holding_item().count = counts["holding"]
+                        set_holding_item(get_holding_item())
                     else:
-                        $HoldingItemView.hide()
-                        holding_item = null
+                        set_holding_item(null)
                 elif slot.has_item():
                     var item = slot.pick_item()
-                    slot.put_item(holding_item)
-                    $HoldingItemView.set_item(item)
-                    holding_item = item
+                    slot.put_item(get_holding_item())
+                    set_holding_item(item)
                 else:
-                    $HoldingItemView.hide()
-                    slot.put_item(holding_item)
-                    holding_item = null
+                    slot.put_item(get_holding_item())
+                    set_holding_item(null)
             elif slot.has_item():
-                holding_item = slot.pick_item()
-                $HoldingItemView.set_item(holding_item)
-                $HoldingItemView.show()
+                set_holding_item(slot.pick_item())
 
 func slot_is_full(slot) -> bool:
     return slot.get_item().count == slot.get_item().max_stack_size()
@@ -62,5 +55,8 @@ func sum_counts(slot_item: GameItem, item: GameItem) -> Dictionary:
     else:
         return {"slot": max_count, "holding": sum - max_count}
 
-func _input(event: InputEvent):
-    $HoldingItemView.global_position = get_global_mouse_position()
+func get_holding_item() -> GameItem:
+    return find_parent("Hud").holding_item
+
+func set_holding_item(item: GameItem):
+    find_parent("Hud").holding_item = item
