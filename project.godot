@@ -47,7 +47,7 @@ _global_script_classes=[ {
 "base": "Node2D",
 "class": "GameItemView",
 "language": "GDScript",
-"path": "res://items/GameItemView.gd"
+"path": "res://ui/GameItemView.gd"
 }, {
 "base": "GameItem",
 "class": "Ocean",

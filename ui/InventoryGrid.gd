@@ -1,6 +1,6 @@
 extends Node2D
 
-var GameItemViewNode = preload("res://items/GameItemView.tscn")
+var GameItemViewNode = preload("res://ui/GameItemView.tscn")
 
 var holding_item: GameItemView = null
 
