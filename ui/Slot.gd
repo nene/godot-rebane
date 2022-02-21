@@ -13,7 +13,7 @@ var itemClasses = [
     Book,
 ]
 
-var item: GameItemView = null
+var item: GameItem = null
 
 func _ready():
     refresh_styles()
@@ -33,21 +33,25 @@ func make_texture_slice(rect: Rect2) -> StyleBoxTexture:
 func has_item() -> bool:
     return !!item
 
-func has_same_item(it: GameItemView) -> bool:
-    return has_item() && it.item.get_name() == item.item.get_name()
+func has_same_item(it: GameItem) -> bool:
+    return has_item() && it.get_name() == item.get_name()
 
-func get_item() -> GameItemView:
+func get_item() -> GameItem:
     return item
 
-func pick_item() -> GameItemView:
-    remove_child(item)
+func pick_item() -> GameItem:
+    $GameItemView.hide()
     var removed_item = item
     item = null
     refresh_styles()
     return removed_item
 
-func put_item(new_item: GameItemView):
+func put_item(new_item: GameItem):
     item = new_item
-    item.position = Vector2.ZERO
-    add_child(item)
+    $GameItemView.set_item(item)
+    $GameItemView.show()
     refresh_styles()
+
+func update_count(count: int):
+    item.count = count
+    $GameItemView.set_item(item)
