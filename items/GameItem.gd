@@ -11,4 +11,4 @@ func get_texture() -> Texture:
     return Texture.new()
 
 func max_stack_size() -> int:
-    return 10
+    return 1

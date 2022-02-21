@@ -22,3 +22,7 @@ func get_name():
 func get_texture():
     var color = Drink.get_drink(drink_type)["color"]
     return GameItemTextures.create(GameItemTextures.BEER_GLASS, Vector2(level, color))
+
+func max_stack_size():
+    return 3
+
