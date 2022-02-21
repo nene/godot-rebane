@@ -25,7 +25,7 @@ position = Vector2( 140, 52 )
 [node name="HotBar" type="Node2D" parent="."]
 
 [node name="InventoryGrid" parent="HotBar" instance=ExtResource( 2 )]
-position = Vector2( 92, 184 )
+position = Vector2( 92, 182 )
 grid_size = Vector2( 8, 1 )
 
 [node name="HoldingItemView" parent="." instance=ExtResource( 3 )]

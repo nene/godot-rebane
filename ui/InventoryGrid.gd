@@ -6,26 +6,8 @@ export var grid_size: Vector2 = Vector2(4, 4) setget set_grid_size
 var GameItemViewNode = preload("res://ui/GameItemView.tscn")
 var SlotNode = preload("res://ui/Slot.tscn")
 
-var inventory = [
-    BeerGlass.new(Drink.PILSNER, BeerGlass.FULL),
-    BeerGlass.new(Drink.ALEXANDER, BeerGlass.EMPTY),
-    BeerGlass.new(Drink.PORTER, BeerGlass.HALF_FULL),
-    Book.new(),
-    BottleOpener.new(),
-    Drain.new(),
-    Tap.new(),
-    Ocean.new(),
-    Ocean.new(),
-]
-
 func _ready():
     set_grid_size(grid_size)
-    
-    if !Engine.editor_hint:
-        for i in range(inventory.size()):
-            var slot: Slot = $GridContainer.get_child(i)
-            if slot:
-                slot.put_item(inventory[i])
 
 func set_grid_size(size: Vector2):
     grid_size = size
@@ -39,6 +21,12 @@ func set_grid_size(size: Vector2):
         $GridContainer.add_child(slot)
         if !Engine.editor_hint:
             slot.connect("gui_input", self, "slot_gui_input", [slot])
+
+func load_items(items: Array):
+    for i in range(items.size()):
+        var slot: Slot = $GridContainer.get_child(i)
+        if slot:
+            slot.put_item(items[i])
 
 func slot_gui_input(event: InputEvent, slot: Slot):
     if event is InputEventMouseButton:
