@@ -33,7 +33,7 @@ const foamLevel = [
 ]
 
 const drinks = {
-  0: {
+  WATER: {
     "name": "Vesi",
     "withName": "veega",
     "description": "Seda tuleb kraanist lõputult.",
@@ -44,7 +44,7 @@ const drinks = {
     "capStrength": 0,
     "color": DrinkColor.WATER,
   },
-  1: {
+  LEMONADE: {
     "name": "Limpa limonaad",
     "withName": "limonaadiga",
     "description": "See magus jook kipub šoppeni põhja kleepuma.",
@@ -55,7 +55,7 @@ const drinks = {
     "capStrength": 0,
     "color": DrinkColor.LEMONADE,
   },
-  2: {
+  KRIEK: {
     "name": "Kriek",
     "withName": "kriekiga",
     "description": "Seda hõrku nestet libistavad ka naiskorporandid.",
@@ -66,7 +66,7 @@ const drinks = {
     "capStrength": 5,
     "color": DrinkColor.RED,
   },
-  3: {
+  PILSNER: {
     "name": "Pilsner",
     "withName": "pilkuga",
     "description": "EÜSnikute lemmiknaps.",
@@ -77,7 +77,7 @@ const drinks = {
     "capStrength": 1,
     "color": DrinkColor.LIGHT,
   },
-  4: {
+  HEINEKEN: {
     "name": "Heineken",
     "withName": "heinekeniga",
     "description": "Väljamaine rüübe rohelises pudelis.",
@@ -88,7 +88,7 @@ const drinks = {
     "capStrength": 3,
     "color": DrinkColor.LIGHT,
   },
-  5: {
+  TOMMU_HIID: {
     "name": "Tõmmu hiid",
     "withName": "tõmmu hiiuga",
     "description": "Vana vilistlase rammujook.",
@@ -99,7 +99,7 @@ const drinks = {
     "capStrength": 2,
     "color": DrinkColor.DARK,
   },
-  6: {
+  ALEXANDER: {
     "name": "Alexander",
     "withName": "sassiga",
     "description": "Sassi läheb kui loed mitu pudelit sai joodud.",
@@ -110,7 +110,7 @@ const drinks = {
     "capStrength": 2,
     "color": DrinkColor.LIGHT,
   },
-  7: {
+  SPECIAL: {
     "name": "Special",
     "withName": "specialiga",
     "description": "Eriline jook puhuks kui paremat pole võtta.",
@@ -121,7 +121,7 @@ const drinks = {
     "capStrength": 3,
     "color": DrinkColor.LIGHT,
   },
-  8: {
+  PAULANER: {
     "name": "Hefeweisen",
     "withName": "nisukaga",
     "description": "Saksamaine nisumärjuke (bratwursti kõrvale).",
@@ -132,7 +132,7 @@ const drinks = {
     "capStrength": 4,
     "color": DrinkColor.LIGHT,
   },
-  9: {
+  PORTER: {
     "name": "Šokolaadi porter",
     "withName": "porteriga",
     "description": "Väidetavalt muudab suure mehe päkapikuks.",
@@ -143,7 +143,7 @@ const drinks = {
     "capStrength": 2,
     "color": DrinkColor.DARK,
   },
-  10: {
+  BOCK: {
     "name": "Double Bock",
     "withName": "bockiga",
     "description": "Revelia kvarteriturniiri erikülaline.",
