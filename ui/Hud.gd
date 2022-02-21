@@ -1,4 +1,4 @@
-extends CanvasLayer
+extends Node2D
 
 var holding_item: GameItem setget set_holding_item
 
@@ -35,4 +35,4 @@ func _input(event):
     if event.is_action_pressed("ui_inventory"):
         $PopupInventory.visible = !$PopupInventory.visible
 
-    $HoldingItemView.global_position = $HoldingItemView.get_global_mouse_position()
+    $HoldingItemView.global_position = get_global_mouse_position()

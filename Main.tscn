@@ -69,4 +69,6 @@ position = Vector2( 199, 84 )
 [node name="KsvSass" parent="YSort" instance=ExtResource( 12 )]
 position = Vector2( 40, 146 )
 
-[node name="Hud" parent="." instance=ExtResource( 4 )]
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="Hud" parent="CanvasLayer" instance=ExtResource( 4 )]
