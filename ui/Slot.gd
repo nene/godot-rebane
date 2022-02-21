@@ -33,6 +33,12 @@ func make_texture_slice(rect: Rect2) -> StyleBoxTexture:
 func has_item() -> bool:
     return !!item
 
+func has_same_item(it: GameItemView) -> bool:
+    return has_item() && it.item.get_name() == item.item.get_name()
+
+func get_item() -> GameItemView:
+    return item
+
 func pick_item() -> GameItemView:
     remove_child(item)
     var removed_item = item

@@ -30,7 +30,17 @@ func slot_gui_input(event: InputEvent, slot: Slot):
     if event is InputEventMouseButton:
         if event.button_index == BUTTON_LEFT && event.pressed:
             if holding_item:
-                if slot.has_item():
+                if slot.has_same_item(holding_item) && !slot_is_full(slot):
+                    var counts = add_to_slot_count(slot)
+                    slot.get_item().item.count = counts["slot"]
+                    slot.get_item().set_item(slot.get_item().item)
+                    if counts["holding"] > 0:
+                        holding_item.item.count = counts["holding"]
+                        holding_item.set_item(holding_item.item)
+                    else:
+                        remove_child(holding_item)
+                        holding_item = null
+                elif slot.has_item():
                     var item = slot.pick_item()
                     add_child(item)
                     item.global_position = event.global_position
@@ -45,6 +55,19 @@ func slot_gui_input(event: InputEvent, slot: Slot):
                 holding_item = slot.pick_item()
                 add_child(holding_item)
                 holding_item.global_position = get_global_mouse_position()
+
+func slot_is_full(slot) -> bool:
+    return slot.get_item().item.count == slot.get_item().item.max_stack_size()
+
+func add_to_slot_count(slot: Slot) -> Dictionary:
+    var slot_count = slot.get_item().item.count
+    var holding_count = holding_item.item.count
+    var max_count = holding_item.item.max_stack_size()
+    var sum = slot_count + holding_count
+    if sum <= max_count:
+        return {"slot": sum, "holding": 0}
+    else:
+        return {"slot": max_count, "holding": sum - max_count}
 
 func _input(event: InputEvent):
     if holding_item:
