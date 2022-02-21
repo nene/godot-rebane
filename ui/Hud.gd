@@ -12,6 +12,6 @@ func set_holding_item(item: GameItem):
 
 func _input(event):
     if event.is_action_pressed("ui_inventory"):
-        $InventoryGrid.visible = !$InventoryGrid.visible
+        $PopupInventory.visible = !$PopupInventory.visible
 
     $HoldingItemView.global_position = $HoldingItemView.get_global_mouse_position()
