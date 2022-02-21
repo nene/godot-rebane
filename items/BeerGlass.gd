@@ -10,12 +10,15 @@ enum {
 }
 
 var level: int = EMPTY
+var drink_type: int = Drink.WATER
 
-func _init(lvl: int = EMPTY):
+func _init(drink: int, lvl: int = EMPTY):
+    drink_type = drink
     level = lvl
 
 func get_name():
     return "Šoppen"
-    
+
 func get_texture():
-    return GameItemTextures.create(GameItemTextures.BEER_GLASS, Vector2(level, 2))
+    var color = Drink.get_drink(drink_type)["color"]
+    return GameItemTextures.create(GameItemTextures.BEER_GLASS, Vector2(level, color))

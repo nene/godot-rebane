@@ -30,6 +30,11 @@ _global_script_classes=[ {
 "path": "res://items/Drain.gd"
 }, {
 "base": "Reference",
+"class": "Drink",
+"language": "GDScript",
+"path": "res://items/Drink.gd"
+}, {
+"base": "Reference",
 "class": "GameItem",
 "language": "GDScript",
 "path": "res://items/GameItem.gd"
@@ -64,6 +69,7 @@ _global_script_class_icons={
 "Book": "",
 "BottleOpener": "",
 "Drain": "",
+"Drink": "",
 "GameItem": "",
 "GameItemTextures": "",
 "GameItemView": "",
