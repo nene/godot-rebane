@@ -1,4 +1,5 @@
 extends Node2D
+class_name Hud
 
 var holding_item: GameItem setget set_holding_item
 
@@ -20,8 +21,10 @@ var hotbar_inventory = [
 ]
 
 func _ready():
-    $PopupInventory/InventoryGrid.load_items(popup_inventory)    
-    $HotBar/InventoryGrid.load_items(hotbar_inventory)    
+    $PopupInventory/InventoryGrid.load_items(popup_inventory)
+    $PopupInventory/InventoryGrid.hud = self
+    $HotBar/InventoryGrid.load_items(hotbar_inventory)
+    $HotBar/InventoryGrid.hud = self
 
 func set_holding_item(item: GameItem):
     holding_item = item
