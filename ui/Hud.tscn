@@ -2,7 +2,7 @@
 
 [ext_resource path="res://ui/Hud.gd" type="Script" id=1]
 [ext_resource path="res://ui/InventoryGrid.tscn" type="PackedScene" id=2]
-[ext_resource path="res://ui/GameItemView.tscn" type="PackedScene" id=3]
+[ext_resource path="res://ui/MouseCursor.tscn" type="PackedScene" id=3]
 
 [node name="Hud" type="Node2D"]
 script = ExtResource( 1 )
@@ -28,5 +28,4 @@ position = Vector2( 140, 52 )
 position = Vector2( 92, 182 )
 grid_size = Vector2( 8, 1 )
 
-[node name="HoldingItemView" parent="." instance=ExtResource( 3 )]
-visible = false
+[node name="MouseCursor" parent="." instance=ExtResource( 3 )]

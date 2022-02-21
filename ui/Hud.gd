@@ -1,7 +1,4 @@
 extends Node2D
-class_name Hud
-
-var holding_item: GameItem setget set_holding_item
 
 var popup_inventory = [
     Book.new(),
@@ -22,20 +19,10 @@ var hotbar_inventory = [
 
 func _ready():
     $PopupInventory/InventoryGrid.load_items(popup_inventory)
-    $PopupInventory/InventoryGrid.hud = self
+    $PopupInventory/InventoryGrid.mouse_cursor = $MouseCursor
     $HotBar/InventoryGrid.load_items(hotbar_inventory)
-    $HotBar/InventoryGrid.hud = self
-
-func set_holding_item(item: GameItem):
-    holding_item = item
-    if holding_item:
-        $HoldingItemView.set_item(holding_item)
-        $HoldingItemView.show()
-    else:
-        $HoldingItemView.hide()
+    $HotBar/InventoryGrid.mouse_cursor = $MouseCursor
 
 func _input(event):
     if event.is_action_pressed("ui_inventory"):
         $PopupInventory.visible = !$PopupInventory.visible
-
-    $HoldingItemView.global_position = get_global_mouse_position()

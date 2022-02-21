@@ -50,9 +50,9 @@ _global_script_classes=[ {
 "path": "res://ui/GameItemView.gd"
 }, {
 "base": "Node2D",
-"class": "Hud",
+"class": "MouseCursor",
 "language": "GDScript",
-"path": "res://ui/Hud.gd"
+"path": "res://ui/MouseCursor.gd"
 }, {
 "base": "GameItem",
 "class": "Ocean",
@@ -78,7 +78,7 @@ _global_script_class_icons={
 "GameItem": "",
 "GameItemTextures": "",
 "GameItemView": "",
-"Hud": "",
+"MouseCursor": "",
 "Ocean": "",
 "Slot": "",
 "Tap": ""

@@ -4,7 +4,7 @@ extends Node2D
 export var grid_size: Vector2 = Vector2(4, 4) setget set_grid_size
 
 # Must be injected by the scene that instanciates the grid
-var hud: Hud
+var mouse_cursor: MouseCursor
 
 var GameItemViewNode = preload("res://ui/GameItemView.tscn")
 var SlotNode = preload("res://ui/Slot.tscn")
@@ -65,7 +65,7 @@ func sum_counts(slot_item: GameItem, item: GameItem) -> Dictionary:
         return {"slot": max_count, "holding": sum - max_count}
 
 func get_holding_item() -> GameItem:
-    return hud.holding_item
+    return mouse_cursor.holding_item
 
 func set_holding_item(item: GameItem):
-    hud.holding_item = item
+    mouse_cursor.holding_item = item
