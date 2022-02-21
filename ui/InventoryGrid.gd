@@ -1,6 +1,10 @@
+tool
 extends Node2D
 
+export var grid_size: Vector2 = Vector2(4, 4) setget set_grid_size
+
 var GameItemViewNode = preload("res://ui/GameItemView.tscn")
+var SlotNode = preload("res://ui/Slot.tscn")
 
 var inventory = [
     BeerGlass.new(Drink.PILSNER, BeerGlass.FULL),
@@ -15,13 +19,27 @@ var inventory = [
 ]
 
 func _ready():
-    for slot in $GridContainer.get_children():
-        slot.connect("gui_input", self, "slot_gui_input", [slot])
+    init_grid()
     
-    for i in range(inventory.size()):
-        var slot: Slot = $GridContainer.get_child(i)
-        slot.put_item(inventory[i])
+    if !Engine.editor_hint:
+        for i in range(inventory.size()):
+            var slot: Slot = $GridContainer.get_child(i)
+            slot.put_item(inventory[i])
 
+func set_grid_size(size: Vector2):
+    grid_size = size
+    for child in $GridContainer.get_children():
+        $GridContainer.remove_child(child)
+    init_grid()
+
+func init_grid():
+    $GridContainer.columns = grid_size.x
+    for i in range(grid_size.x * grid_size.y):
+        var slot = SlotNode.instance()
+        $GridContainer.add_child(slot)
+        if !Engine.editor_hint:
+            slot.connect("gui_input", self, "slot_gui_input", [slot])
+    
 func slot_gui_input(event: InputEvent, slot: Slot):
     if event is InputEventMouseButton:
         if event.button_index == BUTTON_LEFT && event.pressed:
