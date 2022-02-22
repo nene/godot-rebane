@@ -15,7 +15,7 @@ var hotbar_inventory = [
 ]
 
 func _ready():
-    popup_inventory = map(funcref(self, "set_count"), popup_inventory)
+    popup_inventory = Fp.map(funcref(self, "set_count"), popup_inventory)
     $InventoryDialog.load_items(popup_inventory)
     $InventoryDialog.mouse_cursor = $MouseCursor
     $HotBar/InventoryGrid.load_items(hotbar_inventory)
@@ -28,9 +28,3 @@ func set_count(pair: Array):
 func _input(event):
     if event.is_action_pressed("ui_inventory"):
         $InventoryDialog.visible = !$InventoryDialog.visible
-
-func map(f: FuncRef, arr: Array) -> Array:
-    var result = []
-    for item in arr:
-        result.push_back(f.call_func(item))
-    return result

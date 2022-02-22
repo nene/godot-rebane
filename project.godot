@@ -90,6 +90,10 @@ config/name="Rebane"
 run/main_scene="res://Main.tscn"
 config/icon="res://icon.png"
 
+[autoload]
+
+Fp="*res://Fp.gd"
+
 [display]
 
 window/size/width=320
