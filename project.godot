@@ -103,6 +103,10 @@ window/stretch/aspect="keep"
 
 enabled=PoolStringArray( "res://addons/AsepriteWizard/plugin.cfg" )
 
+[gui]
+
+theme/custom_font="res://fonts/NineteenNinetySix.tres"
+
 [importer_defaults]
 
 texture={
