@@ -1,4 +1,4 @@
-extends Node2D
+extends Control
 
 var popup_inventory = [
     Book.new(),
@@ -18,11 +18,11 @@ var hotbar_inventory = [
 ]
 
 func _ready():
-    $PopupInventory/InventoryGrid.load_items(popup_inventory)
-    $PopupInventory/InventoryGrid.mouse_cursor = $MouseCursor
+    $InventoryDialog.load_items(popup_inventory)
+    $InventoryDialog.mouse_cursor = $MouseCursor
     $HotBar/InventoryGrid.load_items(hotbar_inventory)
     $HotBar/InventoryGrid.mouse_cursor = $MouseCursor
 
 func _input(event):
     if event.is_action_pressed("ui_inventory"):
-        $PopupInventory.visible = !$PopupInventory.visible
+        $InventoryDialog.visible = !$InventoryDialog.visible
