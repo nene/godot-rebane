@@ -1,4 +1,4 @@
-extends StaticBody2D
+extends Area2D
 
 func _on_mouse_entered():
     HoverState.enter_object()
