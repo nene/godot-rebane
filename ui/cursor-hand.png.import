@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/cursor.png-d50cf4148c74d24cf0199a0bee865cdc.stex"
+path="res://.import/cursor-hand.png-299786b029c9df7ce6dc857471b1ab53.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://data/cursor.png"
-dest_files=[ "res://.import/cursor.png-d50cf4148c74d24cf0199a0bee865cdc.stex" ]
+source_file="res://ui/cursor-hand.png"
+dest_files=[ "res://.import/cursor-hand.png-299786b029c9df7ce6dc857471b1ab53.stex" ]
 
 [params]
 
@@ -31,5 +31,5 @@ process/invert_color=false
 process/normal_map_invert_y=false
 stream=false
 size_limit=0
-detect_3d=true
+detect_3d=false
 svg/scale=1.0
