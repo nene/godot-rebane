@@ -1,7 +1,12 @@
-[gd_scene load_steps=3 format=2]
+[gd_scene load_steps=5 format=2]
 
 [ext_resource path="res://ui/InventoryDialog.gd" type="Script" id=1]
 [ext_resource path="res://ui/InventoryGrid.tscn" type="PackedScene" id=2]
+[ext_resource path="res://fonts/NineteenNinetySix-improved.ttf" type="DynamicFontData" id=3]
+
+[sub_resource type="DynamicFont" id=1]
+size = 18
+font_data = ExtResource( 3 )
 
 [node name="InventoryDialog" type="Control"]
 margin_right = 115.0
@@ -11,24 +16,49 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="ColorRect" type="ColorRect" parent="."]
+[node name="Border" type="ColorRect" parent="."]
 margin_right = 115.0
 margin_bottom = 89.0
+color = Color( 0.560784, 0.337255, 0.231373, 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Background" type="ColorRect" parent="."]
+margin_left = 1.0
+margin_top = 1.0
+margin_right = 114.0
+margin_bottom = 88.0
 color = Color( 0.721569, 0.560784, 0.380392, 1 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="InventoryGrid" parent="." instance=ExtResource( 2 )]
-position = Vector2( 27, 19 )
-
-[node name="Label" type="Label" parent="."]
-margin_left = 4.0
+[node name="TitleText" type="Label" parent="."]
+margin_left = 3.0
 margin_top = 3.0
-margin_right = 66.0
-margin_bottom = 12.0
+margin_right = 65.0
+margin_bottom = 22.0
+rect_scale = Vector2( 0.5, 0.5 )
 custom_colors/font_color = Color( 0, 0, 0, 1 )
+custom_colors/font_color_shadow = Color( 0.560784, 0.337255, 0.231373, 1 )
+custom_fonts/font = SubResource( 1 )
 text = "Laud"
 __meta__ = {
 "_edit_use_anchors_": false
 }
+
+[node name="Description" type="Label" parent="."]
+margin_left = 3.0
+margin_top = 12.0
+margin_right = 209.0
+margin_bottom = 21.0
+rect_scale = Vector2( 0.5, 0.5 )
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+text = "Siin võib vedeleda tühjasid šoppeneid"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="InventoryGrid" parent="." instance=ExtResource( 2 )]
+position = Vector2( 27, 20 )
