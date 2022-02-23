@@ -25,11 +25,12 @@ func set_grid_size(size: Vector2):
         if !Engine.editor_hint:
             slot.connect("gui_input", self, "slot_gui_input", [slot])
 
-func load_items(items: Array):
-    for i in range(items.size()):
+func load_inventory(inventory: Inventory):
+    for i in range(inventory.size()):
         var slot: Slot = $GridContainer.get_child(i)
-        if slot:
-            slot.put_item(items[i])
+        var item: GameItem = inventory.at(i)
+        if slot && item:
+            slot.put_item(item)
 
 func slot_gui_input(event: InputEvent, slot: Slot):
     if event is InputEventMouseButton:

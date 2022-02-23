@@ -49,6 +49,11 @@ _global_script_classes=[ {
 "language": "GDScript",
 "path": "res://ui/GameItemView.gd"
 }, {
+"base": "Reference",
+"class": "Inventory",
+"language": "GDScript",
+"path": "res://inventory/Inventory.gd"
+}, {
 "base": "Node2D",
 "class": "MouseCursor",
 "language": "GDScript",
@@ -78,6 +83,7 @@ _global_script_class_icons={
 "GameItem": "",
 "GameItemTextures": "",
 "GameItemView": "",
+"Inventory": "",
 "MouseCursor": "",
 "Ocean": "",
 "Slot": "",

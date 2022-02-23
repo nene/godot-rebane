@@ -1,6 +1,6 @@
 extends Control
 
-var popup_inventory = [
+var popup_items = [
     [Book.new(), 1],
     [BottleOpener.new(), 1],
     [Drain.new(), 1],
@@ -8,17 +8,18 @@ var popup_inventory = [
     [Ocean.new(), 4],
 ]
 
-var hotbar_inventory = [
+var hotbar_items = [
     BeerGlass.new(Drink.PILSNER, BeerGlass.FULL),
     BeerGlass.new(Drink.ALEXANDER, BeerGlass.EMPTY),
     BeerGlass.new(Drink.PORTER, BeerGlass.HALF_FULL),
 ]
 
 func _ready():
-    popup_inventory = Fp.map(funcref(self, "set_count"), popup_inventory)
-    $InventoryDialog.load_items(popup_inventory)
+    var popup_inventory = Inventory.new(Fp.map(funcref(self, "set_count"), popup_items), 4*4)
+    $InventoryDialog.load_inventory(popup_inventory)
     $InventoryDialog.mouse_cursor = $MouseCursor
-    $HotBar/InventoryGrid.load_items(hotbar_inventory)
+    var hotbar_inventory = Inventory.new(hotbar_items, 8)
+    $HotBar/InventoryGrid.load_inventory(hotbar_inventory)
     $HotBar/InventoryGrid.mouse_cursor = $MouseCursor
     InteractionState.connect("interact", self, "show_inventory_dialog")
 
