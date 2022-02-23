@@ -27,4 +27,9 @@ func set_count(pair: Array):
     return pair[0]
 
 func show_inventory_dialog():
-    $InventoryDialog.visible = !$InventoryDialog.visible
+    $InventoryDialog.show()
+    $Overlay.show()
+    
+func hide_inventory_dialog():
+    $InventoryDialog.hide()
+    $Overlay.hide()

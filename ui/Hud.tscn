@@ -1,9 +1,10 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=6 format=2]
 
 [ext_resource path="res://ui/Hud.gd" type="Script" id=1]
 [ext_resource path="res://ui/InventoryGrid.tscn" type="PackedScene" id=2]
 [ext_resource path="res://ui/MouseCursor.tscn" type="PackedScene" id=3]
 [ext_resource path="res://ui/InventoryDialog.tscn" type="PackedScene" id=4]
+[ext_resource path="res://ui/Overlay.tscn" type="PackedScene" id=5]
 
 [node name="Hud" type="Control"]
 margin_right = 320.0
@@ -13,6 +14,9 @@ script = ExtResource( 1 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
+
+[node name="Overlay" parent="." instance=ExtResource( 5 )]
+visible = false
 
 [node name="InventoryDialog" parent="." instance=ExtResource( 4 )]
 visible = false
@@ -41,3 +45,5 @@ __meta__ = {
 grid_size = Vector2( 8, 1 )
 
 [node name="MouseCursor" parent="." instance=ExtResource( 3 )]
+
+[connection signal="click" from="Overlay" to="." method="hide_inventory_dialog"]
