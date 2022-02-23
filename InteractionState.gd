@@ -2,7 +2,7 @@ extends Node
 
 signal allow_interact
 signal forbid_interact
-signal interact
+signal show_inventory_dialog(inventory)
 
 var hovered_objects = 0
 
@@ -16,5 +16,5 @@ func exit_object():
     if hovered_objects == 0:
         emit_signal("forbid_interact")
 
-func interact():
-    emit_signal("interact")
+func show_inventory_dialog(inventory: Inventory):
+    emit_signal("show_inventory_dialog", inventory)
