@@ -5,7 +5,7 @@ var cursor_invisible = load("res://ui/cursor-invisible.png")
 var cursor_arrow = load("res://ui/cursor-arrow.png")
 var cursor_hand = load("res://ui/cursor-hand.png")
 
-var holding_item: GameItemGroup setget _set_holding_item
+var holding_group: GameItemGroup setget _set_holding_group
 
 func _ready():
     Input.set_custom_mouse_cursor(cursor_invisible, Input.CURSOR_ARROW, Vector2.ZERO)
@@ -13,10 +13,10 @@ func _ready():
     InteractionState.connect("allow_interact", self, "set_cursor", [Input.CURSOR_POINTING_HAND])
     InteractionState.connect("forbid_interact", self, "set_cursor", [Input.CURSOR_ARROW])
 
-func _set_holding_item(item: GameItemGroup):
-    holding_item = item
-    if holding_item:
-        $HoldingItemView.set_group(holding_item)
+func _set_holding_group(group: GameItemGroup):
+    holding_group = group
+    if holding_group:
+        $HoldingItemView.set_group(holding_group)
         $HoldingItemView.show()
     else:
         $HoldingItemView.hide()

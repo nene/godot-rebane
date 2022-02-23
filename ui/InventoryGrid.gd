@@ -48,50 +48,51 @@ func _slot_gui_input(event: InputEvent, slot_index: int):
 
 func _slot_clicked(slot_index: int):
     var slot_group = _inventory.at(slot_index)
-    if get_holding_item():
-        if slot_group && slot_group.is_same_type(get_holding_item()) && !slot_group.is_full():
-            var sum = slot_group.add(get_holding_item())
+    var holding_group = get_holding_group()
+    if holding_group:
+        if slot_group && slot_group.is_same_type(holding_group) && !slot_group.is_full():
+            var sum = slot_group.add(holding_group)
             if sum is GameItemGroup:
                 _inventory.put_at(slot_index, sum)
-                set_holding_item(null)
+                set_holding_group(null)
             else:
                 _inventory.put_at(slot_index, sum[0])
-                set_holding_item(sum[1])
+                set_holding_group(sum[1])
         elif slot_group:
             var group = _inventory.pick_at(slot_index)
-            _inventory.put_at(slot_index, get_holding_item())
-            set_holding_item(group)
+            _inventory.put_at(slot_index, holding_group)
+            set_holding_group(group)
         else:
-            _inventory.put_at(slot_index, get_holding_item())
-            set_holding_item(null)
+            _inventory.put_at(slot_index, holding_group)
+            set_holding_group(null)
     elif slot_group:
-        set_holding_item(_inventory.pick_at(slot_index))
+        set_holding_group(_inventory.pick_at(slot_index))
     _refresh_slots()
 
 func _slot_right_clicked(slot_index: int):
     var slot_group = _inventory.at(slot_index)
-    var holding_group = get_holding_item()
+    var holding_group = get_holding_group()
     if holding_group:
         if slot_group:
             if slot_group.count() > 1 && !holding_group.is_full():
                 var groups = slot_group.subtract(1)
                 _inventory.put_at(slot_index, groups[0])
-                set_holding_item(holding_group.add(groups[1]))
+                set_holding_group(holding_group.add(groups[1]))
             elif !holding_group.is_full():
                 _inventory.put_at(slot_index, null)
-                set_holding_item(holding_group.add(slot_group))
+                set_holding_group(holding_group.add(slot_group))
     elif slot_group:
         if slot_group.count() > 1:
             var groups = slot_group.subtract(1)
             _inventory.put_at(slot_index, groups[0])
-            set_holding_item(groups[1])
+            set_holding_group(groups[1])
         else:
             _slot_clicked(slot_index)
 
     _refresh_slots()
 
-func get_holding_item() -> GameItemGroup:
-    return mouse_cursor.holding_item
+func get_holding_group() -> GameItemGroup:
+    return mouse_cursor.holding_group
 
-func set_holding_item(group: GameItemGroup):
-    mouse_cursor.holding_item = group
+func set_holding_group(group: GameItemGroup):
+    mouse_cursor.holding_group = group
