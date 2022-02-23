@@ -43,6 +43,8 @@ func _slot_gui_input(event: InputEvent, slot_index: int):
     if event is InputEventMouseButton:
         if event.button_index == BUTTON_LEFT && event.pressed:
             _slot_clicked(slot_index)
+        if event.button_index == BUTTON_RIGHT && event.pressed:
+            _slot_right_clicked(slot_index)
 
 func _slot_clicked(slot_index: int):
     var slot_group = _inventory.at(slot_index)
@@ -64,6 +66,28 @@ func _slot_clicked(slot_index: int):
             set_holding_item(null)
     elif slot_group:
         set_holding_item(_inventory.pick_at(slot_index))
+    _refresh_slots()
+
+func _slot_right_clicked(slot_index: int):
+    var slot_group = _inventory.at(slot_index)
+    var holding_group = get_holding_item()
+    if holding_group:
+        if slot_group:
+            if slot_group.count() > 1 && !holding_group.is_full():
+                var groups = slot_group.subtract(1)
+                _inventory.put_at(slot_index, groups[0])
+                set_holding_item(holding_group.add(groups[1]))
+            elif !holding_group.is_full():
+                _inventory.put_at(slot_index, null)
+                set_holding_item(holding_group.add(slot_group))
+    elif slot_group:
+        if slot_group.count() > 1:
+            var groups = slot_group.subtract(1)
+            _inventory.put_at(slot_index, groups[0])
+            set_holding_item(groups[1])
+        else:
+            _slot_clicked(slot_index)
+
     _refresh_slots()
 
 func get_holding_item() -> GameItemGroup:

@@ -30,6 +30,16 @@ func add(group: GameItemGroup):
             GameItemGroupClass.new(_item, sum - max_count),
         ]
 
+# Breaks the group into two:
+# - the old group (with reduced count)
+# - the new group (with extracted count)
+func subtract(nr: int) -> Array:
+    var GameItemGroupClass = load("res://items/GameItemGroup.gd")
+    return [
+        GameItemGroupClass.new(_item, _count - nr),
+        GameItemGroupClass.new(_item, nr),
+    ]
+
 func is_same_type(group: GameItemGroup) -> bool:
     return _item.get_name() == group.item().get_name()
 
