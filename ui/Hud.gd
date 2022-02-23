@@ -29,7 +29,9 @@ func set_count(pair: Array):
 func show_inventory_dialog():
     $InventoryDialog.show()
     $Overlay.show()
+    get_tree().paused = true
     
 func hide_inventory_dialog():
     $InventoryDialog.hide()
     $Overlay.hide()
+    get_tree().paused = false
