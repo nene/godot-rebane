@@ -10,8 +10,8 @@ var holding_item: GameItem setget set_holding_item
 func _ready():
     Input.set_custom_mouse_cursor(cursor_invisible, Input.CURSOR_ARROW, Vector2.ZERO)
     Input.set_custom_mouse_cursor(cursor_invisible, Input.CURSOR_POINTING_HAND, Vector2.ZERO)
-    HoverState.connect("mouse_over", self, "set_cursor", [Input.CURSOR_POINTING_HAND])
-    HoverState.connect("mouse_out", self, "set_cursor", [Input.CURSOR_ARROW])
+    InteractionState.connect("allow_interact", self, "set_cursor", [Input.CURSOR_POINTING_HAND])
+    InteractionState.connect("forbid_interact", self, "set_cursor", [Input.CURSOR_ARROW])
 
 func set_holding_item(item: GameItem):
     holding_item = item

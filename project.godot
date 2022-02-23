@@ -93,7 +93,7 @@ config/icon="res://icon.png"
 [autoload]
 
 Fp="*res://Fp.gd"
-HoverState="*res://HoverState.gd"
+InteractionState="*res://InteractionState.gd"
 
 [display]
 
