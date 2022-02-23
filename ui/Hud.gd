@@ -20,11 +20,11 @@ func _ready():
     $InventoryDialog.mouse_cursor = $MouseCursor
     $HotBar/InventoryGrid.load_items(hotbar_inventory)
     $HotBar/InventoryGrid.mouse_cursor = $MouseCursor
+    HoverState.connect("interact", self, "show_inventory_dialog")
 
 func set_count(pair: Array):
     pair[0].count = pair[1]
     return pair[0]
 
-func _input(event):
-    if event.is_action_pressed("ui_inventory"):
-        $InventoryDialog.visible = !$InventoryDialog.visible
+func show_inventory_dialog():
+    $InventoryDialog.visible = !$InventoryDialog.visible
