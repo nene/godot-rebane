@@ -9,6 +9,8 @@ var mouse_cursor: MouseCursor
 var GameItemViewNode = preload("res://ui/GameItemView.tscn")
 var SlotNode = preload("res://ui/Slot.tscn")
 
+var _inventory: Inventory
+
 func _ready():
     set_grid_size(grid_size)
 
@@ -23,16 +25,22 @@ func set_grid_size(size: Vector2):
         var slot = SlotNode.instance()
         $GridContainer.add_child(slot)
         if !Engine.editor_hint:
-            slot.connect("gui_input", self, "slot_gui_input", [slot])
+            slot.connect("gui_input", self, "slot_gui_input", [slot, i])
 
 func load_inventory(inventory: Inventory):
+    _clear_slots()
+    self._inventory = inventory
     for i in range(inventory.size()):
         var slot: Slot = $GridContainer.get_child(i)
         var item: GameItem = inventory.at(i)
         if slot && item:
             slot.put_item(item)
 
-func slot_gui_input(event: InputEvent, slot: Slot):
+func _clear_slots():
+    for slot in $GridContainer.get_children():
+        slot.pick_item()
+
+func slot_gui_input(event: InputEvent, slot: Slot, slot_index: int):
     if event is InputEventMouseButton:
         if event.button_index == BUTTON_LEFT && event.pressed:
             if get_holding_item():
@@ -45,13 +53,16 @@ func slot_gui_input(event: InputEvent, slot: Slot):
                     else:
                         set_holding_item(null)
                 elif slot.has_item():
+                    _inventory.put_at(slot_index, get_holding_item())
                     var item = slot.pick_item()
                     slot.put_item(get_holding_item())
                     set_holding_item(item)
                 else:
+                    _inventory.put_at(slot_index, get_holding_item())
                     slot.put_item(get_holding_item())
                     set_holding_item(null)
             elif slot.has_item():
+                _inventory.pick_at(slot_index)
                 set_holding_item(slot.pick_item())
 
 func slot_is_full(slot) -> bool:
