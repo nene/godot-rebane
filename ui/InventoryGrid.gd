@@ -47,6 +47,7 @@ func slot_gui_input(event: InputEvent, slot: Slot, slot_index: int):
                 if slot.has_same_item(get_holding_item()) && !slot_is_full(slot):
                     var counts = sum_counts(slot.get_item(), get_holding_item())
                     slot.update_count(counts["slot"])
+                    _inventory.put_at(slot_index, slot.get_item())
                     if counts["holding"] > 0:
                         get_holding_item().count = counts["holding"]
                         set_holding_item(get_holding_item())
