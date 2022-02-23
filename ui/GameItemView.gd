@@ -1,14 +1,14 @@
 extends Node2D
 class_name GameItemView
 
-var item: GameItem
+var _group: GameItemGroup
 
-func set_item(_item: GameItem):
-    item = _item
-    $TextureRect.texture = item.get_texture()
+func set_group(group: GameItemGroup):
+    _group = group
+    $TextureRect.texture = _group.item().get_texture()
 
-    if item.max_stack_size() == 1:
+    if _group.item().max_stack_size() == 1:
         $Label.text = ""
     else:
-        $Label.text = String(item.count)
+        $Label.text = String(_group.count())
 

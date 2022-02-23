@@ -25,60 +25,49 @@ func set_grid_size(size: Vector2):
         var slot = SlotNode.instance()
         $GridContainer.add_child(slot)
         if !Engine.editor_hint:
-            slot.connect("gui_input", self, "slot_gui_input", [slot, i])
+            slot.connect("gui_input", self, "_slot_gui_input", [i])
 
 func load_inventory(inventory: Inventory):
-    _clear_slots()
-    self._inventory = inventory
-    for i in range(inventory.size()):
+    if inventory.size() != grid_size.x * grid_size.y:
+        print("Inventory size doesn't match grid size!")
+        return
+    _inventory = inventory
+    _refresh_slots()
+
+func _refresh_slots():
+    for i in range(_inventory.size()):
         var slot: Slot = $GridContainer.get_child(i)
-        var item: GameItem = inventory.at(i)
-        if slot && item:
-            slot.put_item(item)
+        slot.set_group(_inventory.at(i))
 
-func _clear_slots():
-    for slot in $GridContainer.get_children():
-        slot.pick_item()
-
-func slot_gui_input(event: InputEvent, slot: Slot, slot_index: int):
+func _slot_gui_input(event: InputEvent, slot_index: int):
     if event is InputEventMouseButton:
         if event.button_index == BUTTON_LEFT && event.pressed:
-            if get_holding_item():
-                if slot.has_same_item(get_holding_item()) && !slot_is_full(slot):
-                    var counts = sum_counts(slot.get_item(), get_holding_item())
-                    slot.update_count(counts["slot"])
-                    _inventory.put_at(slot_index, slot.get_item())
-                    if counts["holding"] > 0:
-                        get_holding_item().count = counts["holding"]
-                        set_holding_item(get_holding_item())
-                    else:
-                        set_holding_item(null)
-                elif slot.has_item():
-                    _inventory.put_at(slot_index, get_holding_item())
-                    var item = slot.pick_item()
-                    slot.put_item(get_holding_item())
-                    set_holding_item(item)
-                else:
-                    _inventory.put_at(slot_index, get_holding_item())
-                    slot.put_item(get_holding_item())
-                    set_holding_item(null)
-            elif slot.has_item():
-                _inventory.pick_at(slot_index)
-                set_holding_item(slot.pick_item())
+            _slot_clicked(slot_index)
 
-func slot_is_full(slot) -> bool:
-    return slot.get_item().count == slot.get_item().max_stack_size()
+func _slot_clicked(slot_index: int):
+    var slot_group = _inventory.at(slot_index)
+    if get_holding_item():
+        if slot_group && slot_group.is_same_type(get_holding_item()) && !slot_group.is_full():
+            var sum = slot_group.add(get_holding_item())
+            if sum is GameItemGroup:
+                _inventory.put_at(slot_index, sum)
+                set_holding_item(null)
+            else:
+                _inventory.put_at(slot_index, sum[0])
+                set_holding_item(sum[1])
+        elif slot_group:
+            var group = _inventory.pick_at(slot_index)
+            _inventory.put_at(slot_index, get_holding_item())
+            set_holding_item(group)
+        else:
+            _inventory.put_at(slot_index, get_holding_item())
+            set_holding_item(null)
+    elif slot_group:
+        set_holding_item(_inventory.pick_at(slot_index))
+    _refresh_slots()
 
-func sum_counts(slot_item: GameItem, item: GameItem) -> Dictionary:
-    var max_count = item.max_stack_size()
-    var sum = slot_item.count + item.count
-    if sum <= max_count:
-        return {"slot": sum, "holding": 0}
-    else:
-        return {"slot": max_count, "holding": sum - max_count}
-
-func get_holding_item() -> GameItem:
+func get_holding_item() -> GameItemGroup:
     return mouse_cursor.holding_item
 
-func set_holding_item(item: GameItem):
-    mouse_cursor.holding_item = item
+func set_holding_item(group: GameItemGroup):
+    mouse_cursor.holding_item = group

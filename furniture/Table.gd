@@ -4,20 +4,16 @@ var _inventory: Inventory
 
 func _ready():
     var items = [
-        [Book.new(), 1],
-        [BottleOpener.new(), 1],
-        [Drain.new(), 1],
-        [Tap.new(), 1],
-        [Ocean.new(), randi() % 4],
+        GameItemGroup.new(Book.new()),
+        GameItemGroup.new(BottleOpener.new()),
+        GameItemGroup.new(Drain.new()),
+        GameItemGroup.new(Tap.new()),
+        GameItemGroup.new(Ocean.new(), randi() % 4),
     ]
-    self._inventory = Inventory.new(Fp.map(funcref(self, "_set_count"), items), 4*4)
+    self._inventory = Inventory.new(items, 4*4)
     
     self._inventory.connect("change", self, "_update_table_ocean_display")
     self._update_table_ocean_display()
-
-func _set_count(pair: Array):
-    pair[0].count = pair[1]
-    return pair[0]
 
 func _on_interact():
     InteractionState.show_inventory_dialog(self._inventory)
@@ -37,8 +33,8 @@ func _ocean_count() -> int:
     var oceans = Fp.filter(funcref(self, "_is_ocean"), items)
     return Fp.sum(Fp.map(funcref(self, "_item_count"), oceans))
 
-func _is_ocean(item: GameItem) -> bool:
-    return item is Ocean
+func _is_ocean(group: GameItemGroup) -> bool:
+    return group.item() is Ocean
 
-func _item_count(item: GameItem) -> int:
-    return item.count
+func _item_count(group: GameItemGroup) -> int:
+    return group.count()

@@ -1,9 +1,6 @@
 extends Reference
 class_name GameItem
 
-# Number of items in stack
-var count: int = 1
-
 func get_name() -> String:
     return ""
 

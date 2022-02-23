@@ -1,9 +1,9 @@
 extends Control
 
 var hotbar_items = [
-    BeerGlass.new(Drink.PILSNER, BeerGlass.FULL),
-    BeerGlass.new(Drink.ALEXANDER, BeerGlass.EMPTY),
-    BeerGlass.new(Drink.PORTER, BeerGlass.HALF_FULL),
+    GameItemGroup.new(BeerGlass.new(Drink.PILSNER, BeerGlass.FULL)),
+    GameItemGroup.new(BeerGlass.new(Drink.ALEXANDER, BeerGlass.EMPTY)),
+    GameItemGroup.new(BeerGlass.new(Drink.PORTER, BeerGlass.HALF_FULL)),
 ]
 
 func _ready():
