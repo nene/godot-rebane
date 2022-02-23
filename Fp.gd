@@ -20,3 +20,9 @@ func foldl(f: FuncRef, initial, arr: Array):
     for item in arr:
         result = f.call_func(result, item)
     return result
+
+func sum(numbers: Array) -> int:
+    var total = 0
+    for x in numbers:
+        total += x
+    return total
