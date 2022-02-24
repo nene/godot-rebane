@@ -38,6 +38,10 @@ __meta__ = {
 }
 
 [node name="InventoryGrid" parent="HotBar" instance=ExtResource( 2 )]
+margin_left = -0.5
+margin_top = -2.0
+margin_right = 134.5
+margin_bottom = 65.0
 columns = 8
 grid_size = Vector2( 8, 1 )
 
