@@ -31,6 +31,9 @@ func set_group(group: GameItemGroup):
     if group:
         $GameItemView.set_group(group)
         $GameItemView.show()
+        $Tooltip.show()
+        $Tooltip.text = group.item().get_name()
     else:
+        $Tooltip.hide()
         $GameItemView.hide()
     refresh_styles()
