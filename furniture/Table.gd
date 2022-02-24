@@ -20,6 +20,7 @@ func _on_interact():
         "title": "Laud",
         "description": "Siin võib vedeleda tühje šoppeneid.",
         "inventory": self._inventory,
+        "grid_size": Vector2(4, 4),
     })
 
 func _update_table_ocean_display():

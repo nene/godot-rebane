@@ -60,5 +60,18 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="InventoryGrid" parent="." instance=ExtResource( 3 )]
-position = Vector2( 27, 20 )
+[node name="BottomArea" type="Control" parent="."]
+margin_left = 1.0
+margin_top = 19.0
+margin_right = 114.0
+margin_bottom = 88.0
+
+[node name="InventoryGrid" parent="BottomArea" instance=ExtResource( 3 )]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -33.5
+margin_top = -33.5
+margin_right = 33.5
+margin_bottom = 33.5

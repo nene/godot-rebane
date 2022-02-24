@@ -1,5 +1,5 @@
 tool
-extends Node2D
+extends GridContainer
 
 export var grid_size: Vector2 = Vector2(4, 4) setget set_grid_size
 
@@ -18,26 +18,26 @@ func _ready():
 func set_grid_size(size: Vector2):
     grid_size = size
 
-    for child in $GridContainer.get_children():
-        $GridContainer.remove_child(child)
+    for child in self.get_children():
+        self.remove_child(child)
 
-    $GridContainer.columns = grid_size.x
+    self.columns = grid_size.x
     for i in range(grid_size.x * grid_size.y):
         var slot = SlotNode.instance()
-        $GridContainer.add_child(slot)
+        self.add_child(slot)
         if !Engine.editor_hint:
             slot.connect("gui_input", self, "_slot_gui_input", [i])
 
 func _set_inventory(inv: Inventory):
     if inv.size() != grid_size.x * grid_size.y:
-        print("Inventory size doesn't match grid size!")
+        print("ERROR: Inventory size doesn't match grid size!")
         return
     inventory = inv
     _refresh_slots()
 
 func _refresh_slots():
     for i in range(inventory.size()):
-        var slot: Slot = $GridContainer.get_child(i)
+        var slot: Slot = self.get_child(i)
         slot.set_group(inventory.at(i))
 
 func _slot_gui_input(event: InputEvent, slot_index: int):

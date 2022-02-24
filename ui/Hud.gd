@@ -14,6 +14,7 @@ func _ready():
     InteractionState.connect("show_inventory_dialog", self, "_show_inventory_dialog")
 
 func _show_inventory_dialog(cfg: Dictionary):
+    $InventoryDialog.grid_size = cfg["grid_size"]
     $InventoryDialog.inventory = cfg["inventory"]
     $InventoryDialog.title = cfg["title"]
     $InventoryDialog.description = cfg["description"]

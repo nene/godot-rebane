@@ -20,5 +20,6 @@ func exit_object():
 # - title: String
 # - description: String
 # - inventory: Inventory
+# - grid_size: Vector2
 func show_inventory_dialog(dialog_cfg: Dictionary):
     emit_signal("show_inventory_dialog", dialog_cfg)

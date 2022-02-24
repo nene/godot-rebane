@@ -42,6 +42,7 @@ __meta__ = {
 }
 
 [node name="InventoryGrid" parent="HotBar" instance=ExtResource( 2 )]
+columns = 8
 grid_size = Vector2( 8, 1 )
 
 [node name="MouseCursor" parent="." instance=ExtResource( 3 )]
