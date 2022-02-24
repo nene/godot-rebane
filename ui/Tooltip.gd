@@ -5,16 +5,13 @@ export var tip_resource: PackedScene
 export var text: String
 
 onready var _owner_node = get_node(owner_path)
-onready var _timer = Timer.new()
 var _tip: Node2D = null
 var _offset = Vector2(8, 3)
-var _delay = 0.5
 
 func _ready():
-    add_child(_timer)
     _owner_node.connect("mouse_entered", self, "_create_tip_with_delay")
     _owner_node.connect("mouse_exited", self, "_destroy_tip")
-    _timer.connect("timeout", self, "_create_tip")
+    $Timer.connect("timeout", self, "_create_tip")
 
 func _process(delta):
     if _tip:
@@ -28,15 +25,14 @@ func _process(delta):
             _tip.global_position = tip_pos - Vector2(0, outside_screen.y)
 
 func _create_tip_with_delay():
-    _timer.start(_delay)
+    $Timer.start()
 
 func _create_tip():
-    _timer.stop()
     _tip = tip_resource.instance()
     add_child(_tip)
     _tip.text = text
 
 func _destroy_tip():
-    _timer.stop()
+    $Timer.stop()
     remove_child(_tip)
     _tip = null
