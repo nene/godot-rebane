@@ -38,6 +38,7 @@ func _set_inventory(inv: Inventory):
 func _refresh_slots():
     for i in range(inventory.size()):
         var slot: Slot = self.get_child(i)
+        slot.locked = inventory.is_locked()
         slot.set_group(inventory.at(i))
 
 func _slot_gui_input(event: InputEvent, slot_index: int):
@@ -48,6 +49,8 @@ func _slot_gui_input(event: InputEvent, slot_index: int):
             _slot_right_clicked(slot_index)
 
 func _slot_clicked(slot_index: int):
+    if inventory.is_locked():
+        return
     var slot_group = inventory.at(slot_index)
     var holding_group = get_holding_group()
     if holding_group:
@@ -71,6 +74,8 @@ func _slot_clicked(slot_index: int):
     _refresh_slots()
 
 func _slot_right_clicked(slot_index: int):
+    if inventory.is_locked():
+        return
     var slot_group = inventory.at(slot_index)
     var holding_group = get_holding_group()
     if holding_group:

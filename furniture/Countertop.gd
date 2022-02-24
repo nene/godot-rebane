@@ -3,7 +3,7 @@ extends StaticBody2D
 var _inventory: Inventory
 
 func _ready():
-    self._inventory = Inventory.new([
+    self._inventory = LockedInventory.new([
         GameItemGroup.new(LockedBottleOpener.new()),
     ], 1)
 

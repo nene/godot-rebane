@@ -7,12 +7,15 @@ var full_style: StyleBoxTexture = make_texture_slice(Rect2(16, 0, 16, 16))
 var locked_style: StyleBoxTexture = make_texture_slice(Rect2(32, 0, 16, 16))
 
 var _group: GameItemGroup = null
+export var locked = false
 
 func _ready():
     refresh_styles()
 
 func refresh_styles():
-    if _group == null:
+    if locked:
+        set('custom_styles/panel', locked_style)
+    elif _group == null:
         set('custom_styles/panel', empty_style)
     else:
         set('custom_styles/panel', full_style)

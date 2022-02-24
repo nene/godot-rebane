@@ -34,3 +34,6 @@ func pick_at(index: int) -> GameItemGroup:
     self._items[index] = null
     emit_signal("change")
     return item
+
+func is_locked():
+    return false
