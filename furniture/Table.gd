@@ -16,12 +16,9 @@ func _ready():
     self._update_table_ocean_display()
 
 func _on_interact():
-    InteractionState.show_inventory_dialog({
-        "title": "Laud",
-        "description": "Siin võib vedeleda tühje šoppeneid.",
-        "inventory": self._inventory,
-        "grid_size": Vector2(4, 4),
-    })
+    var dialog = load("res://inventory/TableInventoryDialog.tscn").instance()
+    dialog.inventory = self._inventory
+    InteractionState.show_inventory_dialog(dialog)
 
 func _update_table_ocean_display():
     var count = _ocean_count()

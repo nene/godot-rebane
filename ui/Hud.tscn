@@ -1,9 +1,8 @@
-[gd_scene load_steps=6 format=2]
+[gd_scene load_steps=5 format=2]
 
 [ext_resource path="res://ui/Hud.gd" type="Script" id=1]
 [ext_resource path="res://inventory/InventoryGrid.tscn" type="PackedScene" id=2]
 [ext_resource path="res://ui/MouseCursor.tscn" type="PackedScene" id=3]
-[ext_resource path="res://inventory/InventoryDialog.tscn" type="PackedScene" id=4]
 [ext_resource path="res://ui/Overlay.tscn" type="PackedScene" id=5]
 
 [node name="Hud" type="Control"]
@@ -18,16 +17,13 @@ __meta__ = {
 [node name="Overlay" parent="." instance=ExtResource( 5 )]
 visible = false
 
-[node name="InventoryDialog" parent="." instance=ExtResource( 4 )]
-visible = false
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-margin_left = -57.5
-margin_top = -44.5
-margin_right = 57.5
-margin_bottom = 44.5
+[node name="Dialogs" type="Control" parent="."]
+margin_right = 320.0
+margin_bottom = 200.0
+mouse_filter = 2
+__meta__ = {
+"_edit_use_anchors_": false
+}
 
 [node name="HotBar" type="Control" parent="."]
 anchor_left = 0.5
