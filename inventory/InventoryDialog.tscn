@@ -43,19 +43,19 @@ rect_scale = Vector2( 0.5, 0.5 )
 custom_colors/font_color = Color( 0, 0, 0, 1 )
 custom_colors/font_color_shadow = Color( 0.560784, 0.337255, 0.231373, 1 )
 custom_fonts/font = SubResource( 1 )
-text = "Laud"
+text = "Title"
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="Description" type="Label" parent="."]
+[node name="DescriptionText" type="Label" parent="."]
 margin_left = 3.0
 margin_top = 12.0
 margin_right = 209.0
 margin_bottom = 21.0
 rect_scale = Vector2( 0.5, 0.5 )
 custom_colors/font_color = Color( 0, 0, 0, 1 )
-text = "Siin võib vedeleda tühjasid šoppeneid"
+text = "Description..."
 __meta__ = {
 "_edit_use_anchors_": false
 }
