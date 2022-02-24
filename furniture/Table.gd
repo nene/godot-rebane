@@ -5,7 +5,7 @@ var _inventory: Inventory
 func _ready():
     var items = [
         GameItemGroup.new(Book.new()),
-        GameItemGroup.new(BottleOpener.new()),
+        GameItemGroup.new(SimpleBottleOpener.new()),
         GameItemGroup.new(Drain.new()),
         GameItemGroup.new(Tap.new()),
         GameItemGroup.new(Ocean.new(), randi() % 4),

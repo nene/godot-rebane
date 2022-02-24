@@ -4,7 +4,7 @@ var _inventory: Inventory
 
 func _ready():
     self._inventory = Inventory.new([
-        GameItemGroup.new(BottleOpener.new()),
+        GameItemGroup.new(LockedBottleOpener.new()),
     ], 1)
 
 func _on_interact():
