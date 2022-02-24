@@ -7,7 +7,7 @@ export var grid_size: Vector2 = Vector2(4, 4) setget set_grid_size
 var mouse_cursor: MouseCursor
 
 var GameItemViewNode = preload("res://ui/GameItemView.tscn")
-var SlotNode = preload("res://ui/Slot.tscn")
+var SlotNode = preload("res://inventory/Slot.tscn")
 
 var _inventory: Inventory
 

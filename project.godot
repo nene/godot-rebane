@@ -72,7 +72,7 @@ _global_script_classes=[ {
 "base": "Panel",
 "class": "Slot",
 "language": "GDScript",
-"path": "res://ui/Slot.gd"
+"path": "res://inventory/Slot.gd"
 }, {
 "base": "GameItem",
 "class": "Tap",

@@ -1,17 +1,17 @@
 [gd_scene load_steps=5 format=2]
 
-[ext_resource path="res://ui/InventoryDialog.gd" type="Script" id=1]
-[ext_resource path="res://ui/InventoryGrid.tscn" type="PackedScene" id=2]
-[ext_resource path="res://fonts/NineteenNinetySix-improved.ttf" type="DynamicFontData" id=3]
+[ext_resource path="res://fonts/NineteenNinetySix-improved.ttf" type="DynamicFontData" id=1]
+[ext_resource path="res://inventory/InventoryDialog.gd" type="Script" id=2]
+[ext_resource path="res://inventory/InventoryGrid.tscn" type="PackedScene" id=3]
 
 [sub_resource type="DynamicFont" id=1]
 size = 18
-font_data = ExtResource( 3 )
+font_data = ExtResource( 1 )
 
 [node name="InventoryDialog" type="Control"]
 margin_right = 115.0
 margin_bottom = 89.0
-script = ExtResource( 1 )
+script = ExtResource( 2 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -60,5 +60,5 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="InventoryGrid" parent="." instance=ExtResource( 2 )]
+[node name="InventoryGrid" parent="." instance=ExtResource( 3 )]
 position = Vector2( 27, 20 )
