@@ -14,7 +14,14 @@ func _ready():
 
 func _process(delta):
     if _tip:
-        _tip.global_position = get_global_mouse_position() + _offset
+        var screen_rect = get_viewport_rect()
+        var tip_pos = get_global_mouse_position() + _offset
+        var tip_rect = Rect2(tip_pos, Vector2(0, 10))
+        if screen_rect.encloses(tip_rect):
+            _tip.global_position = tip_pos
+        else:
+            var outside_screen = tip_rect.end - screen_rect.end
+            _tip.global_position = tip_pos - Vector2(0, outside_screen.y)
 
 func _create_tip():
     _tip = tip_resource.instance()
