@@ -13,8 +13,10 @@ func _ready():
     $HotBar/InventoryGrid.mouse_cursor = $MouseCursor
     InteractionState.connect("show_inventory_dialog", self, "_show_inventory_dialog")
 
-func _show_inventory_dialog(inventory: Inventory):
-    $InventoryDialog.load_inventory(inventory)
+func _show_inventory_dialog(cfg: Dictionary):
+    $InventoryDialog.load_inventory(cfg["inventory"])
+    $InventoryDialog.title = cfg["title"]
+    $InventoryDialog.description = cfg["description"]
     $InventoryDialog.show()
     $Overlay.show()
     get_tree().paused = true
