@@ -24,5 +24,5 @@ func get_texture():
     return GameItemTextures.create(GameItemTextures.BEER_GLASS, Vector2(level, color))
 
 func max_stack_size():
-    return 3
+    return 9
 
