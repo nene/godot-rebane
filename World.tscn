@@ -1,4 +1,4 @@
-[gd_scene load_steps=64 format=2]
+[gd_scene load_steps=65 format=2]
 
 [ext_resource path="res://furniture/BeerCabinet/BeerCabinet.tscn" type="PackedScene" id=1]
 [ext_resource path="res://characters/KsvSass.tscn" type="PackedScene" id=2]
@@ -7,6 +7,7 @@
 [ext_resource path="res://furniture/StaircaseDoor/StaircaseDoor.tscn" type="PackedScene" id=5]
 [ext_resource path="res://characters/KsvPikmets.tscn" type="PackedScene" id=6]
 [ext_resource path="res://characters/Vanamees.tscn" type="PackedScene" id=7]
+[ext_resource path="res://furniture/Fridge/Fridge.tscn" type="PackedScene" id=8]
 [ext_resource path="res://paintings/bulletin-board.png" type="Texture" id=10]
 [ext_resource path="res://paintings/color-shield.png" type="Texture" id=11]
 [ext_resource path="res://bg/BackgroundMap.tscn" type="PackedScene" id=13]
@@ -594,4 +595,7 @@ position = Vector2( 199, 84 )
 position = Vector2( 40, 146 )
 
 [node name="BeerCabinet" parent="YSort" instance=ExtResource( 1 )]
-position = Vector2( 272, 110 )
+position = Vector2( 272, 109 )
+
+[node name="Fridge" parent="YSort" instance=ExtResource( 8 )]
+position = Vector2( 296, 109 )
