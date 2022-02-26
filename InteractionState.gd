@@ -4,17 +4,38 @@ signal allow_interact
 signal forbid_interact
 signal show_inventory_dialog(inventory)
 
-var hovered_objects = 0
+var hovered_objects = {}
+var near_player_objects = {}
+var interactable_objects = {}
 
-func enter_object():
-    if hovered_objects == 0:
-        emit_signal("allow_interact")
-    hovered_objects += 1
+func enter_mouse(obj):
+    hovered_objects[obj] = true
+    _decide_interact_state(obj)
 
-func exit_object():
-    hovered_objects -= 1
-    if hovered_objects == 0:
+func exit_mouse(obj):
+    hovered_objects.erase(obj)
+    _decide_interact_state(obj)
+
+func enter_player(obj):
+    near_player_objects[obj] = true
+    _decide_interact_state(obj)
+
+func exit_player(obj):
+    near_player_objects.erase(obj)
+    _decide_interact_state(obj)
+
+func _decide_interact_state(obj):
+    var was_interactable = !interactable_objects.empty()
+    if hovered_objects.has(obj) && near_player_objects.has(obj):
+        interactable_objects[obj] = true
+    else:
+        interactable_objects.erase(obj)
+    
+    var is_interactable = !interactable_objects.empty()
+    if was_interactable && !is_interactable:
         emit_signal("forbid_interact")
+    elif !was_interactable && is_interactable:
+        emit_signal("allow_interact")
 
 func show_inventory_dialog(dialog):
     emit_signal("show_inventory_dialog", dialog)
