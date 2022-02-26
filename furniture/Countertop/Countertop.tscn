@@ -1,8 +1,25 @@
 [gd_scene load_steps=6 format=2]
 
-[ext_resource path="res://furniture/countertop.png" type="Texture" id=1]
 [ext_resource path="res://furniture/InteractBox.tscn" type="PackedScene" id=2]
-[ext_resource path="res://furniture/Countertop.gd" type="Script" id=3]
+
+[sub_resource type="GDScript" id=3]
+script/source = "extends StaticBody2D
+
+var _inventory: Inventory
+
+func _ready():
+    self._inventory = LockedInventory.new([
+        GameItemGroup.new(LockedBottleOpener.new()),
+    ], 1)
+
+func _on_interact():
+    var dialog = load(\"res://inventory/CountertopInventoryDialog.tscn\").instance()
+    dialog.inventory = self._inventory
+    InteractionState.show_inventory_dialog(dialog)
+"
+
+[sub_resource type="StreamTexture" id=4]
+load_path = "res://.import/countertop.png-85e1f451e738674bafafcb4fdf851391.stex"
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 8, 16 )
@@ -11,11 +28,11 @@ extents = Vector2( 8, 16 )
 extents = Vector2( 8, 27.5 )
 
 [node name="Countertop" type="StaticBody2D"]
-script = ExtResource( 3 )
+script = SubResource( 3 )
 
 [node name="Countertop" type="Sprite" parent="."]
 position = Vector2( 0, -27 )
-texture = ExtResource( 1 )
+texture = SubResource( 4 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2( 0, -16 )

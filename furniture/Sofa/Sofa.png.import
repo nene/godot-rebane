@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/fireplace.png-f006012da3aa224ab7a7ec3458dfccc6.stex"
+path="res://.import/Sofa.png-408ef79887113225687b1d672c883169.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://furniture/fireplace.png"
-dest_files=[ "res://.import/fireplace.png-f006012da3aa224ab7a7ec3458dfccc6.stex" ]
+source_file="res://furniture/Sofa/Sofa.png"
+dest_files=[ "res://.import/Sofa.png-408ef79887113225687b1d672c883169.stex" ]
 
 [params]
 
@@ -31,5 +31,5 @@ process/invert_color=false
 process/normal_map_invert_y=false
 stream=false
 size_limit=0
-detect_3d=true
+detect_3d=false
 svg/scale=1.0

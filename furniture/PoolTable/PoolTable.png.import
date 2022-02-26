@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/countertop.png-85e1f451e738674bafafcb4fdf851391.stex"
+path="res://.import/PoolTable.png-9e65bca6b40b997c08a3b1fcfe4caebd.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://furniture/countertop.png"
-dest_files=[ "res://.import/countertop.png-85e1f451e738674bafafcb4fdf851391.stex" ]
+source_file="res://furniture/PoolTable/PoolTable.png"
+dest_files=[ "res://.import/PoolTable.png-9e65bca6b40b997c08a3b1fcfe4caebd.stex" ]
 
 [params]
 
@@ -31,5 +31,5 @@ process/invert_color=false
 process/normal_map_invert_y=false
 stream=false
 size_limit=0
-detect_3d=true
+detect_3d=false
 svg/scale=1.0
