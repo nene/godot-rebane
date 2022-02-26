@@ -551,7 +551,7 @@ func _on_interact():
     InteractionState.show_inventory_dialog(dialog)
 "
 
-[node name="CfeCellar" type="Node"]
+[node name="CfeCellar" type="Node2D"]
 
 [node name="BackgroundMap" parent="." instance=ExtResource( 21 )]
 tile_set = SubResource( 1 )
