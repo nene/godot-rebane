@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=2]
+[gd_scene load_steps=17 format=2]
 
 [ext_resource path="res://player/Player.tscn" type="PackedScene" id=1]
 [ext_resource path="res://furniture/Table.tscn" type="PackedScene" id=2]
@@ -14,6 +14,8 @@
 [ext_resource path="res://characters/KsvSass.tscn" type="PackedScene" id=12]
 [ext_resource path="res://characters/KsvPikmets.tscn" type="PackedScene" id=13]
 [ext_resource path="res://characters/Vanamees.tscn" type="PackedScene" id=14]
+[ext_resource path="res://furniture/Sofa.tscn" type="PackedScene" id=15]
+[ext_resource path="res://furniture/PoolTable.tscn" type="PackedScene" id=16]
 
 [node name="Main" type="Node"]
 
@@ -54,6 +56,12 @@ position = Vector2( 232, 128 )
 [node name="StaircaseDoor" parent="YSort" instance=ExtResource( 10 )]
 position = Vector2( 192, 48 )
 
+[node name="Sofa" parent="YSort" instance=ExtResource( 15 )]
+position = Vector2( 40, 59 )
+
+[node name="PoolTable" parent="YSort" instance=ExtResource( 16 )]
+position = Vector2( 87, 192 )
+
 [node name="KsvKark" parent="YSort" instance=ExtResource( 11 )]
 position = Vector2( 185, 149 )
 
@@ -73,3 +81,4 @@ position = Vector2( 40, 146 )
 pause_mode = 2
 
 [node name="Hud" parent="CanvasLayer" instance=ExtResource( 4 )]
+visible = false
