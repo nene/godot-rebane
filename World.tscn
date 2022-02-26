@@ -1,5 +1,6 @@
-[gd_scene load_steps=63 format=2]
+[gd_scene load_steps=64 format=2]
 
+[ext_resource path="res://furniture/BeerCabinet/BeerCabinet.tscn" type="PackedScene" id=1]
 [ext_resource path="res://characters/KsvSass.tscn" type="PackedScene" id=2]
 [ext_resource path="res://characters/KsvKark.tscn" type="PackedScene" id=3]
 [ext_resource path="res://characters/KsvKoppel.tscn" type="PackedScene" id=4]
@@ -591,3 +592,6 @@ position = Vector2( 199, 84 )
 
 [node name="KsvSass" parent="YSort" instance=ExtResource( 2 )]
 position = Vector2( 40, 146 )
+
+[node name="BeerCabinet" parent="YSort" instance=ExtResource( 1 )]
+position = Vector2( 272, 110 )
