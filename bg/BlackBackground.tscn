@@ -6,6 +6,7 @@ layer = -1
 [node name="ColorRect" type="ColorRect" parent="."]
 margin_right = 320.0
 margin_bottom = 200.0
+mouse_filter = 2
 color = Color( 0, 0, 0, 1 )
 __meta__ = {
 "_edit_use_anchors_": false
