@@ -544,13 +544,13 @@ position = Vector2( 235, 65 )
 texture = ExtResource( 10 )
 
 [node name="Color-shield" type="Sprite" parent="Paintings"]
-position = Vector2( 34, 14 )
+position = Vector2( 78, 14 )
 texture = ExtResource( 11 )
 
 [node name="YSort" type="YSort" parent="."]
 
 [node name="Player" parent="YSort" instance=ExtResource( 16 )]
-position = Vector2( 158, 106 )
+position = Vector2( 187, 109 )
 
 [node name="Camera2D" type="Camera2D" parent="YSort/Player"]
 current = true
@@ -558,13 +558,13 @@ drag_margin_h_enabled = true
 drag_margin_v_enabled = true
 
 [node name="Table" parent="YSort" instance=ExtResource( 17 )]
-position = Vector2( 48, 109 )
+position = Vector2( 80, 109 )
 
 [node name="Table2" parent="YSort" instance=ExtResource( 17 )]
-position = Vector2( 112, 109 )
+position = Vector2( 144, 109 )
 
 [node name="Fireplace" parent="YSort" instance=ExtResource( 20 )]
-position = Vector2( 96, 52 )
+position = Vector2( 135, 52 )
 
 [node name="Countertop" parent="YSort" instance=ExtResource( 19 )]
 position = Vector2( 232, 128 )
@@ -573,10 +573,10 @@ position = Vector2( 232, 128 )
 position = Vector2( 192, 48 )
 
 [node name="Sofa" parent="YSort" instance=ExtResource( 14 )]
-position = Vector2( 40, 59 )
+position = Vector2( 79, 59 )
 
 [node name="PoolTable" parent="YSort" instance=ExtResource( 15 )]
-position = Vector2( 87, 192 )
+position = Vector2( 112, 191 )
 
 [node name="KsvKark" parent="YSort" instance=ExtResource( 3 )]
 position = Vector2( 185, 149 )
@@ -585,7 +585,7 @@ position = Vector2( 185, 149 )
 position = Vector2( 266, 114 )
 
 [node name="Vanamees" parent="YSort" instance=ExtResource( 7 )]
-position = Vector2( 31, 68 )
+position = Vector2( 44, 76 )
 
 [node name="KsvKoppel" parent="YSort" instance=ExtResource( 4 )]
 position = Vector2( 199, 84 )
