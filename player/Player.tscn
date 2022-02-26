@@ -324,6 +324,8 @@ start_node = "Idle"
 radius = 20.0
 
 [node name="Player" type="KinematicBody2D"]
+collision_layer = 9
+collision_mask = 9
 script = ExtResource( 2 )
 
 [node name="Sprite" type="Sprite" parent="."]
