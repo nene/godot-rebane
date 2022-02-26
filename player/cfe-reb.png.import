@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/cfe-reb.png-ca8881f8e3edad7339bb620b88f46909.stex"
+path="res://.import/cfe-reb.png-c88940a852de359d7b1c9a65a6a667d9.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://cfe-reb.png"
-dest_files=[ "res://.import/cfe-reb.png-ca8881f8e3edad7339bb620b88f46909.stex" ]
+source_file="res://player/cfe-reb.png"
+dest_files=[ "res://.import/cfe-reb.png-c88940a852de359d7b1c9a65a6a667d9.stex" ]
 
 [params]
 
