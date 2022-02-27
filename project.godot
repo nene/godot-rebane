@@ -79,6 +79,11 @@ _global_script_classes=[ {
 "language": "GDScript",
 "path": "res://items/Ocean.gd"
 }, {
+"base": "KinematicBody2D",
+"class": "Player",
+"language": "GDScript",
+"path": "res://player/Player.gd"
+}, {
 "base": "GameItem",
 "class": "SimpleBottleOpener",
 "language": "GDScript",
@@ -88,6 +93,11 @@ _global_script_classes=[ {
 "class": "Slot",
 "language": "GDScript",
 "path": "res://inventory/Slot.gd"
+}, {
+"base": "Node2D",
+"class": "SpawnPoint",
+"language": "GDScript",
+"path": "res://furniture/SpawnPoint.gd"
 }, {
 "base": "GameItem",
 "class": "Tap",
@@ -109,8 +119,10 @@ _global_script_class_icons={
 "LockedInventory": "",
 "MouseCursor": "",
 "Ocean": "",
+"Player": "",
 "SimpleBottleOpener": "",
 "Slot": "",
+"SpawnPoint": "",
 "Tap": ""
 }
 

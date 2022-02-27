@@ -57,59 +57,63 @@ texture = ExtResource( 18 )
 
 [node name="YSort" type="YSort" parent="." index="2"]
 
-[node name="Player" parent="YSort" index="0" instance=ExtResource( 23 )]
+[node name="Furniture" type="YSort" parent="YSort" index="0"]
+
+[node name="Table" parent="YSort/Furniture" index="0" instance=ExtResource( 26 )]
+position = Vector2( 80, 109 )
+
+[node name="Table2" parent="YSort/Furniture" index="1" instance=ExtResource( 26 )]
+position = Vector2( 144, 109 )
+
+[node name="Fireplace" parent="YSort/Furniture" index="2" instance=ExtResource( 24 )]
+position = Vector2( 135, 52 )
+
+[node name="Countertop" parent="YSort/Furniture" index="3" instance=ExtResource( 10 )]
+position = Vector2( 232, 128 )
+script = SubResource( 1 )
+
+[node name="StaircaseDoor" parent="YSort/Furniture" index="4" instance=ExtResource( 14 )]
+position = Vector2( 192, 48 )
+
+[node name="Sofa" parent="YSort/Furniture" index="5" instance=ExtResource( 25 )]
+position = Vector2( 79, 59 )
+
+[node name="PoolTable" parent="YSort/Furniture" index="6" instance=ExtResource( 22 )]
+position = Vector2( 112, 191 )
+
+[node name="BeerCabinet" parent="YSort/Furniture" index="7" instance=ExtResource( 11 )]
+position = Vector2( 272, 109 )
+
+[node name="Fridge" parent="YSort/Furniture" index="8" instance=ExtResource( 17 )]
+position = Vector2( 296, 109 )
+
+[node name="KitchenSink" parent="YSort/Furniture" index="9" instance=ExtResource( 7 )]
+position = Vector2( 296, 172 )
+
+[node name="BeerBox" parent="YSort/Furniture" index="10" instance=ExtResource( 19 )]
+position = Vector2( 297, 181 )
+
+[node name="Characters" type="YSort" parent="YSort" index="1"]
+
+[node name="KsvKark" parent="YSort/Characters" index="0" instance=ExtResource( 12 )]
+position = Vector2( 185, 149 )
+
+[node name="KsvPikmets" parent="YSort/Characters" index="1" instance=ExtResource( 15 )]
+position = Vector2( 266, 114 )
+
+[node name="Vanamees" parent="YSort/Characters" index="2" instance=ExtResource( 16 )]
+position = Vector2( 44, 76 )
+
+[node name="KsvKoppel" parent="YSort/Characters" index="3" instance=ExtResource( 13 )]
+position = Vector2( 199, 84 )
+
+[node name="KsvSass" parent="YSort/Characters" index="4" instance=ExtResource( 4 )]
+position = Vector2( 40, 146 )
+
+[node name="Player" parent="YSort" index="2" instance=ExtResource( 23 )]
 position = Vector2( 187, 109 )
 
 [node name="Camera2D" type="Camera2D" parent="YSort/Player" index="5"]
 current = true
 drag_margin_h_enabled = true
 drag_margin_v_enabled = true
-
-[node name="Table" parent="YSort" index="1" instance=ExtResource( 26 )]
-position = Vector2( 80, 109 )
-
-[node name="Table2" parent="YSort" index="2" instance=ExtResource( 26 )]
-position = Vector2( 144, 109 )
-
-[node name="Fireplace" parent="YSort" index="3" instance=ExtResource( 24 )]
-position = Vector2( 135, 52 )
-
-[node name="Countertop" parent="YSort" index="4" instance=ExtResource( 10 )]
-position = Vector2( 232, 128 )
-script = SubResource( 1 )
-
-[node name="StaircaseDoor" parent="YSort" index="5" instance=ExtResource( 14 )]
-position = Vector2( 192, 48 )
-
-[node name="Sofa" parent="YSort" index="6" instance=ExtResource( 25 )]
-position = Vector2( 79, 59 )
-
-[node name="PoolTable" parent="YSort" index="7" instance=ExtResource( 22 )]
-position = Vector2( 112, 191 )
-
-[node name="KsvKark" parent="YSort" index="8" instance=ExtResource( 12 )]
-position = Vector2( 185, 149 )
-
-[node name="KsvPikmets" parent="YSort" index="9" instance=ExtResource( 15 )]
-position = Vector2( 266, 114 )
-
-[node name="Vanamees" parent="YSort" index="10" instance=ExtResource( 16 )]
-position = Vector2( 44, 76 )
-
-[node name="KsvKoppel" parent="YSort" index="11" instance=ExtResource( 13 )]
-position = Vector2( 199, 84 )
-
-[node name="KsvSass" parent="YSort" index="12" instance=ExtResource( 4 )]
-position = Vector2( 40, 146 )
-
-[node name="BeerCabinet" parent="YSort" index="13" instance=ExtResource( 11 )]
-position = Vector2( 272, 109 )
-
-[node name="Fridge" parent="YSort" index="14" instance=ExtResource( 17 )]
-position = Vector2( 296, 109 )
-
-[node name="KitchenSink" parent="YSort" index="15" instance=ExtResource( 7 )]
-position = Vector2( 296, 172 )
-
-[node name="BeerBox" parent="YSort" index="16" instance=ExtResource( 19 )]
-position = Vector2( 297, 181 )

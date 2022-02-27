@@ -1,10 +1,11 @@
 extends KinematicBody2D
+class_name Player
 
 const Direction = preload("res://Direction.gd")
 
 enum {
     MOVE,
-    GREET
+    GREET,
 }
 
 export var speed = 75
