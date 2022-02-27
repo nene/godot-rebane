@@ -54,6 +54,11 @@ _global_script_classes=[ {
 "language": "GDScript",
 "path": "res://inventory/Inventory.gd"
 }, {
+"base": "Reference",
+"class": "Location",
+"language": "GDScript",
+"path": "res://locations/Location.gd"
+}, {
 "base": "GameItem",
 "class": "LockedBottleOpener",
 "language": "GDScript",
@@ -99,6 +104,7 @@ _global_script_class_icons={
 "GameItemTextures": "",
 "GameItemView": "",
 "Inventory": "",
+"Location": "",
 "LockedBottleOpener": "",
 "LockedInventory": "",
 "MouseCursor": "",
@@ -118,6 +124,7 @@ config/icon="res://icon.png"
 
 Fp="*res://Fp.gd"
 InteractionState="*res://InteractionState.gd"
+CurrentLocation="*res://CurrentLocation.gd"
 
 [display]
 

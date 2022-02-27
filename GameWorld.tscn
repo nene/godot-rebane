@@ -1,9 +1,11 @@
-[gd_scene load_steps=3 format=2]
+[gd_scene load_steps=4 format=2]
 
 [ext_resource path="res://locations/CfeCellar.tscn" type="PackedScene" id=1]
+[ext_resource path="res://GameWorld.gd" type="Script" id=2]
 [ext_resource path="res://bg/BlackBackground.tscn" type="PackedScene" id=21]
 
 [node name="GameWorld" type="Node"]
+script = ExtResource( 2 )
 
 [node name="BlackBackground" parent="." instance=ExtResource( 21 )]
 

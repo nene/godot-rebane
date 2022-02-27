@@ -1,6 +1,6 @@
 extends Area2D
 
-export var to_location: String
+export(Location.Location) var to_location = Location.Location.CFE_CELLAR
 
 func _on_door_entered(body):
-    print("Entering door to " + to_location)
+    CurrentLocation.change(to_location)
