@@ -8,6 +8,6 @@ func _ready():
     ], 1)
 
 func _on_interact():
-    var dialog = load("res://inventory/CountertopInventoryDialog.tscn").instance()
+    var dialog = load("res://furniture/Countertop/CountertopInventoryDialog.tscn").instance()
     dialog.inventory = self._inventory
     InteractionState.show_inventory_dialog(dialog)
