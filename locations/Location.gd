@@ -1,4 +1,4 @@
-extends Reference
+extends Node2D
 class_name Location
 
 enum Location {
