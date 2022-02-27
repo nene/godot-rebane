@@ -41,3 +41,8 @@ func explode():
     world.add_child(expl)
     expl.global_position = global_position
     queue_free()
+
+
+func _on_interact():
+    var dialog = load("res://dialog/QuestionDialog.tscn").instance()
+    InteractionState.show_dialog(dialog)

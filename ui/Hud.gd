@@ -13,6 +13,7 @@ func _ready():
     $HotBar/InventoryGrid.inventory = hotbar_inventory
     $HotBar/InventoryGrid.mouse_cursor = $MouseCursor
     InteractionState.connect("show_inventory_dialog", self, "_show_inventory_dialog")
+    InteractionState.connect("show_dialog", self, "_show_dialog")
 
 func _show_inventory_dialog(dialog):
     _dialog = dialog
@@ -26,3 +27,12 @@ func _hide_inventory_dialog():
     _dialog = null
     $Overlay.hide()
     get_tree().paused = false
+    $HotBar.show()
+
+func _show_dialog(dialog):
+    _dialog = dialog
+    #_dialog.mouse_cursor = $MouseCursor
+    $Dialogs.add_child(_dialog)
+    $Overlay.show()
+    get_tree().paused = true
+    $HotBar.hide()
