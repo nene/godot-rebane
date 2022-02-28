@@ -1,8 +1,7 @@
-[gd_scene load_steps=6 format=2]
+[gd_scene load_steps=5 format=2]
 
 [ext_resource path="res://dialog/RibbonFrame.tscn" type="PackedScene" id=1]
 [ext_resource path="res://fonts/NineteenNinetySix-improved.ttf" type="DynamicFontData" id=2]
-[ext_resource path="res://ui/WoodPanelRect.tscn" type="PackedScene" id=3]
 [ext_resource path="res://dialog/CharacterDialog.gd" type="Script" id=4]
 
 [sub_resource type="DynamicFont" id=1]
@@ -14,6 +13,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 margin_right = -142.0
 margin_bottom = -89.0
+rect_scale = Vector2( 1.00132, 1 )
 script = ExtResource( 4 )
 __meta__ = {
 "_edit_use_anchors_": false
@@ -53,8 +53,12 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="WoodPanelRect" parent="." instance=ExtResource( 3 )]
-margin_left = 44.0
-margin_top = 49.0
-margin_right = 119.0
-margin_bottom = 89.0
+[node name="Button" type="Button" parent="."]
+margin_left = 15.0
+margin_top = 45.0
+margin_right = 80.0
+margin_bottom = 60.0
+text = "minu nupp"
+__meta__ = {
+"_edit_use_anchors_": false
+}

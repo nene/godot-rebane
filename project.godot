@@ -153,6 +153,7 @@ enabled=PoolStringArray( "res://addons/AsepriteWizard/plugin.cfg" )
 
 [gui]
 
+theme/custom="res://theme/game_theme.tres"
 theme/custom_font="res://fonts/NineteenNinetySix.tres"
 
 [importer_defaults]
