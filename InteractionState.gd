@@ -42,16 +42,16 @@ func _decide_interact_state(obj):
 func show_dialog(dialog, cfg: Dictionary = {}):
     emit_signal("show_dialog", dialog, cfg)
 
-func add_pending_click(area):
-    _clicked_areas.append(area)
+func add_pending_click(area, z_index):
+    _clicked_areas.append({"area": area, "z": z_index})
 
 func _process(delta):
     if _clicked_areas.empty():
         return
 
-    var topmost: Node2D = _clicked_areas.front()
+    var topmost: Dictionary = _clicked_areas.front()
     for area in _clicked_areas:
-        if area.get_index() > topmost.get_index():
+        if area["z"] > topmost["z"]:
             topmost = area
     _clicked_areas.clear()
-    topmost.trigger_interact()
+    topmost["area"].trigger_interact()

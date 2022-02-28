@@ -2,7 +2,6 @@ extends Area2D
 
 signal interact
 var _player_is_close = false
-export var boxname = ""
 
 func _on_mouse_entered():
     InteractionState.enter_mouse(self)
@@ -14,7 +13,7 @@ func _on_input(viewport, event, shape_idx):
     if event is InputEventMouseButton:
         if event.button_index == BUTTON_LEFT && event.pressed:
             if _player_is_close:
-                InteractionState.add_pending_click(self)
+                InteractionState.add_pending_click(self, self.get_parent().position.y)
 
 func trigger_interact():
     emit_signal("interact")
