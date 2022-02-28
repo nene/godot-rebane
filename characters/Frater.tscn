@@ -278,6 +278,7 @@ parameters/Idle/blend_position = Vector2( 0, 0 )
 parameters/Walk/blend_position = Vector2( 0, 0 )
 
 [node name="InteractBox" parent="." instance=ExtResource( 2 )]
+boxname = "frater"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="InteractBox"]
 position = Vector2( 0, -14 )

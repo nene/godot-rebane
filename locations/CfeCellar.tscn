@@ -79,13 +79,13 @@ position = Vector2( 232, 129 )
 [node name="Characters" type="YSort" parent="YSort" index="1"]
 
 [node name="KsvKark" parent="YSort/Characters" index="0" instance=ExtResource( 12 )]
-position = Vector2( 185, 149 )
+position = Vector2( 143, 131 )
 
 [node name="KsvPikmets" parent="YSort/Characters" index="1" instance=ExtResource( 15 )]
 position = Vector2( 266, 114 )
 
 [node name="Vanamees" parent="YSort/Characters" index="2" instance=ExtResource( 16 )]
-position = Vector2( 44, 76 )
+position = Vector2( 80, 95 )
 
 [node name="KsvKoppel" parent="YSort/Characters" index="3" instance=ExtResource( 13 )]
 position = Vector2( 199, 84 )
