@@ -21,4 +21,4 @@ func _ready():
 func _on_interact():
     var dialog = load("res://furniture/BeerCabinet/BeerCabinetInventoryDialog.tscn").instance()
     dialog.inventory = self._inventory
-    InteractionState.show_inventory_dialog(dialog)
+    InteractionState.show_dialog(dialog)

@@ -2,8 +2,7 @@ extends Node
 
 signal allow_interact
 signal forbid_interact
-signal show_inventory_dialog(inventory)
-signal show_dialog(inventory)
+signal show_dialog(inventory, cfg)
 
 var hovered_objects = {}
 var near_player_objects = {}
@@ -38,8 +37,5 @@ func _decide_interact_state(obj):
     elif !was_interactable && is_interactable:
         emit_signal("allow_interact")
 
-func show_inventory_dialog(dialog):
-    emit_signal("show_inventory_dialog", dialog)
-
-func show_dialog(dialog):
-    emit_signal("show_dialog", dialog)
+func show_dialog(dialog, cfg: Dictionary = {}):
+    emit_signal("show_dialog", dialog, cfg)

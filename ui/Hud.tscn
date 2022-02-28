@@ -47,4 +47,4 @@ grid_size = Vector2( 8, 1 )
 
 [node name="MouseCursor" parent="." instance=ExtResource( 3 )]
 
-[connection signal="click" from="Overlay" to="." method="_hide_inventory_dialog"]
+[connection signal="click" from="Overlay" to="." method="_hide_dialog"]
