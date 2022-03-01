@@ -19,17 +19,26 @@ var _states_stack = []
 var _current_state: State = null
 
 func _ready():
-    if not start_state:
-        start_state = get_child(0).get_path()
-    for child in get_children():
-        _states_map[child.name] = child
-        var err = child.connect("finished", self, "transition")
+    _gather_possible_states()
+    _initialize(_get_start_state())
+
+
+func _gather_possible_states():
+    for state_node in get_children():
+        _states_map[state_node.name] = state_node
+        var err = state_node.connect("finished", self, "transition")
         if err:
             printerr(err)
-    _initialize(start_state)
 
 
-func _initialize(initial_state):
+func _get_start_state() -> NodePath:
+    if start_state:
+        return start_state
+    else:
+        return get_child(0).get_path()
+
+
+func _initialize(initial_state: NodePath):
     _states_stack.push_front(get_node(initial_state))
     _current_state = _states_stack[0]
     _current_state.enter()
