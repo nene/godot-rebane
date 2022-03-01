@@ -56,6 +56,7 @@ func _physics_process(delta):
 func _on_animation_finished(anim_name):
     if not _active:
         return
+    print("animation finished")
     current_state._on_animation_finished(anim_name)
 
 
@@ -74,3 +75,9 @@ func _change_state(state_name):
 
     if state_name != "previous":
         current_state.enter()
+
+func push_state(state_name):
+    if not _active:
+        return
+    states_stack.push_front(states_map[state_name])
+    _change_state(state_name)

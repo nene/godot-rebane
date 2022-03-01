@@ -1,6 +1,9 @@
-[gd_scene load_steps=36 format=2]
+[gd_scene load_steps=39 format=2]
 
+[ext_resource path="res://state_machine/player/PlayerStateMachine.gd" type="Script" id=1]
 [ext_resource path="res://player/Player.gd" type="Script" id=2]
+[ext_resource path="res://state_machine/player/Greet.gd" type="Script" id=3]
+[ext_resource path="res://state_machine/player/Move.gd" type="Script" id=4]
 
 [sub_resource type="StreamTexture" id=40]
 load_path = "res://.import/cfe-reb.png-ca8881f8e3edad7339bb620b88f46909.stex"
@@ -133,7 +136,7 @@ tracks/0/keys = {
 "transitions": PoolRealArray( 1 ),
 "values": [ {
 "args": [  ],
-"method": "finish_greet"
+"method": "greet_animation_finished"
 } ]
 }
 tracks/1/type = "value"
@@ -370,3 +373,12 @@ collision_mask = 4
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
 shape = SubResource( 44 )
+
+[node name="PlayerStateMachine" type="Node" parent="."]
+script = ExtResource( 1 )
+
+[node name="Move" type="Node" parent="PlayerStateMachine"]
+script = ExtResource( 4 )
+
+[node name="Greet" type="Node" parent="PlayerStateMachine"]
+script = ExtResource( 3 )
