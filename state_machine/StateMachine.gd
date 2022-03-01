@@ -13,8 +13,8 @@ signal state_changed(current_state)
 # from this state machine interface. If you don't, the game will default to
 # the first state in the state machine's children.
 export(NodePath) var start_state
-var states_map = {}
 
+var _states_map = {}
 var _states_stack = []
 var _current_state: State = null
 
@@ -23,7 +23,7 @@ func _ready():
         start_state = get_child(0).get_path()
     for child in get_children():
         var err = child.connect("finished", self, "transition")
-        states_map[child.name] = child
+        _states_map[child.name] = child
         if err:
             printerr(err)
     _initialize(start_state)
@@ -64,11 +64,11 @@ func transition(transition_type: String, state_name: String = ""):
 
     match transition_type:
         "push":
-            _states_stack.push_front(states_map[state_name])
+            _states_stack.push_front(_states_map[state_name])
         "pop":
             _states_stack.pop_front()
         "replace":
-            _states_stack[0] = states_map[state_name]
+            _states_stack[0] = _states_map[state_name]
 
     _current_state = _states_stack[0]
     emit_signal("state_changed", _current_state)
