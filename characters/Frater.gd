@@ -18,6 +18,9 @@ func _physics_process(delta):
     
     move_and_slide(speed * direction)
 
+func _unhandled_input(event):
+    $FraterStateMachine.handle_input(event)
+
 func set_animation_direction(direction: Vector2):
     $AnimationTree.set("parameters/Idle/blend_position", direction)
     $AnimationTree.set("parameters/Walk/blend_position", direction)

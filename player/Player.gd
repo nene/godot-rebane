@@ -9,6 +9,9 @@ func _ready():
 func _physics_process(delta):
     $PlayerStateMachine.physics_update(delta)
 
+func _unhandled_input(event):
+    $PlayerStateMachine.handle_input(event)
+
 func set_animation_direction(direction: Vector2):
     $AnimationTree.set("parameters/Idle/blend_position", direction)
     $AnimationTree.set("parameters/Walk/blend_position", direction)

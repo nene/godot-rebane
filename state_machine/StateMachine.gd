@@ -34,14 +34,20 @@ func _initialize(initial_state):
     _current_state.enter()
 
 
-func _unhandled_input(event):
+# Call this from owner._unhandled_input()
+# when you want state machine to process input events
+func handle_input(event):
     _current_state.handle_input(event)
 
 
+# Call this from owner._physics_process()
+# when you want state machine to process physics
 func physics_update(delta):
     _current_state.physics_update(delta)
 
 
+# Connect this to finishing of various animations
+# e.g. to AnimationPlayer.animation_finished signal
 func on_animation_finished(anim_name):
     _current_state.on_animation_finished(anim_name)
 

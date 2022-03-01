@@ -6,8 +6,8 @@ func _ready():
         "explode": $Explode,
     }
 
-func _unhandled_input(event):
+func handle_input(event):
     if event.is_action_pressed("ui_greet"):
         change_state("explode")
         return
-    ._unhandled_input(event)
+    .handle_input(event)

@@ -6,6 +6,8 @@ func _ready():
         "greet": $Greet,
     }
 
-func _unhandled_input(event):
+func handle_input(event):
     if event.is_action_pressed("ui_greet"):
         push_state("greet")
+        return
+    .handle_input(event)
