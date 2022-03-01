@@ -15,8 +15,8 @@ signal state_changed(current_state)
 export(NodePath) var start_state
 var states_map = {}
 
-var states_stack = []
-var current_state: State = null
+var _states_stack = []
+var _current_state: State = null
 
 func _ready():
     if not start_state:
@@ -29,37 +29,37 @@ func _ready():
 
 
 func _initialize(initial_state):
-    states_stack.push_front(get_node(initial_state))
-    current_state = states_stack[0]
-    current_state.enter()
+    _states_stack.push_front(get_node(initial_state))
+    _current_state = _states_stack[0]
+    _current_state.enter()
 
 
 func _unhandled_input(event):
-    current_state.handle_input(event)
+    _current_state.handle_input(event)
 
 
 func physics_update(delta):
-    current_state.physics_update(delta)
+    _current_state.physics_update(delta)
 
 
 func on_animation_finished(anim_name):
-    current_state.on_animation_finished(anim_name)
+    _current_state.on_animation_finished(anim_name)
 
 
 func change_state(state_name):
-    current_state.exit()
+    _current_state.exit()
 
     if state_name == "previous":
-        states_stack.pop_front()
+        _states_stack.pop_front()
     else:
-        states_stack[0] = states_map[state_name]
+        _states_stack[0] = states_map[state_name]
 
-    current_state = states_stack[0]
-    emit_signal("state_changed", current_state)
+    _current_state = _states_stack[0]
+    emit_signal("state_changed", _current_state)
 
     if state_name != "previous":
-        current_state.enter()
+        _current_state.enter()
 
 func push_state(state_name):
-    states_stack.push_front(states_map[state_name])
+    _states_stack.push_front(states_map[state_name])
     change_state(state_name)
