@@ -8,6 +8,6 @@ func _ready():
 
 func handle_input(event):
     if event.is_action_pressed("ui_greet"):
-        push_state("greet")
+        transition("push", "greet")
         return
     .handle_input(event)

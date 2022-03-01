@@ -22,7 +22,7 @@ func _ready():
     if not start_state:
         start_state = get_child(0).get_path()
     for child in get_children():
-        var err = child.connect("finished", self, "change_state")
+        var err = child.connect("finished", self, "transition")
         if err:
             printerr(err)
     _initialize(start_state)
@@ -51,21 +51,26 @@ func physics_update(delta):
 func on_animation_finished(anim_name):
     _current_state.on_animation_finished(anim_name)
 
-
-func change_state(state_name):
+# Call this to immediately change to another state.
+# Also called whenever state finished with "finish" signal.
+#
+# transition_type can be one of the following:
+# - push
+# - pop
+# - replace
+func transition(transition_type: String, state_name: String = ""):
     _current_state.exit()
 
-    if state_name == "previous":
-        _states_stack.pop_front()
-    else:
-        _states_stack[0] = states_map[state_name]
+    match transition_type:
+        "push":
+            _states_stack.push_front(states_map[state_name])
+        "pop":
+            _states_stack.pop_front()
+        "replace":
+            _states_stack[0] = states_map[state_name]
 
     _current_state = _states_stack[0]
     emit_signal("state_changed", _current_state)
 
-    if state_name != "previous":
+    if transition_type != "pop":
         _current_state.enter()
-
-func push_state(state_name):
-    _states_stack.push_front(states_map[state_name])
-    change_state(state_name)
