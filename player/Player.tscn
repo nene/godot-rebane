@@ -122,7 +122,6 @@ tracks/0/keys = {
 
 [sub_resource type="Animation" id=36]
 length = 1.1
-loop = true
 tracks/0/type = "method"
 tracks/0/path = NodePath(".")
 tracks/0/interp = 1
