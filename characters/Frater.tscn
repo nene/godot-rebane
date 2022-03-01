@@ -1,9 +1,10 @@
-[gd_scene load_steps=32 format=2]
+[gd_scene load_steps=33 format=2]
 
 [ext_resource path="res://characters/Frater.gd" type="Script" id=1]
 [ext_resource path="res://furniture/InteractBox.tscn" type="PackedScene" id=2]
 [ext_resource path="res://state_machine/frater/FraterStateMachine.gd" type="Script" id=3]
 [ext_resource path="res://state_machine/frater/MoveRandom.gd" type="Script" id=4]
+[ext_resource path="res://state_machine/frater/Explode.gd" type="Script" id=5]
 
 [sub_resource type="Animation" id=1]
 length = 0.2
@@ -286,5 +287,8 @@ script = ExtResource( 3 )
 
 [node name="MoveRandom" type="Node" parent="FraterStateMachine"]
 script = ExtResource( 4 )
+
+[node name="Explode" type="Node" parent="FraterStateMachine"]
+script = ExtResource( 5 )
 
 [connection signal="interact" from="InteractBox" to="." method="_on_interact"]

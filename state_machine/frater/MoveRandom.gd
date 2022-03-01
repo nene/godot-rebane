@@ -6,11 +6,13 @@ onready var timer = Timer.new()
 func _ready():
     rng.randomize()
     add_child(timer)
-    timer.connect("timeout", self, "change_direction")
+    timer.connect("timeout", self, "_change_direction")
     timer.wait_time = 0.25
+
+func enter():
     timer.start()
 
-func change_direction():
+func _change_direction():
     var nr = rng.randf()
     if nr < 0.05:
         owner.direction = Vector2.ZERO
