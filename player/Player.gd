@@ -14,4 +14,4 @@ func set_animation_direction(direction: Vector2):
     $AnimationTree.set("parameters/Walk/blend_position", direction)
 
 func greet_animation_finished():
-    $PlayerStateMachine._on_animation_finished("greet")
+    $PlayerStateMachine.on_animation_finished("greet")

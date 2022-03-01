@@ -22,13 +22,13 @@ func _ready():
     if not start_state:
         start_state = get_child(0).get_path()
     for child in get_children():
-        var err = child.connect("finished", self, "_change_state")
+        var err = child.connect("finished", self, "change_state")
         if err:
             printerr(err)
-    initialize(start_state)
+    _initialize(start_state)
 
 
-func initialize(initial_state):
+func _initialize(initial_state):
     states_stack.push_front(get_node(initial_state))
     current_state = states_stack[0]
     current_state.enter()
@@ -42,11 +42,11 @@ func physics_update(delta):
     current_state.physics_update(delta)
 
 
-func _on_animation_finished(anim_name):
-    current_state._on_animation_finished(anim_name)
+func on_animation_finished(anim_name):
+    current_state.on_animation_finished(anim_name)
 
 
-func _change_state(state_name):
+func change_state(state_name):
     current_state.exit()
 
     if state_name == "previous":
@@ -62,4 +62,4 @@ func _change_state(state_name):
 
 func push_state(state_name):
     states_stack.push_front(states_map[state_name])
-    _change_state(state_name)
+    change_state(state_name)

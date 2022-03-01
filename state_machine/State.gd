@@ -21,9 +21,9 @@ func handle_input(_event):
     pass
 
 
-func physics_update(delta):
+func physics_update(_delta):
     pass
 
 
-func _on_animation_finished(_anim_name):
+func on_animation_finished(_anim_name):
     pass
