@@ -8,15 +8,7 @@ var rng = RandomNumberGenerator.new()
 onready var animationState = $AnimationTree.get("parameters/playback")
 
 func _ready():
-    rng.randomize()
     set_animation_direction(Vector2.DOWN)
-
-func change_direction():
-    var nr = rng.randf()
-    if nr < 0.05:
-        direction = Vector2.ZERO
-    elif nr < 0.1:
-        direction = Vector2.DOWN.rotated(rng.randf() * 2 * PI).normalized()
 
 func _physics_process(delta):
     if Direction.is_moving(direction):
@@ -41,7 +33,6 @@ func explode():
     world.add_child(expl)
     expl.global_position = global_position
     queue_free()
-
 
 func _on_interact():
     var dialog = load("res://dialog/QuestionDialog.tscn").instance()
