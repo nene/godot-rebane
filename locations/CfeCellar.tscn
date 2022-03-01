@@ -104,3 +104,4 @@ drag_margin_v_enabled = true
 
 [node name="SpawnPoint" parent="YSort" index="3" instance=ExtResource( 3 )]
 position = Vector2( 192, 24 )
+from_location = 1

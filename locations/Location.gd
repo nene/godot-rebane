@@ -1,11 +1,6 @@
 extends Node2D
 class_name Location
 
-enum Location {
-    CFE_CELLAR,
-    CFE_HALL, 
-}
-
 func add_player(player):
     get_node("YSort").add_child(player)
 
@@ -20,5 +15,8 @@ func _find(Class):
             return obj
     return null
 
-func find_spawn_point() -> SpawnPoint:
-    return _find(SpawnPoint)
+func find_spawn_point(from_location: int) -> SpawnPoint:
+    for obj in get_node("YSort").get_children():
+        if obj is SpawnPoint && obj.from_location == from_location:
+            return obj
+    return null

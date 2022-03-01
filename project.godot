@@ -137,6 +137,7 @@ config/icon="res://icon.png"
 Fp="*res://Fp.gd"
 InteractionState="*res://InteractionState.gd"
 CurrentLocation="*res://CurrentLocation.gd"
+Global="*res://Global.gd"
 
 [display]
 

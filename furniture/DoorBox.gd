@@ -1,6 +1,6 @@
 extends Area2D
 
-export(Location.Location) var to_location = Location.Location.CFE_CELLAR
+export(Global.Location) var to_location = Global.Location.CFE_CELLAR
 
 func _on_door_entered(body):
     # We use physics engine to move characters around,
