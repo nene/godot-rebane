@@ -1,9 +1,8 @@
 extends State
 
-export var speed = 50
-var direction = Vector2.ZERO
+var speed = 75
 
-func update(delta):
+func physics_update(delta):
     var direction = Vector2.ZERO
     if Input.is_action_pressed("ui_left"):
         direction.x = -1
@@ -22,4 +21,4 @@ func update(delta):
     else:
         owner.animationState.travel("Idle")
     
-    owner.move_and_slide(speed * direction)
+    owner.move_and_slide(direction * speed)

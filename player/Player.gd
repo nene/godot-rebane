@@ -6,6 +6,9 @@ onready var animationState = $AnimationTree.get("parameters/playback")
 func _ready():
     set_animation_direction(Vector2.DOWN)
 
+func _physics_process(delta):
+    $PlayerStateMachine.physics_update(delta)
+
 func set_animation_direction(direction: Vector2):
     $AnimationTree.set("parameters/Idle/blend_position", direction)
     $AnimationTree.set("parameters/Walk/blend_position", direction)

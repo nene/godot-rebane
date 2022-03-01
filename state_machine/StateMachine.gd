@@ -38,7 +38,6 @@ func initialize(initial_state):
 
 func set_active(value):
     _active = value
-    set_physics_process(value)
     set_process_input(value)
     if not _active:
         states_stack = []
@@ -49,14 +48,13 @@ func _unhandled_input(event):
     current_state.handle_input(event)
 
 
-func _physics_process(delta):
-    current_state.update(delta)
+func physics_update(delta):
+    current_state.physics_update(delta)
 
 
 func _on_animation_finished(anim_name):
     if not _active:
         return
-    print("animation finished")
     current_state._on_animation_finished(anim_name)
 
 

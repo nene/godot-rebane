@@ -21,7 +21,7 @@ func handle_input(_event):
     pass
 
 
-func update(_delta):
+func physics_update(delta):
     pass
 
 
