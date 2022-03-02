@@ -50,6 +50,11 @@ _global_script_classes=[ {
 "path": "res://ui/GameItemView.gd"
 }, {
 "base": "Reference",
+"class": "InteractEvent",
+"language": "GDScript",
+"path": "res://events/InteractEvent.gd"
+}, {
+"base": "Reference",
 "class": "Inventory",
 "language": "GDScript",
 "path": "res://inventory/Inventory.gd"
@@ -118,6 +123,7 @@ _global_script_class_icons={
 "GameItemGroup": "",
 "GameItemTextures": "",
 "GameItemView": "",
+"InteractEvent": "",
 "Inventory": "",
 "Location": "",
 "LockedBottleOpener": "",

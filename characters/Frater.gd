@@ -18,8 +18,7 @@ func set_animation_direction(direction: Vector2):
     $AnimationTree.set("parameters/Walk/blend_position", direction)
 
 func _on_interact():
-    var dialog = load("res://dialog/QuestionDialog.tscn").instance()
-    InteractionState.show_dialog(dialog, {"hide_hotbar": true})
+    $FraterStateMachine.handle_input(InteractEvent.new())
 
 func toggle_callout(visible: bool):
     $Callout.visible = visible
