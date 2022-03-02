@@ -82,5 +82,4 @@ func transition(transition_type: String, state_name: String = ""):
     _current_state = _states_stack[0]
     emit_signal("state_changed", _current_state)
 
-    if transition_type != "pop":
-        _current_state.enter()
+    _current_state.enter()
