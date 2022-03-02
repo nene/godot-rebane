@@ -2,21 +2,13 @@ extends KinematicBody2D
 
 const Direction = preload("res://Direction.gd")
 
-export var speed = 50
-var direction = Vector2.ZERO
 onready var animationState = $AnimationTree.get("parameters/playback")
 
 func _ready():
     set_animation_direction(Vector2.DOWN)
 
 func _physics_process(delta):
-    if Direction.is_moving(direction):
-        set_animation_direction(direction)
-        animationState.travel("Walk")
-    else:
-        animationState.travel("Idle")
-    
-    move_and_slide(speed * direction)
+    $FraterStateMachine.physics_update(delta)
 
 func _unhandled_input(event):
     $FraterStateMachine.handle_input(event)
