@@ -16,6 +16,7 @@ func _ready():
 
 func _hide_dialog():
     $Dialogs.remove_child(_dialog)
+    _dialog.close()
     _dialog = null
     $Overlay.hide()
     get_tree().paused = false

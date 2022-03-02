@@ -1,5 +1,8 @@
 extends Control
 
+# Triggered when dialog is closed
+signal close
+
 # Dependency injection
 var inventory: Inventory setget _set_inventory
 var mouse_cursor: MouseCursor setget _set_mouse_cursor
@@ -21,3 +24,6 @@ func _set_inventory(inv: Inventory):
     inventory = inv
     if grid:
         grid.inventory = inv
+
+func close():
+    emit_signal("close")
