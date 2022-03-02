@@ -25,5 +25,5 @@ func _set_inventory(inv: Inventory):
     if grid:
         grid.inventory = inv
 
-func close():
+func press_outside():
     emit_signal("close")

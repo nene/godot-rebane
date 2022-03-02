@@ -16,7 +16,6 @@ func _ready():
 
 func _hide_dialog():
     $Dialogs.remove_child(_dialog)
-    _dialog.close()
     _dialog = null
     $Overlay.hide()
     get_tree().paused = false
@@ -25,8 +24,13 @@ func _hide_dialog():
 func _show_dialog(dialog, cfg: Dictionary):
     _dialog = dialog
     _dialog.mouse_cursor = $MouseCursor
+    _dialog.connect("close", self, "_hide_dialog")
     $Dialogs.add_child(_dialog)
     $Overlay.show()
     get_tree().paused = true
     if cfg.has("hide_hotbar"):
         $HotBar.hide()
+
+func _on_overlay_press():
+    if _dialog:
+        _dialog.press_outside()

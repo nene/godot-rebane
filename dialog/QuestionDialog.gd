@@ -24,9 +24,13 @@ func _ready():
 func _create_answer_button(text):
     var btn = AnswerButton.instance()
     btn.text = text
-    btn.connect("pressed", self, "emit_signal", ["answer_press", text])
+    btn.connect("pressed", self, "_answer_press", [text])
     return btn
 
-func close():
+func _answer_press(answer: String):
+    emit_signal("answer_press", answer)
     emit_signal("close")
 
+# Don't close question dialog by outside click
+func press_outside():
+    pass
