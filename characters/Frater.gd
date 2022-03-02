@@ -28,3 +28,6 @@ func set_animation_direction(direction: Vector2):
 func _on_interact():
     var dialog = load("res://dialog/QuestionDialog.tscn").instance()
     InteractionState.show_dialog(dialog, {"hide_hotbar": true})
+
+func toggle_callout(visible: bool):
+    $Callout.visible = visible

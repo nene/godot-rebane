@@ -1,10 +1,12 @@
-[gd_scene load_steps=33 format=2]
+[gd_scene load_steps=40 format=2]
 
 [ext_resource path="res://characters/Frater.gd" type="Script" id=1]
 [ext_resource path="res://furniture/InteractBox.tscn" type="PackedScene" id=2]
 [ext_resource path="res://state_machine/frater/FraterStateMachine.gd" type="Script" id=3]
 [ext_resource path="res://state_machine/frater/MoveRandom.gd" type="Script" id=4]
 [ext_resource path="res://state_machine/frater/Explode.gd" type="Script" id=5]
+[ext_resource path="res://characters/callout/Callout.tscn" type="PackedScene" id=6]
+[ext_resource path="res://state_machine/frater/AskQuestion.gd" type="Script" id=7]
 
 [sub_resource type="Animation" id=1]
 length = 0.2
@@ -70,6 +72,21 @@ tracks/0/keys = {
 "values": [ 3.0 ]
 }
 
+[sub_resource type="Animation" id=37]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/path = NodePath("Callout:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( 0, -31 ) ]
+}
+
 [sub_resource type="Animation" id=5]
 length = 0.1
 loop = true
@@ -84,6 +101,22 @@ tracks/0/keys = {
 "transitions": PoolRealArray( 1 ),
 "update": 1,
 "values": [ 1.0 ]
+}
+
+[sub_resource type="Animation" id=47]
+resource_name = "callout"
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath("Callout:position")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.5 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector2( 0, -31 ), Vector2( 0, -35 ) ]
 }
 
 [sub_resource type="Animation" id=6]
@@ -222,17 +255,27 @@ min_space = Vector2( -1, -1.1 )
 max_space = Vector2( 1, 1.1 )
 blend_mode = 1
 
+[sub_resource type="AnimationNodeAnimation" id=48]
+animation = "callout"
+
 [sub_resource type="AnimationNodeStateMachineTransition" id=23]
 
 [sub_resource type="AnimationNodeStateMachineTransition" id=24]
+
+[sub_resource type="AnimationNodeStateMachineTransition" id=49]
+
+[sub_resource type="AnimationNodeStateMachineTransition" id=50]
 
 [sub_resource type="AnimationNodeStateMachine" id=33]
 states/Idle/node = SubResource( 17 )
 states/Idle/position = Vector2( 342, 73.5 )
 states/Walk/node = SubResource( 22 )
 states/Walk/position = Vector2( 559.5, 71.5 )
-transitions = [ "Idle", "Walk", SubResource( 23 ), "Walk", "Idle", SubResource( 24 ) ]
+states/callout/node = SubResource( 48 )
+states/callout/position = Vector2( 343, 187.5 )
+transitions = [ "Idle", "Walk", SubResource( 23 ), "Walk", "Idle", SubResource( 24 ), "Idle", "callout", SubResource( 49 ), "callout", "Idle", SubResource( 50 ) ]
 start_node = "Idle"
+graph_offset = Vector2( -28, -2 )
 
 [sub_resource type="AnimationNodeStateMachinePlayback" id=34]
 
@@ -248,7 +291,9 @@ anims/B = SubResource( 1 )
 anims/D = SubResource( 2 )
 anims/L = SubResource( 3 )
 anims/R = SubResource( 4 )
+anims/RESET = SubResource( 37 )
 anims/U = SubResource( 5 )
+anims/callout = SubResource( 47 )
 anims/greet = SubResource( 6 )
 anims/w-down = SubResource( 7 )
 anims/w-left = SubResource( 8 )
@@ -290,5 +335,12 @@ script = ExtResource( 4 )
 
 [node name="Explode" type="Node" parent="FraterStateMachine"]
 script = ExtResource( 5 )
+
+[node name="AskQuestion" type="Node" parent="FraterStateMachine"]
+script = ExtResource( 7 )
+
+[node name="Callout" parent="." instance=ExtResource( 6 )]
+visible = false
+position = Vector2( 0, -31 )
 
 [connection signal="interact" from="InteractBox" to="." method="_on_interact"]
