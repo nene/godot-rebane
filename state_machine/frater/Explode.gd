@@ -1,7 +1,7 @@
 extends State
 
 func enter():
-    var Explosion = load("res://Explosion.tscn")
+    var Explosion = load("res://characters/explosion/Explosion.tscn")
     var expl = Explosion.instance()
     var world = owner.get_tree().current_scene
     world.add_child(expl)
