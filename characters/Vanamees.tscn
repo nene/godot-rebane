@@ -8,6 +8,7 @@ load_path = "res://.import/cfe-ksv-karl.png-9a92193b5775b8e23b2a5fc92c059284.ste
 [sub_resource type="AnimationNodeStateMachinePlayback" id=2]
 
 [node name="Vanamees" instance=ExtResource( 1 )]
+character_name = "Vanamees"
 
 [node name="Sprite" parent="." index="1"]
 texture = SubResource( 1 )

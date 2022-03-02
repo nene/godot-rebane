@@ -8,6 +8,7 @@ load_path = "res://.import/cfe-ksv-sass.png-f615bf315f38db4a2c21f3ebef5650ae.ste
 [sub_resource type="AnimationNodeStateMachinePlayback" id=2]
 
 [node name="KsvSass" instance=ExtResource( 1 )]
+character_name = "vil! Aleksandr Popov"
 
 [node name="Sprite" parent="." index="1"]
 texture = SubResource( 1 )

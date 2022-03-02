@@ -8,6 +8,7 @@ load_path = "res://.import/cfe-ksv-kark.png-c2007de6108f19183243e6892cce0c32.ste
 [sub_resource type="AnimationNodeStateMachinePlayback" id=2]
 
 [node name="KsvKark" instance=ExtResource( 1 )]
+character_name = "vil! Raul Tõniste"
 
 [node name="Sprite" parent="." index="1"]
 texture = SubResource( 1 )

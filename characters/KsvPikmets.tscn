@@ -8,6 +8,7 @@ load_path = "res://.import/cfe-ksv-pikmets.png-71b182cc0e32dff5040247b682e9fa04.
 [sub_resource type="AnimationNodeStateMachinePlayback" id=2]
 
 [node name="KsvPikmets" instance=ExtResource( 1 )]
+character_name = "b!vil! Richard Pikmets"
 
 [node name="Sprite" parent="." index="1"]
 texture = SubResource( 1 )

@@ -5,6 +5,7 @@
 [sub_resource type="AnimationNodeStateMachinePlayback" id=1]
 
 [node name="KsvKoppel" instance=ExtResource( 1 )]
+character_name = "ksv! Jakob Koppel"
 
 [node name="AnimationTree" parent="." index="3"]
 parameters/playback = SubResource( 1 )
