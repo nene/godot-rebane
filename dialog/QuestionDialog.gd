@@ -2,6 +2,7 @@ extends Control
 
 # Triggered when dialog is closed
 signal close
+signal answer_press(text)
 
 var AnswerButton = preload("res://dialog/AnswerButton.tscn")
 
@@ -23,7 +24,9 @@ func _ready():
 func _create_answer_button(text):
     var btn = AnswerButton.instance()
     btn.text = text
+    btn.connect("pressed", self, "emit_signal", ["answer_press", text])
     return btn
 
 func close():
     emit_signal("close")
+
