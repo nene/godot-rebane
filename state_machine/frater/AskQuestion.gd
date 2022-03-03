@@ -1,6 +1,7 @@
 extends State
 
 var QuestionDialog = preload("res://dialog/QuestionDialog.tscn")
+var TextDialog = preload("res://dialog/TextDialog.tscn")
 
 func enter():
     owner.toggle_callout(true)
@@ -24,15 +25,12 @@ func _check_answer(answer: String):
     if answer == "must-sini-valge":
         _reply("Õige vastus, oled hästi tudeerinud!")
     else:
-        _reply("Vale puha!")
+        _reply("Vale puha!\nSinusugused rebasenärud tuleks panna konvendi põrandat küürima!")
 
 func _reply(text: String):
-    var dialog = QuestionDialog.instance()
+    var dialog = TextDialog.instance()
     dialog.character_name = owner.character_name
-    dialog.question = {
-        "text": text,
-        "options": ["OK"]
-    }
+    dialog.text = text
     dialog.connect("close", self, "_finish");
     InteractionState.show_dialog(dialog, {"hide_hotbar": true})
 
