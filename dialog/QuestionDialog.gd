@@ -1,6 +1,5 @@
 extends "res://dialog/CharacterDialog.gd"
 
-# Triggered when dialog is closed
 signal answer_press(text)
 
 var AnswerButton = preload("res://dialog/AnswerButton.tscn")
@@ -14,6 +13,7 @@ func _ready():
     $Question.text = question["text"]
     for op in question["options"]:
         $Answers.add_child(_create_answer_button(op))
+    $AnimationPlayer.play("text")
 
 func _create_answer_button(text):
     var btn = AnswerButton.instance()
