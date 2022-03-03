@@ -10,9 +10,9 @@ var question = {
 }
 
 func _ready():
-    $Question.text = question["question"]
+    $Content/Question.text = question["question"]
     for answer in question["answers"]:
-        $Answers.add_child(_create_answer_button(answer))
+        $Content/Answers.add_child(_create_answer_button(answer))
     $AnimationPlayer.play("text")
 
 func _create_answer_button(text):
