@@ -1,0 +1,43 @@
+[gd_scene load_steps=5 format=2]
+
+[ext_resource path="res://fonts/NineteenNinetySix-improved.ttf" type="DynamicFontData" id=1]
+[ext_resource path="res://dialog/CharacterDialog.gd" type="Script" id=2]
+[ext_resource path="res://dialog/RibbonFrame.tscn" type="PackedScene" id=3]
+
+[sub_resource type="DynamicFont" id=1]
+size = 18
+font_data = ExtResource( 1 )
+
+[node name="CharacterDialog" type="Control"]
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+margin_left = -89.0
+margin_top = -111.0
+margin_right = 89.0
+rect_scale = Vector2( 1.00132, 1 )
+script = ExtResource( 2 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="RibbonFrame" parent="." instance=ExtResource( 3 )]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_right = 0.0
+margin_bottom = 0.0
+
+[node name="CharacterName" type="Label" parent="."]
+margin_left = 15.0
+margin_top = 15.0
+margin_right = 77.0
+margin_bottom = 34.0
+rect_scale = Vector2( 0.5, 0.5 )
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+custom_colors/font_color_shadow = Color( 0.560784, 0.337255, 0.231373, 1 )
+custom_fonts/font = SubResource( 1 )
+text = "ksv! N N"
+__meta__ = {
+"_edit_use_anchors_": false
+}
