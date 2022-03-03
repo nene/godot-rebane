@@ -14,18 +14,16 @@ func handle_input(event):
 func _ask_question():
     var dialog = QuestionDialog.instance()
     dialog.character_name = owner.character_name
-    dialog.question = {
-        "text": "Mis on Ugala värvid?",
-        "options": ["sini-must-valge", "must-sini-valge", "puna-rohe-must", "valge-must-sinine"]
-    }
-    dialog.connect("answer_press", self, "_check_answer", [], CONNECT_DEFERRED);
+    var question = TerminologyQuestion.randomQuestion()
+    dialog.question = question
+    dialog.connect("answer_press", self, "_check_answer", [question["correctAnswer"]], CONNECT_DEFERRED);
     InteractionState.show_dialog(dialog, {"hide_hotbar": true})
 
-func _check_answer(answer: String):
-    if answer == "must-sini-valge":
+func _check_answer(answer: String, correct_answer: String):
+    if answer == correct_answer:
         _reply("Õige vastus, oled hästi tudeerinud!")
     else:
-        _reply("Vale puha!\nSinusugused rebasenärud tuleks panna konvendi põrandat küürima!")
+        _reply("Vale puha!\nÕige vastus on: " + correct_answer + "\nToo endale shoppen vett.")
 
 func _reply(text: String):
     var dialog = TextDialog.instance()

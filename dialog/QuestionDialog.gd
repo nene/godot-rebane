@@ -5,14 +5,14 @@ signal answer_press(text)
 var AnswerButton = preload("res://dialog/AnswerButton.tscn")
 
 var question = {
-    "text": "",
-    "options": [],
+    "question": "",
+    "answers": [],
 }
 
 func _ready():
-    $Question.text = question["text"]
-    for op in question["options"]:
-        $Answers.add_child(_create_answer_button(op))
+    $Question.text = question["question"]
+    for answer in question["answers"]:
+        $Answers.add_child(_create_answer_button(answer))
     $AnimationPlayer.play("text")
 
 func _create_answer_button(text):

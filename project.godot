@@ -150,6 +150,7 @@ Fp="*res://Fp.gd"
 InteractionState="*res://InteractionState.gd"
 CurrentLocation="*res://CurrentLocation.gd"
 Global="*res://Global.gd"
+TerminologyQuestion="*res://questions/TerminologyQuestion.gd"
 
 [display]
 
