@@ -9,7 +9,7 @@ var character_name = ""
 var mouse_cursor: MouseCursor
 
 func _ready():
-    $CharacterName.text = character_name
+    pass
 
 func press_outside():
     pass

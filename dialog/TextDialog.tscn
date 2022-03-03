@@ -41,11 +41,11 @@ tracks/0/keys = {
 [node name="TextDialog" instance=ExtResource( 1 )]
 script = ExtResource( 3 )
 
-[node name="Text" type="RichTextLabel" parent="." index="2"]
-margin_left = 16.0
-margin_top = 26.0
-margin_right = 429.0
-margin_bottom = 176.0
+[node name="Text" type="RichTextLabel" parent="." index="3"]
+margin_left = 99.0
+margin_top = 17.0
+margin_right = 475.0
+margin_bottom = 219.0
 rect_scale = Vector2( 0.5, 0.5 )
 custom_colors/default_color = Color( 0, 0, 0, 1 )
 custom_colors/font_color_shadow = Color( 0.560784, 0.337255, 0.231373, 1 )
@@ -57,6 +57,6 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="." index="3"]
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." index="4"]
 anims/RESET = SubResource( 2 )
 anims/text = SubResource( 3 )

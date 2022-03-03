@@ -65,11 +65,11 @@ tracks/1/keys = {
 [node name="QuestionDialog" instance=ExtResource( 1 )]
 script = ExtResource( 4 )
 
-[node name="Question" type="Label" parent="." index="2"]
-margin_left = 15.9789
-margin_top = 26.0
-margin_right = 241.979
-margin_bottom = 45.0
+[node name="Question" type="Label" parent="." index="3"]
+margin_left = 101.866
+margin_top = 17.0
+margin_right = 327.866
+margin_bottom = 36.0
 rect_scale = Vector2( 0.5, 0.5 )
 custom_colors/font_color = Color( 0, 0, 0, 1 )
 custom_colors/font_color_shadow = Color( 0.560784, 0.337255, 0.231373, 1 )
@@ -80,20 +80,20 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="Answers" type="VBoxContainer" parent="." index="3"]
+[node name="Answers" type="VBoxContainer" parent="." index="4"]
 anchor_left = 0.5
 anchor_top = 1.0
 anchor_right = 0.5
 anchor_bottom = 1.0
-margin_left = -104.0
-margin_top = -73.0
-margin_right = 309.0
-margin_bottom = 53.0
+margin_left = -52.6305
+margin_top = -101.0
+margin_right = 325.37
+margin_bottom = 77.0
 rect_scale = Vector2( 0.5, 0.5 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="." index="4"]
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." index="5"]
 anims/RESET = SubResource( 2 )
 anims/text = SubResource( 3 )
