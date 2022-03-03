@@ -12,9 +12,9 @@ font_data = ExtResource( 2 )
 script = ExtResource( 4 )
 
 [node name="Question" type="Label" parent="." index="2"]
-margin_left = 15.0
+margin_left = 15.9789
 margin_top = 26.0
-margin_right = 241.0
+margin_right = 241.979
 margin_bottom = 45.0
 rect_scale = Vector2( 0.5, 0.5 )
 custom_colors/font_color = Color( 0, 0, 0, 1 )
@@ -30,9 +30,9 @@ anchor_left = 0.5
 anchor_top = 1.0
 anchor_right = 0.5
 anchor_bottom = 1.0
-margin_left = -74.0
+margin_left = -104.0
 margin_top = -73.0
-margin_right = 221.0
+margin_right = 309.0
 margin_bottom = 53.0
 rect_scale = Vector2( 0.5, 0.5 )
 __meta__ = {
