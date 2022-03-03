@@ -1,5 +1,7 @@
 extends "res://dialog/CharacterDialog.gd"
 
+var AnswerButton = preload("res://dialog/AnswerButton.tscn")
+
 signal answer_press(text)
 
 var question = {
@@ -8,15 +10,15 @@ var question = {
 }
 
 func _ready():
+    $Content/Answers.hide()
     $Content/Question.text = question["question"]
     for answer in question["answers"]:
         $Content/Answers.add_child(_create_answer_button(answer))
     $AnimationPlayer.play("text")
 
 func _create_answer_button(text):
-    var btn = Button.new()
-    btn.align = Button.ALIGN_LEFT
-    btn.text = text
+    var btn = AnswerButton.instance()
+    btn.inner_text = text
     btn.connect("pressed", self, "_answer_press", [text])
     return btn
 
