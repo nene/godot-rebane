@@ -4,16 +4,16 @@ func randomQuestion() -> Dictionary:
     var question = _pickRandom(questions)
     return {
         "question": question["question"],
-        "answers": _shuffleAnswers(question["correctAnswer"], question["wrongAnswers"]),
-        "correctAnswer": question["correctAnswer"],
+        "answers": _shuffleAnswers(question["correct_answer"], question["wrong_answers"]),
+        "correct_answer": question["correct_answer"],
     }
 
 func _pickRandom(array: Array):
     return array[randi() % array.size()]
 
-func _shuffleAnswers(correctAnswer: String, wrongAnswers: Array) -> Array:
-    var answers = wrongAnswers.duplicate()
-    answers.append(correctAnswer)
+func _shuffleAnswers(correct_answer: String, wrong_answers: Array) -> Array:
+    var answers = wrong_answers.duplicate()
+    answers.append(correct_answer)
     answers.shuffle()
     return answers
 
@@ -21,8 +21,8 @@ var questions = [
     {
         "level": 0,
         "question": "Kes sa oled?",
-        "correctAnswer": "Olen korp! Fraternitas Estica uus rebane.",
-        "wrongAnswers": [
+        "correct_answer": "Olen korp! Fraternitas Estica uus rebane.",
+        "wrong_answers": [
             "Olen korp! Fraternicas Estica uus rebane.",
             "Olen korp! Faternitas Estika uus rebane.",
             "Olen korp! Faterlitas Estika uus rebane.",
@@ -31,8 +31,8 @@ var questions = [
     {
         "level": 1,
         "question": "Kes on rebane?",
-        "correctAnswer": "Tegevkonvendi liige, kel vanust alla kahe semestri.",
-        "wrongAnswers": [
+        "correct_answer": "Tegevkonvendi liige, kel vanust alla kahe semestri.",
+        "wrong_answers": [
             "Konvendi kandideeriv liige kel pole värve.",
             "Konvendi liige, kel on raskusi sirkli joonistamisega.",
             "Punase kasukaga metsik kanavaras.",
@@ -41,8 +41,8 @@ var questions = [
     {
         "level": 1,
         "question": "Kes on jänes?",
-        "correctAnswer": "Pikkade kõrvadega väikeuluk.",
-        "wrongAnswers": [
+        "correct_answer": "Pikkade kõrvadega väikeuluk.",
+        "wrong_answers": [
             "vil! Siili suurim sõber.",
             "Mitte-mensurandist kaasvõitlaja.",
             "Põhjuseta lahkunuks arvatud liige.",
@@ -51,8 +51,8 @@ var questions = [
     {
         "level": 1,
         "question": "Kes on kaasvõitleja?",
-        "correctAnswer": "Tegevkonvendi värvikandja, kes käib ülikoolis ja on vanem kui rebane.",
-        "wrongAnswers": [
+        "correct_answer": "Tegevkonvendi värvikandja, kes käib ülikoolis ja on vanem kui rebane.",
+        "wrong_answers": [
             "Korporatsiooni liige, kel on värvide kandmise õigus.",
             "Auvahekorra vastaspool (mitte kuramaator).",
             "Konvendi tegevliige.",
@@ -61,8 +61,8 @@ var questions = [
     {
         "level": 1,
         "question": "Mis on komitaat?",
-        "correctAnswer": "Äsja ülikooli lõpetanud fraaterite korraldatud pidu.",
-        "wrongAnswers": [
+        "correct_answer": "Äsja ülikooli lõpetanud fraaterite korraldatud pidu.",
+        "wrong_answers": [
             "Fraateri matustele järgnev koosviibimine konvendis.",
             "Kohustuslik rebaste vehklemistund.",
             "Tervist taastav koosviibimine peale kommerssi või muud suuremat pidu.",
@@ -71,8 +71,8 @@ var questions = [
     {
         "level": 1,
         "question": "Mis on lakkimine?",
-        "correctAnswer": "Karistuseks määratud värvide kandmise keeld.",
-        "wrongAnswers": [
+        "correct_answer": "Karistuseks määratud värvide kandmise keeld.",
+        "wrong_answers": [
             "Eestseisuse liikmeks valimine.",
             "Rebasest noormajaks saamise rituaal.",
             "Akadeemilisele emale õllest kangema joogiga sisse andmine.",
@@ -81,8 +81,8 @@ var questions = [
     {
         "level": 1,
         "question": "Mis on stehhimine?",
-        "correctAnswer": "Rapiiriteraga tekli läbistamine vennastuspeol.",
-        "wrongAnswers": [
+        "correct_answer": "Rapiiriteraga tekli läbistamine vennastuspeol.",
+        "wrong_answers": [
             "Karistus liikmemaksu tasumata jätmise eest.",
             "Karistuseks määratud värvide kandmise keeld.",
             "Vilistlaskokku vastuvõtmine.",
@@ -91,8 +91,8 @@ var questions = [
     {
         "level": 1,
         "question": "Mis on juhtsimine?",
-        "correctAnswer": "Karistus liikmemaksu tasumata jätmise eest.",
-        "wrongAnswers": [
+        "correct_answer": "Karistus liikmemaksu tasumata jätmise eest.",
+        "wrong_answers": [
             "Ühest kuni 99 aastaks konvendist välja arvamine.",
             "Rapiiriteraga tekli läbistamine vennastuspeol.",
             "Rebase põhjuseta lahkunuks lugemine.",
@@ -101,8 +101,8 @@ var questions = [
     {
         "level": 1,
         "question": "Kes on ruktoonus?",
-        "correctAnswer": "Isik kellel on korporatsiooniga läbikäimine keelatud.",
-        "wrongAnswers": [
+        "correct_answer": "Isik kellel on korporatsiooniga läbikäimine keelatud.",
+        "wrong_answers": [
             "Korp! Ruktonia liige.",
             "Värske värvikandja.",
             "Värvide saamise üle otsustava koosoleku liige.",
@@ -111,8 +111,8 @@ var questions = [
     {
         "level": 1,
         "question": "Mis on rebaste raseerimise õigus?",
-        "correctAnswer": "Rebaste õigus vennastuse ajal veini pihta panna.",
-        "wrongAnswers": [
+        "correct_answer": "Rebaste õigus vennastuse ajal veini pihta panna.",
+        "wrong_answers": [
             "Vanamehe õigus rebasteid ebasobiliku soengu eest karistada.",
             "Õigus peale värvide saamist akadeemilisele emale sisse anda.",
             "Rebaste õigus õllelauas magama jäänud fraateril habe maha ajada.",
@@ -121,8 +121,8 @@ var questions = [
     {
         "level": 1,
         "question": "Mis on trisna?",
-        "correctAnswer": "Fraateri matustele järgnev koosviibimine konvendis.",
-        "wrongAnswers": [
+        "correct_answer": "Fraateri matustele järgnev koosviibimine konvendis.",
+        "wrong_answers": [
             "Pidulik rongkäik volbri ja ülikooli aastapäeva ajal.",
             "Äsja ülikooli lõpetanud fraaterite korraldatud pidu.",
             "Korporatsioonist määramata ajaks välja heitmine.",
@@ -131,8 +131,8 @@ var questions = [
     {
         "level": 1,
         "question": "Mis on pluserdamine?",
-        "correctAnswer": "Konvendi vara tahtlik lõhkumine.",
-        "wrongAnswers": [
+        "correct_answer": "Konvendi vara tahtlik lõhkumine.",
+        "wrong_answers": [
             "Karistus liikmemaksu tasumata jätmise eest.",
             "Con-coetorite ühine laulmine peale vennastuspidu.",
             "Metsikute külaliste konventi toomine.",
@@ -141,8 +141,8 @@ var questions = [
     {
         "level": 1,
         "question": "Mis on kaatripäev?",
-        "correctAnswer": "Tervist taastav koosviibimine peale kommerssi või muud suuremat pidu.",
-        "wrongAnswers": [
+        "correct_answer": "Tervist taastav koosviibimine peale kommerssi või muud suuremat pidu.",
+        "wrong_answers": [
             "Fraateri matustele järgnev koosviibimine konvendis.",
             "Päev, mil konvendis on lubatud raha peale kaartide mängimine.",
             "Iga-aastane laevasõit emajõel.",
@@ -151,8 +151,8 @@ var questions = [
     {
         "level": 1,
         "question": "Mis on comment suspendu?",
-        "correctAnswer": "Ootele pandud auvahekord.",
-        "wrongAnswers": [
+        "correct_answer": "Ootele pandud auvahekord.",
+        "wrong_answers": [
             "Alkoholi tarbimise keeld.",
             "Luba õllelauast lahkuda.",
             "Vaikimiskohustus.",
@@ -161,8 +161,8 @@ var questions = [
     {
         "level": 1,
         "question": "Mis on küüneproov?",
-        "correctAnswer": "Šoppeni tühjuse kontroll.",
-        "wrongAnswers": [
+        "correct_answer": "Šoppeni tühjuse kontroll.",
+        "wrong_answers": [
             "Kaasvõitlejate maniküüri ülevaatus.",
             "Rebasteatri proovietendus.",
             "Laua ettevalmistus enne kvarterimängu viset.",
@@ -171,8 +171,8 @@ var questions = [
     {
         "level": 1,
         "question": "Mis on coetus-šlukk?",
-        "correctAnswer": "Con-coetorite ühine laulmine peale vennastuspidu.",
-        "wrongAnswers": [
+        "correct_answer": "Con-coetorite ühine laulmine peale vennastuspidu.",
+        "wrong_answers": [
             "Eriline jook, mida valmistatakse põleva piirituse ja laulu saatel.",
             "Tervele coetusele sisse andmine.",
             "Coetuse liikmete ühte hoidmise põhimõte.",
@@ -181,8 +181,8 @@ var questions = [
     {
         "level": 2,
         "question": "Mitmendat semestrit käib noormaja?",
-        "correctAnswer": "3. ja 4. semestrit.",
-        "wrongAnswers": [
+        "correct_answer": "3. ja 4. semestrit.",
+        "wrong_answers": [
             "1. ja 2. semestrit.",
             "5. ja 6. semestrit.",
             "7. ja 8. semestrit.",
@@ -191,8 +191,8 @@ var questions = [
     {
         "level": 2,
         "question": "Kuidas nimetatakse 6. semestrit liige olijat?",
-        "correctAnswer": "Vanamaja.",
-        "wrongAnswers": [
+        "correct_answer": "Vanamaja.",
+        "wrong_answers": [
             "Väga-vanamaja.",
             "Noormaja.",
             "Sammalpea.",
@@ -201,8 +201,8 @@ var questions = [
     {
         "level": 2,
         "question": "Kuidas nimetatakse 7. semestrit liige olijat.",
-        "correctAnswer": "Väga-vanamaja.",
-        "wrongAnswers": [
+        "correct_answer": "Väga-vanamaja.",
+        "wrong_answers": [
             "Vanamaja.",
             "Väga-sammalpea.",
             "Sammalpea.",
@@ -211,8 +211,8 @@ var questions = [
     {
         "level": 2,
         "question": "Mitmendat semestrit käib sammalpea?",
-        "correctAnswer": "9. ja 10. semestrit.",
-        "wrongAnswers": [
+        "correct_answer": "9. ja 10. semestrit.",
+        "wrong_answers": [
             "7. ja 8. semestrit.",
             "5. ja 6. semestrit.",
             "3. ja 4. semestrit.",
@@ -221,8 +221,8 @@ var questions = [
     {
         "level": 2,
         "question": "Kuidas nimetatakse 11. semestrit liige olijat.",
-        "correctAnswer": "Väga-sammalpea.",
-        "wrongAnswers": [
+        "correct_answer": "Väga-sammalpea.",
+        "wrong_answers": [
             "Sammalpea.",
             "Kuldrebane.",
             "Vanamees.",
@@ -231,8 +231,8 @@ var questions = [
     {
         "level": 2,
         "question": "Kui vana on kuldrebane?",
-        "correctAnswer": "13 või rohkem semestrit.",
-        "wrongAnswers": [
+        "correct_answer": "13 või rohkem semestrit.",
+        "wrong_answers": [
             "12 või rohkem semestrit.",
             "10 või rohkem semestrit.",
             "11 või rohkem semestrit.",

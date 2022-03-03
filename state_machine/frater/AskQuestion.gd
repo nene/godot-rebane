@@ -16,7 +16,7 @@ func _ask_question():
     dialog.character_name = owner.character_name
     var question = TerminologyQuestion.randomQuestion()
     dialog.question = question
-    dialog.connect("answer_press", self, "_check_answer", [question["correctAnswer"]], CONNECT_DEFERRED);
+    dialog.connect("answer_press", self, "_check_answer", [question["correct_answer"]], CONNECT_DEFERRED);
     InteractionState.show_dialog(dialog, {"hide_hotbar": true})
 
 func _check_answer(answer: String, correct_answer: String):
