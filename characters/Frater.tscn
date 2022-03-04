@@ -1,4 +1,4 @@
-[gd_scene load_steps=40 format=2]
+[gd_scene load_steps=41 format=2]
 
 [ext_resource path="res://characters/Frater.gd" type="Script" id=1]
 [ext_resource path="res://furniture/InteractBox.tscn" type="PackedScene" id=2]
@@ -7,6 +7,7 @@
 [ext_resource path="res://state_machine/frater/Explode.gd" type="Script" id=5]
 [ext_resource path="res://characters/callout/Callout.tscn" type="PackedScene" id=6]
 [ext_resource path="res://state_machine/frater/AskQuestion.gd" type="Script" id=7]
+[ext_resource path="res://characters/sass-portrait.png" type="Texture" id=8]
 
 [sub_resource type="Animation" id=1]
 length = 0.2
@@ -285,6 +286,7 @@ height = 18.0
 
 [node name="Frater" type="KinematicBody2D"]
 script = ExtResource( 1 )
+photo = ExtResource( 8 )
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 anims/B = SubResource( 1 )

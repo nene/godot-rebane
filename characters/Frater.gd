@@ -3,6 +3,8 @@ extends KinematicBody2D
 const Direction = preload("res://Direction.gd")
 
 export var character_name = ""
+export(Resource) var photo
+
 onready var animationState = $AnimationTree.get("parameters/playback")
 
 func _ready():

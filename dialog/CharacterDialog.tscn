@@ -26,7 +26,7 @@ anchor_bottom = 1.0
 margin_right = 0.0
 margin_bottom = 0.0
 
-[node name="Sass-portrait" type="Sprite" parent="."]
+[node name="Photo" type="Sprite" parent="."]
 position = Vector2( 54.9275, 64 )
 texture = ExtResource( 5 )
 

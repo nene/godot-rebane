@@ -13,7 +13,7 @@ func handle_input(event):
 
 func _ask_question():
     var dialog = QuestionDialog.instance()
-    dialog.character_name = owner.character_name
+    dialog.photo = owner.photo
     var question = TerminologyQuestion.randomQuestion()
     dialog.question = question
     dialog.connect("answer_press", self, "_check_answer", [question["correct_answer"]], CONNECT_DEFERRED);
@@ -27,7 +27,7 @@ func _check_answer(answer: String, correct_answer: String):
 
 func _reply(text: String):
     var dialog = TextDialog.instance()
-    dialog.character_name = owner.character_name
+    dialog.photo = owner.photo
     dialog.text = text
     dialog.connect("close", self, "_finish");
     InteractionState.show_dialog(dialog, {"hide_hotbar": true})
