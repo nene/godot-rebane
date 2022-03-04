@@ -10,11 +10,12 @@ var question = {
 }
 
 func _ready():
-    $Content/Answers.hide()
     $Content/Question.text = question["question"]
+    $AnimationPlayer.play("text")
+
+func _show_answer_buttons():
     for answer in question["answers"]:
         $Content/Answers.add_child(_create_answer_button(answer))
-    $AnimationPlayer.play("text")
 
 func _create_answer_button(text):
     var btn = AnswerButton.instance()
