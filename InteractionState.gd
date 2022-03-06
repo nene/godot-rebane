@@ -37,6 +37,10 @@ func _is_interactable() -> bool:
 func _is_area_near_player(area: Dictionary) -> bool:
     return _near_player_areas.has(area["area"])
 
+# Registers area as having been clicked.
+# All overlapping areas get a click event simultaneously.
+# We'll sort out the topmost area that was actually clicked
+# in _process() function below, which gets called in the next idle frame.
 func add_pending_click(area: Dictionary):
     _clicked_areas.append(area)
 
