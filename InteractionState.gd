@@ -4,20 +4,20 @@ var _hovered_areas = {}
 var _near_player_areas = {}
 var _clicked_areas = []
 
-func enter_mouse(area: Dictionary):
-    _hovered_areas[area["area"]] = area
+func enter_mouse(area: Area2D):
+    _hovered_areas[area] = true
     _decide_interact_state()
 
-func exit_mouse(area: Dictionary):
-    _hovered_areas.erase(area["area"])
+func exit_mouse(area: Area2D):
+    _hovered_areas.erase(area)
     _decide_interact_state()
 
-func enter_player(area: Dictionary):
-    _near_player_areas[area["area"]] = area
+func enter_player(area: Area2D):
+    _near_player_areas[area] = true
     _decide_interact_state()
 
-func exit_player(area: Dictionary):
-    _near_player_areas.erase(area["area"])
+func exit_player(area: Area2D):
+    _near_player_areas.erase(area)
     _decide_interact_state()
 
 func _decide_interact_state():
@@ -29,17 +29,17 @@ func _decide_interact_state():
 func _is_interactable() -> bool:
     if _hovered_areas.empty():
         return false
-    var topmost = _topmost(_hovered_areas.values())
-    return _is_area_near_player(topmost) && topmost["area"].is_interactable()
+    var topmost = _topmost(_hovered_areas.keys())
+    return _is_area_near_player(topmost) && topmost.is_interactable()
 
-func _is_area_near_player(area: Dictionary) -> bool:
-    return _near_player_areas.has(area["area"])
+func _is_area_near_player(area: Area2D) -> bool:
+    return _near_player_areas.has(area)
 
 # Registers area as having been clicked.
 # All overlapping areas get a click event simultaneously.
 # We'll sort out the topmost area that was actually clicked
 # in _process() function below, which gets called in the next idle frame.
-func add_pending_click(area: Dictionary):
+func add_pending_click(area: Area2D):
     _clicked_areas.append(area)
 
 func _process(delta: float):
@@ -47,14 +47,14 @@ func _process(delta: float):
         return
 
     var topmost = _topmost(_clicked_areas)
-    if _is_area_near_player(topmost) && topmost["area"].is_interactable():
-        topmost["area"].trigger_interact()
+    if _is_area_near_player(topmost) && topmost.is_interactable():
+        topmost.trigger_interact()
 
     _clicked_areas.clear()
 
-func _topmost(areas: Array) -> Dictionary:
-    var topmost: Dictionary = areas.front()
+func _topmost(areas: Array) -> Area2D:
+    var topmost: Area2D = areas.front()
     for area in areas:
-        if area["y"] > topmost["y"]:
+        if area.y_position() > topmost.y_position():
             topmost = area
     return topmost
