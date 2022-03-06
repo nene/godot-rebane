@@ -7,7 +7,7 @@
 [ext_resource path="res://state_machine/frater/Explode.gd" type="Script" id=5]
 [ext_resource path="res://characters/callout/Callout.tscn" type="PackedScene" id=6]
 [ext_resource path="res://state_machine/frater/AskQuestion.gd" type="Script" id=7]
-[ext_resource path="res://characters/sass-portrait.png" type="Texture" id=8]
+[ext_resource path="res://characters/default-portrait.png" type="Texture" id=8]
 
 [sub_resource type="Animation" id=1]
 length = 0.2
