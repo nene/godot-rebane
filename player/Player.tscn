@@ -1,9 +1,10 @@
-[gd_scene load_steps=39 format=2]
+[gd_scene load_steps=41 format=2]
 
 [ext_resource path="res://state_machine/player/PlayerStateMachine.gd" type="Script" id=1]
 [ext_resource path="res://player/Player.gd" type="Script" id=2]
 [ext_resource path="res://state_machine/player/Greet.gd" type="Script" id=3]
 [ext_resource path="res://state_machine/player/Move.gd" type="Script" id=4]
+[ext_resource path="res://furniture/InteractBox.tscn" type="PackedScene" id=5]
 
 [sub_resource type="StreamTexture" id=40]
 load_path = "res://.import/cfe-reb.png-ca8881f8e3edad7339bb620b88f46909.stex"
@@ -325,6 +326,10 @@ start_node = "Idle"
 [sub_resource type="CircleShape2D" id=44]
 radius = 20.0
 
+[sub_resource type="CapsuleShape2D" id=45]
+radius = 7.0
+height = 18.0
+
 [node name="Player" type="KinematicBody2D"]
 collision_layer = 9
 collision_mask = 9
@@ -382,3 +387,9 @@ script = ExtResource( 4 )
 
 [node name="Greet" type="Node" parent="PlayerStateMachine"]
 script = ExtResource( 3 )
+
+[node name="InteractBox" parent="." instance=ExtResource( 5 )]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="InteractBox"]
+position = Vector2( 0, -14 )
+shape = SubResource( 45 )
