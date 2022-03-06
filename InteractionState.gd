@@ -1,8 +1,5 @@
 extends Node
 
-signal allow_interact
-signal forbid_interact
-
 var _hovered_areas = {}
 var _near_player_areas = {}
 var _clicked_areas = []
@@ -25,9 +22,9 @@ func exit_player(area: Dictionary):
 
 func _decide_interact_state():
     if _is_interactable():
-        emit_signal("allow_interact")
+        GameEvents.emit_signal("cursor_allow_interact")
     else:
-        emit_signal("forbid_interact")
+        GameEvents.emit_signal("cursor_forbid_interact")
 
 func _is_interactable() -> bool:
     if _hovered_areas.empty():
