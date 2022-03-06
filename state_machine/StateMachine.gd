@@ -83,3 +83,6 @@ func transition(transition_type: String, state_name: String = ""):
     emit_signal("state_changed", _current_state)
 
     _current_state.enter()
+
+func is_interactable() -> bool:
+    return _current_state.is_interactable()

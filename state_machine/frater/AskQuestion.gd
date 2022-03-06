@@ -7,6 +7,9 @@ func enter():
     owner.toggle_callout(true)
     owner.animationState.travel("callout")
 
+func is_interactable():
+    return true
+
 func handle_input(event):
     if event is InteractEvent:
         _ask_question()

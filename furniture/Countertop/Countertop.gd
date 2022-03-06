@@ -11,3 +11,6 @@ func _on_interact():
     var dialog = load("res://furniture/Countertop/CountertopInventoryDialog.tscn").instance()
     dialog.inventory = self._inventory
     GameEvents.emit_signal("show_inventory_dialog", dialog)
+
+func is_interactable():
+    return true

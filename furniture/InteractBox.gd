@@ -26,3 +26,6 @@ func _on_area_exited(area):
 
 func _area_with_y() -> Dictionary:
     return {"area": self, "y": _owner.position.y}
+
+func is_interactable() -> bool:
+    return _owner.has_method("is_interactable") && _owner.is_interactable()

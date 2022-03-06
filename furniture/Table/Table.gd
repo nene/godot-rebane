@@ -40,3 +40,6 @@ func _is_ocean(group: GameItemGroup) -> bool:
 
 func _item_count(group: GameItemGroup) -> int:
     return group.count()
+
+func is_interactable():
+    return true

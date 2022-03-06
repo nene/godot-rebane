@@ -27,3 +27,7 @@ func physics_update(_delta):
 
 func on_animation_finished(_anim_name):
     pass
+
+
+func is_interactable() -> bool:
+    return false

@@ -29,7 +29,8 @@ func _decide_interact_state():
 func _is_interactable() -> bool:
     if _hovered_areas.empty():
         return false
-    return _is_area_near_player(_topmost(_hovered_areas.values()))
+    var topmost = _topmost(_hovered_areas.values())
+    return _is_area_near_player(topmost) && topmost["area"].is_interactable()
 
 func _is_area_near_player(area: Dictionary) -> bool:
     return _near_player_areas.has(area["area"])
@@ -46,7 +47,7 @@ func _process(delta: float):
         return
 
     var topmost = _topmost(_clicked_areas)
-    if _is_area_near_player(topmost):
+    if _is_area_near_player(topmost) && topmost["area"].is_interactable():
         topmost["area"].trigger_interact()
 
     _clicked_areas.clear()
