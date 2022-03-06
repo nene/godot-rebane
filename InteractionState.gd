@@ -10,23 +10,23 @@ var interactable_areas = {}
 
 var _clicked_areas = []
 
-func enter_mouse(area):
+func enter_mouse(area: Area2D):
     hovered_areas[area] = true
     _decide_interact_state(area)
 
-func exit_mouse(area):
+func exit_mouse(area: Area2D):
     hovered_areas.erase(area)
     _decide_interact_state(area)
 
-func enter_player(area):
+func enter_player(area: Area2D):
     near_player_areas[area] = true
     _decide_interact_state(area)
 
-func exit_player(area):
+func exit_player(area: Area2D):
     near_player_areas.erase(area)
     _decide_interact_state(area)
 
-func _decide_interact_state(area):
+func _decide_interact_state(area: Area2D):
     var was_interactable = !interactable_areas.empty()
     if hovered_areas.has(area) && near_player_areas.has(area):
         interactable_areas[area] = true
@@ -39,13 +39,13 @@ func _decide_interact_state(area):
     elif !was_interactable && is_interactable:
         emit_signal("allow_interact")
 
-func show_dialog(dialog, cfg: Dictionary = {}):
+func show_dialog(dialog: Control, cfg: Dictionary = {}):
     emit_signal("show_dialog", dialog, cfg)
 
-func add_pending_click(area, z_index):
+func add_pending_click(area: Area2D, z_index: int):
     _clicked_areas.append({"area": area, "z": z_index})
 
-func _process(delta):
+func _process(delta: float):
     if _clicked_areas.empty():
         return
 
