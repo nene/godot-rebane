@@ -17,7 +17,7 @@ func _ask_question():
     var question = TerminologyQuestion.randomQuestion()
     dialog.question = question
     dialog.connect("answer_press", self, "_check_answer", [question["correct_answer"]], CONNECT_DEFERRED);
-    DialogState.show_dialog(dialog, {"hide_hotbar": true})
+    GameEvents.emit_signal("show_dialog", dialog)
 
 func _check_answer(answer: String, correct_answer: String):
     if answer == correct_answer:
@@ -30,7 +30,7 @@ func _reply(text: String):
     dialog.photo = owner.photo
     dialog.text = text
     dialog.connect("close", self, "_finish");
-    DialogState.show_dialog(dialog, {"hide_hotbar": true})
+    GameEvents.emit_signal("show_dialog", dialog)
 
 func _finish():
     owner.toggle_callout(false)

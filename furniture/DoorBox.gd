@@ -9,4 +9,4 @@ func _on_door_entered(body):
     # physics has finished
     yield(get_tree(), "physics_frame")
     
-    CurrentLocation.change(to_location)
+    GameEvents.emit_signal("change_location", to_location)

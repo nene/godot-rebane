@@ -9,7 +9,7 @@ var _current_location_name = Global.Location.CFE_CELLAR
 onready var _current_location: Location = _locations[_current_location_name]
 
 func _ready():
-    CurrentLocation.connect("change", self, "_change_location")
+    GameEvents.connect("change_location", self, "_change_location")
 
 func _change_location(location_name: int):
     var old_location_name = _current_location_name

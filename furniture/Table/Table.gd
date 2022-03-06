@@ -18,7 +18,7 @@ func _ready():
 func _on_interact():
     var dialog = load("res://furniture/Table/TableInventoryDialog.tscn").instance()
     dialog.inventory = self._inventory
-    DialogState.show_dialog(dialog)
+    GameEvents.emit_signal("show_inventory_dialog", dialog)
 
 func _update_table_ocean_display():
     var count = _ocean_count()

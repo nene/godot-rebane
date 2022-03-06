@@ -12,7 +12,8 @@ func _ready():
     var hotbar_inventory = Inventory.new(hotbar_items, 8)
     $HotBar/InventoryGrid.inventory = hotbar_inventory
     $HotBar/InventoryGrid.mouse_cursor = $MouseCursor
-    DialogState.connect("show_dialog", self, "_show_dialog")
+    GameEvents.connect("show_dialog", self, "_show_dialog", [{"hide_hotbar": true}])
+    GameEvents.connect("show_inventory_dialog", self, "_show_dialog")
 
 func _hide_dialog():
     $Dialogs.remove_child(_dialog)
@@ -21,7 +22,7 @@ func _hide_dialog():
     get_tree().paused = false
     $HotBar.show()
 
-func _show_dialog(dialog, cfg: Dictionary):
+func _show_dialog(dialog, cfg: Dictionary = {}):
     _dialog = dialog
     _dialog.mouse_cursor = $MouseCursor
     _dialog.connect("close", self, "_hide_dialog")
