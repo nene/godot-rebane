@@ -3,25 +3,24 @@ extends Node
 signal allow_interact
 signal forbid_interact
 
-var hovered_areas = {}
-var near_player_areas = {}
-
+var _hovered_areas = {}
+var _near_player_areas = {}
 var _clicked_areas = []
 
 func enter_mouse(area: Dictionary):
-    hovered_areas[area["area"]] = area
+    _hovered_areas[area["area"]] = area
     _decide_interact_state()
 
 func exit_mouse(area: Dictionary):
-    hovered_areas.erase(area["area"])
+    _hovered_areas.erase(area["area"])
     _decide_interact_state()
 
 func enter_player(area: Dictionary):
-    near_player_areas[area["area"]] = area
+    _near_player_areas[area["area"]] = area
     _decide_interact_state()
 
 func exit_player(area: Dictionary):
-    near_player_areas.erase(area["area"])
+    _near_player_areas.erase(area["area"])
     _decide_interact_state()
 
 func _decide_interact_state():
@@ -31,12 +30,12 @@ func _decide_interact_state():
         emit_signal("forbid_interact")
 
 func _is_interactable() -> bool:
-    if hovered_areas.empty():
+    if _hovered_areas.empty():
         return false
-    return _is_area_near_player(_topmost(hovered_areas.values()))
+    return _is_area_near_player(_topmost(_hovered_areas.values()))
 
 func _is_area_near_player(area: Dictionary) -> bool:
-    return near_player_areas.has(area["area"])
+    return _near_player_areas.has(area["area"])
 
 func add_pending_click(area: Dictionary):
     _clicked_areas.append(area)
