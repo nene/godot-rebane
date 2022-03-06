@@ -1,4 +1,4 @@
-[gd_scene load_steps=41 format=2]
+[gd_scene load_steps=42 format=2]
 
 [ext_resource path="res://characters/Frater.gd" type="Script" id=1]
 [ext_resource path="res://furniture/InteractBox.tscn" type="PackedScene" id=2]
@@ -8,6 +8,7 @@
 [ext_resource path="res://characters/callout/Callout.tscn" type="PackedScene" id=6]
 [ext_resource path="res://state_machine/frater/AskQuestion.gd" type="Script" id=7]
 [ext_resource path="res://characters/default-portrait.png" type="Texture" id=8]
+[ext_resource path="res://state_machine/frater/Idle.gd" type="Script" id=9]
 
 [sub_resource type="Animation" id=1]
 length = 0.2
@@ -331,6 +332,9 @@ shape = SubResource( 36 )
 
 [node name="FraterStateMachine" type="Node" parent="."]
 script = ExtResource( 3 )
+
+[node name="Idle" type="Node" parent="FraterStateMachine"]
+script = ExtResource( 9 )
 
 [node name="MoveRandom" type="Node" parent="FraterStateMachine"]
 script = ExtResource( 4 )
