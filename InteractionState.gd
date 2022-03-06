@@ -31,13 +31,12 @@ func _decide_interact_state():
         emit_signal("forbid_interact")
 
 func _is_interactable() -> bool:
-    for area in hovered_areas.values():
-        if _is_area_interactable(area):
-            return true
-    return false
+    if hovered_areas.empty():
+        return false
+    return _is_area_near_player(_topmost(hovered_areas.values()))
 
-func _is_area_interactable(area: Dictionary) -> bool:
-    return hovered_areas.has(area["area"]) && near_player_areas.has(area["area"])
+func _is_area_near_player(area: Dictionary) -> bool:
+    return near_player_areas.has(area["area"])
 
 func add_pending_click(area: Dictionary):
     _clicked_areas.append(area)
@@ -47,8 +46,10 @@ func _process(delta: float):
         return
 
     var topmost = _topmost(_clicked_areas)
+    if _is_area_near_player(topmost):
+        topmost["area"].trigger_interact()
+
     _clicked_areas.clear()
-    topmost["area"].trigger_interact()
 
 func _topmost(areas: Array) -> Dictionary:
     var topmost: Dictionary = areas.front()
