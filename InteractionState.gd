@@ -46,9 +46,13 @@ func _process(delta: float):
     if _clicked_areas.empty():
         return
 
-    var topmost: Dictionary = _clicked_areas.front()
-    for area in _clicked_areas:
-        if area["y"] > topmost["y"]:
-            topmost = area
+    var topmost = _topmost(_clicked_areas)
     _clicked_areas.clear()
     topmost["area"].trigger_interact()
+
+func _topmost(areas: Array) -> Dictionary:
+    var topmost: Dictionary = areas.front()
+    for area in areas:
+        if area["y"] > topmost["y"]:
+            topmost = area
+    return topmost
