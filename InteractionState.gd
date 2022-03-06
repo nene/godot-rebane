@@ -38,8 +38,8 @@ func _decide_interact_state(area: Area2D):
     elif !was_interactable && is_interactable:
         emit_signal("allow_interact")
 
-func add_pending_click(area: Area2D, z_index: int):
-    _clicked_areas.append({"area": area, "z": z_index})
+func add_pending_click(area: Area2D, y_position: float):
+    _clicked_areas.append({"area": area, "y": y_position})
 
 func _process(delta: float):
     if _clicked_areas.empty():
@@ -47,7 +47,7 @@ func _process(delta: float):
 
     var topmost: Dictionary = _clicked_areas.front()
     for area in _clicked_areas:
-        if area["z"] > topmost["z"]:
+        if area["y"] > topmost["y"]:
             topmost = area
     _clicked_areas.clear()
     topmost["area"].trigger_interact()
