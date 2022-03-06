@@ -2,7 +2,6 @@ extends Node
 
 signal allow_interact
 signal forbid_interact
-signal show_dialog(inventory, cfg)
 
 var hovered_areas = {}
 var near_player_areas = {}
@@ -38,9 +37,6 @@ func _decide_interact_state(area: Area2D):
         emit_signal("forbid_interact")
     elif !was_interactable && is_interactable:
         emit_signal("allow_interact")
-
-func show_dialog(dialog: Control, cfg: Dictionary = {}):
-    emit_signal("show_dialog", dialog, cfg)
 
 func add_pending_click(area: Area2D, z_index: int):
     _clicked_areas.append({"area": area, "z": z_index})

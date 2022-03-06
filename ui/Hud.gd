@@ -12,7 +12,7 @@ func _ready():
     var hotbar_inventory = Inventory.new(hotbar_items, 8)
     $HotBar/InventoryGrid.inventory = hotbar_inventory
     $HotBar/InventoryGrid.mouse_cursor = $MouseCursor
-    InteractionState.connect("show_dialog", self, "_show_dialog")
+    DialogState.connect("show_dialog", self, "_show_dialog")
 
 func _hide_dialog():
     $Dialogs.remove_child(_dialog)
