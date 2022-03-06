@@ -10,8 +10,6 @@ var holding_group: GameItemGroup setget _set_holding_group
 func _ready():
     Input.set_custom_mouse_cursor(cursor_invisible, Input.CURSOR_ARROW, Vector2.ZERO)
     Input.set_custom_mouse_cursor(cursor_invisible, Input.CURSOR_POINTING_HAND, Vector2.ZERO)
-    GameEvents.connect("cursor_allow_interact", self, "set_cursor", [Input.CURSOR_POINTING_HAND])
-    GameEvents.connect("cursor_forbid_interact", self, "set_cursor", [Input.CURSOR_ARROW])
 
 func _set_holding_group(group: GameItemGroup):
     holding_group = group
@@ -23,6 +21,12 @@ func _set_holding_group(group: GameItemGroup):
 
 func _input(event):
     self.global_position = get_global_mouse_position()
+
+func _process(_delta):
+    if InteractionState.is_interactable():
+        set_cursor(Input.CURSOR_POINTING_HAND)
+    else:
+        set_cursor(Input.CURSOR_ARROW)
 
 func set_cursor(cursor):
     match cursor:

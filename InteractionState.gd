@@ -6,27 +6,17 @@ var _clicked_areas = []
 
 func enter_mouse(area: Area2D):
     _hovered_areas[area] = true
-    _decide_interact_state()
 
 func exit_mouse(area: Area2D):
     _hovered_areas.erase(area)
-    _decide_interact_state()
 
 func enter_player(area: Area2D):
     _near_player_areas[area] = true
-    _decide_interact_state()
 
 func exit_player(area: Area2D):
     _near_player_areas.erase(area)
-    _decide_interact_state()
 
-func _decide_interact_state():
-    if _is_interactable():
-        GameEvents.emit_signal("cursor_allow_interact")
-    else:
-        GameEvents.emit_signal("cursor_forbid_interact")
-
-func _is_interactable() -> bool:
+func is_interactable() -> bool:
     if _hovered_areas.empty():
         return false
     var topmost = _topmost(_hovered_areas.keys())
