@@ -5,38 +5,39 @@ signal forbid_interact
 
 var hovered_areas = {}
 var near_player_areas = {}
-var interactable_areas = {}
 
 var _clicked_areas = []
 
 func enter_mouse(area: Dictionary):
     hovered_areas[area["area"]] = area
-    _decide_interact_state(area)
+    _decide_interact_state()
 
 func exit_mouse(area: Dictionary):
     hovered_areas.erase(area["area"])
-    _decide_interact_state(area)
+    _decide_interact_state()
 
 func enter_player(area: Dictionary):
     near_player_areas[area["area"]] = area
-    _decide_interact_state(area)
+    _decide_interact_state()
 
 func exit_player(area: Dictionary):
     near_player_areas.erase(area["area"])
-    _decide_interact_state(area)
+    _decide_interact_state()
 
-func _decide_interact_state(area: Dictionary):
-    var was_interactable = !interactable_areas.empty()
-    if hovered_areas.has(area["area"]) && near_player_areas.has(area["area"]):
-        interactable_areas[area["area"]] = area
-    else:
-        interactable_areas.erase(area["area"])
-    
-    var is_interactable = !interactable_areas.empty()
-    if was_interactable && !is_interactable:
-        emit_signal("forbid_interact")
-    elif !was_interactable && is_interactable:
+func _decide_interact_state():
+    if _is_interactable():
         emit_signal("allow_interact")
+    else:
+        emit_signal("forbid_interact")
+
+func _is_interactable() -> bool:
+    for area in hovered_areas.values():
+        if _is_area_interactable(area):
+            return true
+    return false
+
+func _is_area_interactable(area: Dictionary) -> bool:
+    return hovered_areas.has(area["area"]) && near_player_areas.has(area["area"])
 
 func add_pending_click(area: Dictionary):
     _clicked_areas.append(area)
