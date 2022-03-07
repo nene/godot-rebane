@@ -5,6 +5,7 @@ onready var animationState = $AnimationTree.get("parameters/playback")
 
 func _ready():
     set_animation_direction(Vector2.DOWN)
+    $AnimationTree.active = true
 
 func _physics_process(delta):
     $PlayerStateMachine.physics_update(delta)
