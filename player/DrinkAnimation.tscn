@@ -1,0 +1,26 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://items/beer-glass-sm.png" type="Texture" id=1]
+[ext_resource path="res://player/DrinkAnimation.gd" type="Script" id=2]
+
+[sub_resource type="StreamTexture" id=40]
+load_path = "res://.import/cfe-reb.png-ca8881f8e3edad7339bb620b88f46909.stex"
+
+[node name="DrinkAnimation" type="Node2D"]
+script = ExtResource( 2 )
+
+[node name="BeerGlass" type="Sprite" parent="."]
+position = Vector2( 2, -11 )
+texture = ExtResource( 1 )
+hframes = 5
+vframes = 5
+
+[node name="HandSprite" type="Sprite" parent="."]
+position = Vector2( 0, -15 )
+texture = SubResource( 40 )
+hframes = 9
+vframes = 8
+frame = 6
+__meta__ = {
+"_editor_description_": "YXNlcHJpdGVfd2l6YXJkX2NvbmZpZwpwbGF5ZXJ8PUFuaW1hdGlvblBsYXllcgpzb3VyY2V8PXJlczovL2FydC9jaGFycy9jZmUtcmViLmFzZXByaXRlCmxheWVyfD0Kb3BfZXhwfD1UcnVlCm9fZm9sZGVyfD0Kb19uYW1lfD0Kb25seV92aXNpYmxlfD1UcnVlCm9fZXhfcHw9Cg=="
+}

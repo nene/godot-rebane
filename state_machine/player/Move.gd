@@ -22,3 +22,10 @@ func physics_update(delta):
         owner.animationState.travel("Idle")
     
     owner.move_and_slide(direction * speed)
+
+func is_interactable(item: GameItem = null):
+    return item is BeerGlass
+
+func handle_input(event):
+    if event is InteractEvent:
+        emit_signal("finished", "push", "Drink")

@@ -22,3 +22,9 @@ func greet_animation_finished():
 
 func is_interactable(item: GameItem = null):
     return $PlayerStateMachine.is_interactable(item)
+
+func _on_interact():
+    $PlayerStateMachine.handle_input(InteractEvent.new())
+
+func get_drink_animation():
+    return $DrinkAnimation

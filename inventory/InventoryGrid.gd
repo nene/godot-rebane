@@ -13,7 +13,7 @@ var _inventory: Inventory
 var _holding_group: GameItemGroup
 
 func _ready():
-    GameEvents.connect("change_holding_group", self, "_set_holding_group")
+    GameEvents.connect("change_holding_group", self, "_set_holding_group", [false])
     set_grid_size(grid_size)
 
 func set_grid_size(size: Vector2):
@@ -96,6 +96,7 @@ func _slot_right_clicked(slot_index: int):
 
     _refresh_slots()
 
-func _set_holding_group(group: GameItemGroup):
+func _set_holding_group(group: GameItemGroup, emit = true):
     _holding_group = group
-    GameEvents.emit_signal("change_holding_group", group)
+    if emit:
+        GameEvents.emit_signal("change_holding_group", group)
