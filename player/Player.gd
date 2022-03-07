@@ -23,8 +23,8 @@ func greet_animation_finished():
 func is_interactable(group: GameItemGroup = null):
     return $PlayerStateMachine.is_interactable(group)
 
-func _on_interact():
-    $PlayerStateMachine.handle_input(InteractEvent.new())
+func _on_interact(event: InteractEvent):
+    $PlayerStateMachine.handle_input(event)
 
 func get_drink_animation():
     return $DrinkAnimation

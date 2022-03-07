@@ -1,6 +1,6 @@
 extends Area2D
 
-signal interact
+signal interact(event)
 
 onready var _owner: Node2D = self.get_parent()
 
@@ -15,8 +15,8 @@ func _on_input(viewport, event, shape_idx):
         if event.button_index == BUTTON_LEFT && event.pressed:
             InteractionState.add_pending_click(self)
 
-func trigger_interact():
-    emit_signal("interact")
+func trigger_interact(group: GameItemGroup = null):
+    emit_signal("interact", InteractEvent.new(group))
 
 func _on_area_entered(area):
     InteractionState.enter_player(self)

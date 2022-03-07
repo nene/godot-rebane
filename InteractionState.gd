@@ -44,7 +44,7 @@ func _process(_delta: float):
     if _is_interactable(_holding_group):
         GameEvents.emit_signal("allow_interact")
         if !_clicked_areas.empty():
-            _topmost(_clicked_areas).trigger_interact()
+            _topmost(_clicked_areas).trigger_interact(_holding_group)
     else:
         GameEvents.emit_signal("forbid_interact")
 

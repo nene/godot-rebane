@@ -21,8 +21,8 @@ func set_animation_direction(direction: Vector2):
     $AnimationTree.set("parameters/Idle/blend_position", direction)
     $AnimationTree.set("parameters/Walk/blend_position", direction)
 
-func _on_interact():
-    $FraterStateMachine.handle_input(InteractEvent.new())
+func _on_interact(event: InteractEvent):
+    $FraterStateMachine.handle_input(event)
 
 func toggle_callout(visible: bool):
     $Callout.visible = visible
