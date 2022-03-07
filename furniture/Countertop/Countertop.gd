@@ -12,5 +12,5 @@ func _on_interact():
     dialog.inventory = self._inventory
     GameEvents.emit_signal("show_inventory_dialog", dialog)
 
-func is_interactable(_item):
+func is_interactable(_group):
     return true

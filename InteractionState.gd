@@ -3,14 +3,14 @@ extends Node
 var _hovered_areas = {}
 var _near_player_areas = {}
 var _clicked_areas = []
-var _holding_item: GameItem
+var _holding_group: GameItemGroup
 
 func _ready():
     pause_mode = PAUSE_MODE_PROCESS
-    GameEvents.connect("change_holding_group", self, "_set_holding_item_from_group")
+    GameEvents.connect("change_holding_group", self, "_set_holding_group")
 
-func _set_holding_item_from_group(group: GameItemGroup):
-    _holding_item = group.item() if group else null
+func _set_holding_group(group: GameItemGroup):
+    _holding_group = group
 
 func enter_mouse(area: Area2D):
     _hovered_areas[area] = true
@@ -24,11 +24,11 @@ func enter_player(area: Area2D):
 func exit_player(area: Area2D):
     _near_player_areas.erase(area)
 
-func _is_interactable(item: GameItem = null) -> bool:
+func _is_interactable(group: GameItemGroup = null) -> bool:
     if _hovered_areas.empty():
         return false
     var topmost = _topmost(_hovered_areas.keys())
-    return _is_area_near_player(topmost) && topmost.is_interactable(item)
+    return _is_area_near_player(topmost) && topmost.is_interactable(group)
 
 func _is_area_near_player(area: Area2D) -> bool:
     return _near_player_areas.has(area)
@@ -41,7 +41,7 @@ func add_pending_click(area: Area2D):
     _clicked_areas.append(area)
 
 func _process(_delta: float):
-    if _is_interactable(_holding_item):
+    if _is_interactable(_holding_group):
         GameEvents.emit_signal("allow_interact")
         if !_clicked_areas.empty():
             _topmost(_clicked_areas).trigger_interact()

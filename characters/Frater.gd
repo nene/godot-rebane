@@ -27,5 +27,5 @@ func _on_interact():
 func toggle_callout(visible: bool):
     $Callout.visible = visible
 
-func is_interactable(item: GameItem = null):
-    return $FraterStateMachine.is_interactable(item)
+func is_interactable(group: GameItemGroup = null):
+    return $FraterStateMachine.is_interactable(group)

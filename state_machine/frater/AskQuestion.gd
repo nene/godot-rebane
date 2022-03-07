@@ -7,8 +7,8 @@ func enter():
     owner.toggle_callout(true)
     owner.animationState.travel("callout")
 
-func is_interactable(item: GameItem = null):
-    return item == null
+func is_interactable(group: GameItemGroup = null):
+    return group == null
 
 func handle_input(event):
     if event is InteractEvent:

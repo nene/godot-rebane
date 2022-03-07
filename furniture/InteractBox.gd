@@ -24,8 +24,8 @@ func _on_area_entered(area):
 func _on_area_exited(area):
     InteractionState.exit_player(self)
 
-func is_interactable(item: GameItem = null) -> bool:
-    return _owner.has_method("is_interactable") && _owner.is_interactable(item)
+func is_interactable(group: GameItemGroup = null) -> bool:
+    return _owner.has_method("is_interactable") && _owner.is_interactable(group)
 
 func y_position() -> float:
     return _owner.position.y

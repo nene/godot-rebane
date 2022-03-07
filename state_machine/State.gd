@@ -29,5 +29,5 @@ func on_animation_finished(_anim_name):
     pass
 
 
-func is_interactable(_item: GameItem = null) -> bool:
+func is_interactable(_group: GameItemGroup = null) -> bool:
     return false

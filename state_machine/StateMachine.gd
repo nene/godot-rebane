@@ -61,6 +61,7 @@ func physics_update(delta):
 func on_animation_finished(anim_name):
     _current_state.on_animation_finished(anim_name)
 
+
 # Call this to immediately change to another state.
 # Also called whenever state finished with "finish" signal.
 #
@@ -84,5 +85,6 @@ func transition(transition_type: String, state_name: String = ""):
 
     _current_state.enter()
 
-func is_interactable(item: GameItem = null) -> bool:
-    return _current_state.is_interactable(item)
+
+func is_interactable(group: GameItemGroup = null) -> bool:
+    return _current_state.is_interactable(group)
