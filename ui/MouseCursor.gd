@@ -5,32 +5,28 @@ var cursor_invisible = load("res://ui/cursor-invisible.png")
 var cursor_arrow = load("res://ui/cursor-arrow.png")
 var cursor_hand = load("res://ui/cursor-hand.png")
 
-var holding_group: GameItemGroup setget _set_holding_group
+var _holding_group: GameItemGroup
 
 func _ready():
+    GameEvents.connect("change_holding_group", self, "_set_holding_group")
+    GameEvents.connect("allow_interact", self, "set_cursor", [Input.CURSOR_POINTING_HAND])
+    GameEvents.connect("forbid_interact", self, "set_cursor", [Input.CURSOR_ARROW])
     Input.set_custom_mouse_cursor(cursor_invisible, Input.CURSOR_ARROW, Vector2.ZERO)
     Input.set_custom_mouse_cursor(cursor_invisible, Input.CURSOR_POINTING_HAND, Vector2.ZERO)
 
 func _set_holding_group(group: GameItemGroup):
-    holding_group = group
-    if holding_group:
-        $HoldingItemView.set_group(holding_group)
+    _holding_group = group
+    if _holding_group:
+        $HoldingItemView.set_group(_holding_group)
         $HoldingItemView.show()
     else:
         $HoldingItemView.hide()
 
 func _get_holding_item() -> GameItem:
-    return holding_group.item() if holding_group else null
+    return _holding_group.item() if _holding_group else null
 
 func _input(event):
     self.global_position = get_global_mouse_position()
-
-func _process(_delta):
-    InteractionState.process_pending_clicks(_get_holding_item())
-    if InteractionState.is_interactable(_get_holding_item()):
-        set_cursor(Input.CURSOR_POINTING_HAND)
-    else:
-        set_cursor(Input.CURSOR_ARROW)
 
 func set_cursor(cursor):
     match cursor:

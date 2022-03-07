@@ -98,7 +98,7 @@ func _slot_right_clicked(slot_index: int):
     _refresh_slots()
 
 func get_holding_group() -> GameItemGroup:
-    return mouse_cursor.holding_group
+    return mouse_cursor._holding_group # TODO: remove this access
 
 func set_holding_group(group: GameItemGroup):
-    mouse_cursor.holding_group = group
+    GameEvents.emit_signal("change_holding_group", group)

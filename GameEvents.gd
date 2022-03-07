@@ -8,3 +8,9 @@ signal show_inventory_dialog(inventory)
 
 # -- (location: Global.Location)
 signal change_location(location)
+
+# -- (group: GameItemGroup)
+signal change_holding_group(group)
+
+signal allow_interact
+signal forbid_interact
