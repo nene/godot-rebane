@@ -152,6 +152,11 @@ Global="*res://Global.gd"
 TerminologyQuestion="*res://questions/TerminologyQuestion.gd"
 GameEvents="*res://GameEvents.gd"
 
+[debug]
+
+gdscript/warnings/unused_argument=false
+gdscript/warnings/return_value_discarded=false
+
 [display]
 
 window/size/width=320

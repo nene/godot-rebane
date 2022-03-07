@@ -22,7 +22,7 @@ func set_grid_size(size: Vector2):
     for child in self.get_children():
         self.remove_child(child)
 
-    self.columns = grid_size.x
+    self.columns = int(grid_size.x)
     for i in range(grid_size.x * grid_size.y):
         var slot = SlotNode.instance()
         self.add_child(slot)

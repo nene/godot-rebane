@@ -1,4 +1,5 @@
 extends Node
+# warning-ignore-all:unused_signal
 
 # -- (dialog: Control)
 signal show_dialog(inventory)
