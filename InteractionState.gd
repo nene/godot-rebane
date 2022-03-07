@@ -42,12 +42,10 @@ func add_pending_click(area: Area2D):
 
 func _process(_delta: float):
     if _is_interactable(_holding_item):
-        print("Y")
         GameEvents.emit_signal("allow_interact")
         if !_clicked_areas.empty():
             _topmost(_clicked_areas).trigger_interact()
     else:
-        print(".")
         GameEvents.emit_signal("forbid_interact")
 
     _clicked_areas.clear()
