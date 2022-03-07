@@ -19,11 +19,15 @@ func _set_holding_group(group: GameItemGroup):
     else:
         $HoldingItemView.hide()
 
+func _get_holding_item() -> GameItem:
+    return holding_group.item() if holding_group else null
+
 func _input(event):
     self.global_position = get_global_mouse_position()
 
 func _process(_delta):
-    if InteractionState.is_interactable():
+    InteractionState.process_pending_clicks(_get_holding_item())
+    if InteractionState.is_interactable(_get_holding_item()):
         set_cursor(Input.CURSOR_POINTING_HAND)
     else:
         set_cursor(Input.CURSOR_ARROW)

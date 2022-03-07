@@ -84,5 +84,5 @@ func transition(transition_type: String, state_name: String = ""):
 
     _current_state.enter()
 
-func is_interactable() -> bool:
-    return _current_state.is_interactable()
+func is_interactable(item: GameItem = null) -> bool:
+    return _current_state.is_interactable(item)

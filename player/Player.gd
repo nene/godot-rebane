@@ -19,5 +19,5 @@ func set_animation_direction(direction: Vector2):
 func greet_animation_finished():
     $PlayerStateMachine.on_animation_finished("greet")
 
-func is_interactable():
-    return $PlayerStateMachine.is_interactable()
+func is_interactable(item: GameItem = null):
+    return $PlayerStateMachine.is_interactable(item)
