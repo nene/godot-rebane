@@ -11,4 +11,5 @@ func enter():
     var drink_animation = _owner.get_drink_animation()
     drink_animation.play(_beer_glass)
     yield(drink_animation, "finished")
+    GameEvents.emit_signal("add_to_player_inventory", GameItemGroup.new(_beer_glass))
     emit_signal("finished")

@@ -13,5 +13,8 @@ signal change_location(location)
 # -- (group: GameItemGroup)
 signal change_holding_group(group)
 
+# -- (group: GameItemGroup)
+signal add_to_player_inventory(group)
+
 signal allow_interact
 signal forbid_interact

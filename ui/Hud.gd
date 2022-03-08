@@ -7,12 +7,14 @@ var hotbar_items = [
 ]
 
 var _dialog = null
+var _player_inventory: Inventory
 
 func _ready():
-    var hotbar_inventory = Inventory.new(hotbar_items, 8)
-    $HotBar/InventoryGrid.inventory = hotbar_inventory
+    _player_inventory = Inventory.new(hotbar_items, 8)
+    $HotBar/InventoryGrid.inventory = _player_inventory
     GameEvents.connect("show_dialog", self, "_show_dialog", [{"hide_hotbar": true}])
     GameEvents.connect("show_inventory_dialog", self, "_show_dialog")
+    GameEvents.connect("add_to_player_inventory", self, "_add_to_player_inventory")
 
 func _hide_dialog():
     $Dialogs.remove_child(_dialog)
@@ -33,3 +35,6 @@ func _show_dialog(dialog, cfg: Dictionary = {}):
 func _on_overlay_press():
     if _dialog:
         _dialog.press_outside()
+
+func _add_to_player_inventory(group: GameItemGroup):
+    _player_inventory.add(group)

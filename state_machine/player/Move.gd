@@ -34,6 +34,7 @@ func handle_input(event):
     if event is InteractEvent:
         var Drink = load("res://state_machine/player/Drink.gd")
         var beer_glass = event.holding_group.item()
+        GameEvents.emit_signal("change_holding_group", null)
         emit_signal("finished", Drink.new(_owner, beer_glass))
     if event is InputEvent && event.is_action_pressed("ui_greet"):
         var Greet = load("res://state_machine/player/Greet.gd")

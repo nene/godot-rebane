@@ -34,6 +34,7 @@ func _set_inventory(inv: Inventory):
         print("ERROR: Inventory size doesn't match grid size!")
         return
     inventory = inv
+    inventory.connect("change", self, "_refresh_slots")
     _refresh_slots()
 
 func _refresh_slots():
