@@ -1,6 +1,10 @@
 extends State
 
-var speed = 75
+var _speed = 75
+var _owner: Player
+
+func _init(owner: Player):
+    _owner = owner
 
 func physics_update(delta):
     var direction = Vector2.ZERO
@@ -16,16 +20,20 @@ func physics_update(delta):
     direction = direction.normalized()
     
     if direction != Vector2.ZERO:
-        owner.set_animation_direction(direction)
-        owner.animationState.travel("Walk")
+        _owner.set_animation_direction(direction)
+        _owner.animationState.travel("Walk")
     else:
-        owner.animationState.travel("Idle")
+        _owner.animationState.travel("Idle")
     
-    owner.move_and_slide(direction * speed)
+    _owner.move_and_slide(direction * _speed)
 
 func is_interactable(group: GameItemGroup = null):
     return group != null && group.item() is BeerGlass
 
 func handle_input(event):
     if event is InteractEvent:
-        emit_signal("finished", "push", "Drink")
+        var Drink = load("res://state_machine/player/Drink.gd")
+        emit_signal("finished", Drink.new(_owner))
+    if event is InputEvent && event.is_action_pressed("ui_greet"):
+        var Greet = load("res://state_machine/player/Greet.gd")
+        emit_signal("finished", Greet.new(_owner))

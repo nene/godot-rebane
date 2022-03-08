@@ -1,13 +1,14 @@
 extends State
 
+var _owner: Frater
 var rng = RandomNumberGenerator.new()
 onready var timer = Timer.new()
 var direction = Vector2.ZERO
 var speed = 50
 
-func _ready():
+func _init(owner: Frater):
+    _owner = owner
     rng.randomize()
-    add_child(timer)
     timer.connect("timeout", self, "_change_direction")
     timer.wait_time = 0.25
 
@@ -23,12 +24,12 @@ func _change_direction():
 
 func physics_update(delta):
     if direction != Vector2.ZERO:
-        owner.set_animation_direction(direction)
-        owner.animationState.travel("Walk")
+        _owner.set_animation_direction(direction)
+        _owner.animationState.travel("Walk")
     else:
-        owner.animationState.travel("Idle")
+        _owner.animationState.travel("Idle")
     
-    owner.move_and_slide(speed * direction)
+    _owner.move_and_slide(speed * direction)
 
 func exit():
     timer.stop()

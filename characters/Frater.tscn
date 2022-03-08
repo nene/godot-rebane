@@ -1,14 +1,9 @@
-[gd_scene load_steps=42 format=2]
+[gd_scene load_steps=37 format=2]
 
 [ext_resource path="res://characters/Frater.gd" type="Script" id=1]
 [ext_resource path="res://furniture/InteractBox.tscn" type="PackedScene" id=2]
-[ext_resource path="res://state_machine/frater/FraterStateMachine.gd" type="Script" id=3]
-[ext_resource path="res://state_machine/frater/MoveRandom.gd" type="Script" id=4]
-[ext_resource path="res://state_machine/frater/Explode.gd" type="Script" id=5]
 [ext_resource path="res://characters/callout/Callout.tscn" type="PackedScene" id=6]
-[ext_resource path="res://state_machine/frater/AskQuestion.gd" type="Script" id=7]
 [ext_resource path="res://characters/default-portrait.png" type="Texture" id=8]
-[ext_resource path="res://state_machine/frater/Idle.gd" type="Script" id=9]
 
 [sub_resource type="Animation" id=1]
 length = 0.2
@@ -327,21 +322,6 @@ parameters/Walk/blend_position = Vector2( 0, 0 )
 [node name="CollisionShape2D" type="CollisionShape2D" parent="InteractBox"]
 position = Vector2( 0, -14 )
 shape = SubResource( 36 )
-
-[node name="FraterStateMachine" type="Node" parent="."]
-script = ExtResource( 3 )
-
-[node name="Idle" type="Node" parent="FraterStateMachine"]
-script = ExtResource( 9 )
-
-[node name="MoveRandom" type="Node" parent="FraterStateMachine"]
-script = ExtResource( 4 )
-
-[node name="Explode" type="Node" parent="FraterStateMachine"]
-script = ExtResource( 5 )
-
-[node name="AskQuestion" type="Node" parent="FraterStateMachine"]
-script = ExtResource( 7 )
 
 [node name="Callout" parent="." instance=ExtResource( 6 )]
 visible = false
