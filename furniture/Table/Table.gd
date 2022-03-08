@@ -15,7 +15,7 @@ func _ready():
     self._inventory.connect("change", self, "_update_table_ocean_display")
     self._update_table_ocean_display()
 
-func _on_interact():
+func _on_interact(_group):
     var dialog = load("res://furniture/Table/TableInventoryDialog.tscn").instance()
     dialog.inventory = self._inventory
     GameEvents.emit_signal("show_inventory_dialog", dialog)

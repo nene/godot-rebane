@@ -7,7 +7,7 @@ func _ready():
         GameItemGroup.new(LockedBottleOpener.new()),
     ], 1)
 
-func _on_interact():
+func _on_interact(_group):
     var dialog = load("res://furniture/Countertop/CountertopInventoryDialog.tscn").instance()
     dialog.inventory = self._inventory
     GameEvents.emit_signal("show_inventory_dialog", dialog)
