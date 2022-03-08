@@ -33,7 +33,8 @@ func is_interactable(group: GameItemGroup = null):
 func handle_input(event):
     if event is InteractEvent:
         var Drink = load("res://state_machine/player/Drink.gd")
-        emit_signal("finished", Drink.new(_owner))
+        var beer_glass = event.holding_group.item()
+        emit_signal("finished", Drink.new(_owner, beer_glass))
     if event is InputEvent && event.is_action_pressed("ui_greet"):
         var Greet = load("res://state_machine/player/Greet.gd")
         emit_signal("finished", Greet.new(_owner))
