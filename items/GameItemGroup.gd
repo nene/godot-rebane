@@ -40,8 +40,5 @@ func subtract(nr: int) -> Array:
         GameItemGroupClass.new(_item, nr),
     ]
 
-func is_same_type(group: GameItemGroup) -> bool:
-    return _item.get_name() == group.item().get_name()
-
 func is_full() -> bool:
     return _count == _item.max_stack_size()

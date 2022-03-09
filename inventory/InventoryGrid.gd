@@ -55,7 +55,7 @@ func _slot_clicked(slot_index: int):
         return
     var slot_group = inventory.at(slot_index)
     if _holding_group:
-        if slot_group && slot_group.is_same_type(_holding_group) && !slot_group.is_full():
+        if slot_group && slot_group.item().is_groupable_with(_holding_group.item()) && !slot_group.is_full():
             var sum = slot_group.add(_holding_group)
             if sum is GameItemGroup:
                 inventory.put_at(slot_index, sum)

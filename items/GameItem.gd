@@ -9,3 +9,6 @@ func get_texture() -> Texture:
 
 func max_stack_size() -> int:
     return 1
+
+func is_groupable_with(_item: GameItem) -> bool:
+    return self.get_name() == _item.get_name()

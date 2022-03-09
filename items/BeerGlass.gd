@@ -38,5 +38,11 @@ func is_empty() -> bool:
     return level == EMPTY
 
 func max_stack_size():
-    return 9
+    if level == EMPTY:
+        return 9
+    else:
+        return 1
 
+func is_groupable_with(item: GameItem) -> bool:
+    var BeerGlassClass = load("res://items/BeerGlass.gd")
+    return item is BeerGlassClass && item.is_empty() && self.is_empty()
