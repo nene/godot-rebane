@@ -56,13 +56,13 @@ func _slot_clicked(slot_index: int):
     var slot_group = inventory.at(slot_index)
     if _holding_group:
         if slot_group && slot_group.item().is_groupable_with(_holding_group.item()) && !slot_group.is_full():
-            var sum = slot_group.merge(_holding_group)
-            if sum is GameItemGroup:
-                inventory.put_at(slot_index, sum)
-                _set_holding_group(null)
-            else:
-                inventory.put_at(slot_index, sum[0])
-                _set_holding_group(sum[1])
+            match slot_group.merge(_holding_group):
+                [var sum]:
+                    inventory.put_at(slot_index, sum)
+                    _set_holding_group(null)
+                [var in_slot, var in_hand]:
+                    inventory.put_at(slot_index, in_slot)
+                    _set_holding_group(in_hand)
         elif slot_group:
             var group = inventory.pick_at(slot_index)
             inventory.put_at(slot_index, _holding_group)
@@ -82,12 +82,12 @@ func _slot_right_clicked(slot_index: int):
         # Place single item into slot
         if slot_group && slot_group.item().is_groupable_with(_holding_group.item()) && !slot_group.is_full() && _holding_group.count() > 1:
             var groups = _holding_group.split(1)
-            var sum = slot_group.merge(groups[0]) as GameItemGroup
-            if sum:
-                inventory.put_at(slot_index, sum)
-                _set_holding_group(groups[1])
-            else:
-                print("ERROR: Unable to merge one additional item to group of items")
+            match slot_group.merge(groups[0]):
+                [var sum]:
+                    inventory.put_at(slot_index, sum)
+                    _set_holding_group(groups[1])
+                _:
+                    print("ERROR: Unable to merge one additional item to group of items")
         elif !slot_group && _holding_group.count() > 1:
             var groups = _holding_group.split(1)
             inventory.put_at(slot_index, groups[0])
