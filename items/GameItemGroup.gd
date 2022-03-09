@@ -31,13 +31,13 @@ func add(group: GameItemGroup):
         ]
 
 # Breaks the group into two:
-# - the old group (with reduced count)
 # - the new group (with extracted count)
+# - the old group (with reduced count)
 func subtract(nr: int) -> Array:
     var GameItemGroupClass = load("res://items/GameItemGroup.gd")
     return [
-        GameItemGroupClass.new(_item, _count - nr),
         GameItemGroupClass.new(_item, nr),
+        GameItemGroupClass.new(_item, _count - nr),
     ]
 
 func is_full() -> bool:
