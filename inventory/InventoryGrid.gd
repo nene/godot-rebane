@@ -56,7 +56,7 @@ func _slot_clicked(slot_index: int):
     var slot_group = inventory.at(slot_index)
     if _holding_group:
         if slot_group && slot_group.item().is_groupable_with(_holding_group.item()) && !slot_group.is_full():
-            var sum = slot_group.add(_holding_group)
+            var sum = slot_group.merge(_holding_group)
             if sum is GameItemGroup:
                 inventory.put_at(slot_index, sum)
                 _set_holding_group(null)
@@ -81,15 +81,15 @@ func _slot_right_clicked(slot_index: int):
     if _holding_group:
         # Place single item into slot
         if slot_group && slot_group.item().is_groupable_with(_holding_group.item()) && !slot_group.is_full() && _holding_group.count() > 1:
-            var groups = _holding_group.subtract(1)
-            var sum = slot_group.add(groups[0]) as GameItemGroup
+            var groups = _holding_group.split(1)
+            var sum = slot_group.merge(groups[0]) as GameItemGroup
             if sum:
                 inventory.put_at(slot_index, sum)
                 _set_holding_group(groups[1])
             else:
-                print("ERROR: Unable to add one additional item to group of items")
+                print("ERROR: Unable to merge one additional item to group of items")
         elif !slot_group && _holding_group.count() > 1:
-            var groups = _holding_group.subtract(1)
+            var groups = _holding_group.split(1)
             inventory.put_at(slot_index, groups[0])
             _set_holding_group(groups[1])
         else:
@@ -98,7 +98,7 @@ func _slot_right_clicked(slot_index: int):
         # Take half of the items from slot
         if slot_group.count() > 1:
             var half_size = int(slot_group.count() / 2)
-            var groups = slot_group.subtract(half_size)
+            var groups = slot_group.split(half_size)
             inventory.put_at(slot_index, groups[0])
             _set_holding_group(groups[1])
         else:

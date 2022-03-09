@@ -18,7 +18,7 @@ func count() -> int:
 # This might result:
 # - in GameItemGroup, when max_stack_size is not exceeded
 # - in GameItemGroup[], when more items than max_stack_size (array of two items)
-func add(group: GameItemGroup):
+func merge(group: GameItemGroup):
     var GameItemGroupClass = load("res://items/GameItemGroup.gd")
     var sum = _count + group.count()
     var max_count = _item.max_stack_size()
@@ -33,7 +33,7 @@ func add(group: GameItemGroup):
 # Breaks the group into two:
 # - the new group (with extracted count)
 # - the old group (with reduced count)
-func subtract(nr: int) -> Array:
+func split(nr: int) -> Array:
     var GameItemGroupClass = load("res://items/GameItemGroup.gd")
     return [
         GameItemGroupClass.new(_item, nr),
