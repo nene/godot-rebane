@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=2]
+[gd_scene load_steps=9 format=2]
 
 [ext_resource path="res://bg/BackgroundTiles.tres" type="TileSet" id=1]
 [ext_resource path="res://paintings/polonia-cartel.png" type="Texture" id=2]
@@ -6,6 +6,8 @@
 [ext_resource path="res://locations/Location.tscn" type="PackedScene" id=4]
 [ext_resource path="res://furniture/SpawnPoint.tscn" type="PackedScene" id=5]
 [ext_resource path="res://furniture/StaircaseDoor/StaircaseDoorDown.tscn" type="PackedScene" id=6]
+[ext_resource path="res://paintings/door-large.png" type="Texture" id=7]
+[ext_resource path="res://paintings/savo-coat-of-arms.png" type="Texture" id=8]
 
 [node name="CfeHall" instance=ExtResource( 4 )]
 
@@ -25,6 +27,14 @@ texture = ExtResource( 3 )
 [node name="Polonia-cartel" type="Sprite" parent="Paintings" index="1"]
 position = Vector2( 174, 17 )
 texture = ExtResource( 2 )
+
+[node name="Door-large" type="Sprite" parent="Paintings" index="2"]
+position = Vector2( 129, 29 )
+texture = ExtResource( 7 )
+
+[node name="Savo-coat-of-arms" type="Sprite" parent="Paintings" index="3"]
+position = Vector2( 23, 19 )
+texture = ExtResource( 8 )
 
 [node name="YSort" type="YSort" parent="." index="2"]
 
