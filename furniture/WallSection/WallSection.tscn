@@ -5,47 +5,48 @@
 [ext_resource path="res://furniture/InteractBox.tscn" type="PackedScene" id=3]
 
 [sub_resource type="RectangleShape2D" id=1]
-extents = Vector2( 24, 8 )
+extents = Vector2( 20, 8 )
 
 [sub_resource type="RectangleShape2D" id=2]
-extents = Vector2( 24, 32 )
+extents = Vector2( 20, 32 )
 
 [node name="WallSection" type="StaticBody2D"]
 
 [node name="Cfe-hall-wall" type="Sprite" parent="."]
-position = Vector2( -16, -24 )
+position = Vector2( -12, -24 )
 texture = ExtResource( 1 )
 hframes = 4
 frame = 2
 
 [node name="Cfe-hall-wall2" type="Sprite" parent="."]
-position = Vector2( 0, -24 )
+position = Vector2( 4, -24 )
 texture = ExtResource( 1 )
 hframes = 4
 frame = 1
+region_rect = Rect2( 0, 0, 32, 48 )
 
 [node name="Cfe-hall-wall3" type="Sprite" parent="."]
-position = Vector2( 16, -24 )
+position = Vector2( 12, -24 )
 texture = ExtResource( 1 )
 hframes = 4
 frame = 2
 
 [node name="Void" type="Sprite" parent="."]
-position = Vector2( -16, -56 )
+position = Vector2( -12, -56 )
 texture = ExtResource( 2 )
 hframes = 11
 vframes = 5
 frame = 33
 
 [node name="Void2" type="Sprite" parent="."]
-position = Vector2( 0, -56 )
+position = Vector2( 4, -56 )
 texture = ExtResource( 2 )
 hframes = 11
 vframes = 5
 frame = 34
 
 [node name="Void3" type="Sprite" parent="."]
-position = Vector2( 16, -56 )
+position = Vector2( 12, -56 )
 texture = ExtResource( 2 )
 hframes = 11
 vframes = 5
