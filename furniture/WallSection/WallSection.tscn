@@ -1,0 +1,62 @@
+[gd_scene load_steps=6 format=2]
+
+[ext_resource path="res://bg/cfe-hall-wall.png" type="Texture" id=1]
+[ext_resource path="res://bg/void.png" type="Texture" id=2]
+[ext_resource path="res://furniture/InteractBox.tscn" type="PackedScene" id=3]
+
+[sub_resource type="RectangleShape2D" id=1]
+extents = Vector2( 24, 8 )
+
+[sub_resource type="RectangleShape2D" id=2]
+extents = Vector2( 24, 32 )
+
+[node name="WallSection" type="StaticBody2D"]
+
+[node name="Cfe-hall-wall" type="Sprite" parent="."]
+position = Vector2( -16, -24 )
+texture = ExtResource( 1 )
+hframes = 4
+frame = 2
+
+[node name="Cfe-hall-wall2" type="Sprite" parent="."]
+position = Vector2( 0, -24 )
+texture = ExtResource( 1 )
+hframes = 4
+frame = 1
+
+[node name="Cfe-hall-wall3" type="Sprite" parent="."]
+position = Vector2( 16, -24 )
+texture = ExtResource( 1 )
+hframes = 4
+frame = 2
+
+[node name="Void" type="Sprite" parent="."]
+position = Vector2( -16, -56 )
+texture = ExtResource( 2 )
+hframes = 11
+vframes = 5
+frame = 33
+
+[node name="Void2" type="Sprite" parent="."]
+position = Vector2( 0, -56 )
+texture = ExtResource( 2 )
+hframes = 11
+vframes = 5
+frame = 34
+
+[node name="Void3" type="Sprite" parent="."]
+position = Vector2( 16, -56 )
+texture = ExtResource( 2 )
+hframes = 11
+vframes = 5
+frame = 35
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2( 0, -8 )
+shape = SubResource( 1 )
+
+[node name="InteractBox" parent="." instance=ExtResource( 3 )]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="InteractBox"]
+position = Vector2( 0, -32 )
+shape = SubResource( 2 )
