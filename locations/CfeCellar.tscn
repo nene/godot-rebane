@@ -1,11 +1,10 @@
-[gd_scene load_steps=24 format=2]
+[gd_scene load_steps=23 format=2]
 
 [ext_resource path="res://bg/BackgroundTiles.tres" type="TileSet" id=1]
 [ext_resource path="res://locations/Location.tscn" type="PackedScene" id=2]
 [ext_resource path="res://furniture/SpawnPoint.tscn" type="PackedScene" id=3]
 [ext_resource path="res://characters/KsvSass.tscn" type="PackedScene" id=4]
 [ext_resource path="res://furniture/Mop/Mop.tscn" type="PackedScene" id=5]
-[ext_resource path="res://lights/CfeLamp/gradient-light.png" type="Texture" id=6]
 [ext_resource path="res://furniture/KitchenSink/KitchenSink.tscn" type="PackedScene" id=7]
 [ext_resource path="res://paintings/bulletin-board.png" type="Texture" id=8]
 [ext_resource path="res://furniture/Countertop/Countertop.tscn" type="PackedScene" id=10]
@@ -110,17 +109,3 @@ drag_margin_v_enabled = true
 [node name="SpawnPoint" parent="YSort" index="3" instance=ExtResource( 3 )]
 position = Vector2( 192, 24 )
 from_location = 1
-
-[node name="Light2D" type="Light2D" parent="." index="3"]
-position = Vector2( 128, 53 )
-texture = ExtResource( 6 )
-texture_scale = 2.0
-color = Color( 0.960784, 0.513726, 0.270588, 1 )
-energy = 0.8
-
-[node name="Light2D2" type="Light2D" parent="." index="4"]
-position = Vector2( 284, 93 )
-texture = ExtResource( 6 )
-texture_scale = 2.0
-color = Color( 0.627451, 0.796078, 0.827451, 1 )
-energy = 0.8

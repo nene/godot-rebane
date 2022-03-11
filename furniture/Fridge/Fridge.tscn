@@ -1,10 +1,26 @@
-[gd_scene load_steps=7 format=2]
+[gd_scene load_steps=9 format=2]
 
 [ext_resource path="res://furniture/Fridge/Fridge.gd" type="Script" id=1]
 [ext_resource path="res://furniture/InteractBox.tscn" type="PackedScene" id=2]
+[ext_resource path="res://lights/CfeLamp/gradient-light.png" type="Texture" id=3]
 
 [sub_resource type="StreamTexture" id=1]
 load_path = "res://.import/fridge.png-9076ed9299ee21068b5931feb4058e4a.stex"
+
+[sub_resource type="Animation" id=5]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/path = NodePath("Light2D:energy")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ 0.8 ]
+}
 
 [sub_resource type="Animation" id=2]
 length = 0.8
@@ -21,6 +37,18 @@ tracks/0/keys = {
 "update": 1,
 "values": [ 0.0, 1.0, 2.0, 1.0 ]
 }
+tracks/1/type = "value"
+tracks/1/path = NodePath("Light2D:energy")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.4 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ 0.8, 0.75 ]
+}
 
 [sub_resource type="RectangleShape2D" id=3]
 extents = Vector2( 8, 6.5 )
@@ -36,12 +64,13 @@ position = Vector2( 0, -22 )
 texture = SubResource( 1 )
 hframes = 2
 vframes = 2
-frame = 1
+frame = 2
 __meta__ = {
 "_editor_description_": "YXNlcHJpdGVfd2l6YXJkX2NvbmZpZwpwbGF5ZXJ8PUFuaW1hdGlvblBsYXllcgpzb3VyY2V8PXJlczovL2Z1cm5pdHVyZS9GcmlkZ2UvZnJpZGdlLmFzZXByaXRlCmxheWVyfD0Kb3BfZXhwfD1UcnVlCm9fZm9sZGVyfD0Kb19uYW1lfD0Kb25seV92aXNpYmxlfD1UcnVlCm9fZXhfcHw9Cg=="
 }
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+anims/RESET = SubResource( 5 )
 anims/humming = SubResource( 2 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
@@ -53,3 +82,10 @@ shape = SubResource( 3 )
 [node name="CollisionShape2D" type="CollisionShape2D" parent="InteractBox"]
 position = Vector2( 0, -22.5 )
 shape = SubResource( 4 )
+
+[node name="Light2D" type="Light2D" parent="."]
+position = Vector2( -11, -13 )
+texture = ExtResource( 3 )
+texture_scale = 2.0
+color = Color( 0.627451, 0.796078, 0.827451, 1 )
+energy = 0.8
