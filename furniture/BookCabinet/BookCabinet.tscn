@@ -1,0 +1,27 @@
+[gd_scene load_steps=5 format=2]
+
+[ext_resource path="res://furniture/BookCabinet/book-cabinet.png" type="Texture" id=1]
+[ext_resource path="res://furniture/InteractBox.tscn" type="PackedScene" id=2]
+
+[sub_resource type="RectangleShape2D" id=1]
+extents = Vector2( 8, 4.5 )
+
+[sub_resource type="RectangleShape2D" id=2]
+extents = Vector2( 8, 12 )
+
+[node name="BookCabinet" type="StaticBody2D"]
+
+[node name="Book-cabinet" type="Sprite" parent="."]
+position = Vector2( 0, -28 )
+texture = ExtResource( 1 )
+hframes = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2( 0, -4.5 )
+shape = SubResource( 1 )
+
+[node name="InteractBox" parent="." instance=ExtResource( 2 )]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="InteractBox"]
+position = Vector2( 0, -12 )
+shape = SubResource( 2 )

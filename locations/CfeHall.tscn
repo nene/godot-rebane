@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=2]
+[gd_scene load_steps=13 format=2]
 
 [ext_resource path="res://bg/BackgroundTiles.tres" type="TileSet" id=1]
 [ext_resource path="res://paintings/polonia-cartel.png" type="Texture" id=2]
@@ -11,6 +11,7 @@
 [ext_resource path="res://furniture/Pianino/Pianino.tscn" type="PackedScene" id=9]
 [ext_resource path="res://furniture/BoardTable/BoardTable.tscn" type="PackedScene" id=10]
 [ext_resource path="res://furniture/Table/Table.tscn" type="PackedScene" id=11]
+[ext_resource path="res://furniture/BookCabinet/BookCabinet.tscn" type="PackedScene" id=12]
 
 [node name="CfeHall" instance=ExtResource( 4 )]
 
@@ -55,6 +56,9 @@ position = Vector2( 50, 102 )
 
 [node name="Table2" parent="YSort" index="4" instance=ExtResource( 11 )]
 position = Vector2( 101, 142 )
+
+[node name="BookCabinet" parent="YSort" index="5" instance=ExtResource( 12 )]
+position = Vector2( 328, 73 )
 
 [node name="StaircaseDoorDown" parent="." index="3" instance=ExtResource( 6 )]
 position = Vector2( 241, 160 )
