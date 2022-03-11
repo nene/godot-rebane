@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=2]
+[gd_scene load_steps=15 format=2]
 
 [ext_resource path="res://bg/BackgroundTiles.tres" type="TileSet" id=1]
 [ext_resource path="res://paintings/polonia-cartel.png" type="Texture" id=2]
@@ -13,6 +13,7 @@
 [ext_resource path="res://furniture/Table/Table.tscn" type="PackedScene" id=11]
 [ext_resource path="res://furniture/BookCabinet/BookCabinet.tscn" type="PackedScene" id=12]
 [ext_resource path="res://furniture/WallSection/WallSection.tscn" type="PackedScene" id=13]
+[ext_resource path="res://lights/CfeLamp/CfeLamp.tscn" type="PackedScene" id=14]
 
 [node name="CfeHall" instance=ExtResource( 4 )]
 
@@ -40,6 +41,15 @@ texture = ExtResource( 7 )
 [node name="Savo-coat-of-arms" type="Sprite" parent="Paintings" index="3"]
 position = Vector2( 23, 19 )
 texture = ExtResource( 8 )
+
+[node name="CfeLamp" parent="Paintings" index="4" instance=ExtResource( 14 )]
+position = Vector2( 153, 16 )
+
+[node name="CfeLamp2" parent="Paintings" index="5" instance=ExtResource( 14 )]
+position = Vector2( 104, 16 )
+
+[node name="CfeLamp3" parent="Paintings" index="6" instance=ExtResource( 14 )]
+position = Vector2( 38, 16 )
 
 [node name="YSort" type="YSort" parent="." index="2"]
 
