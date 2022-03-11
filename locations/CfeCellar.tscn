@@ -1,9 +1,10 @@
-[gd_scene load_steps=22 format=2]
+[gd_scene load_steps=23 format=2]
 
 [ext_resource path="res://bg/BackgroundTiles.tres" type="TileSet" id=1]
 [ext_resource path="res://locations/Location.tscn" type="PackedScene" id=2]
 [ext_resource path="res://furniture/SpawnPoint.tscn" type="PackedScene" id=3]
 [ext_resource path="res://characters/KsvSass.tscn" type="PackedScene" id=4]
+[ext_resource path="res://furniture/Mop/Mop.tscn" type="PackedScene" id=5]
 [ext_resource path="res://furniture/KitchenSink/KitchenSink.tscn" type="PackedScene" id=7]
 [ext_resource path="res://paintings/bulletin-board.png" type="Texture" id=8]
 [ext_resource path="res://furniture/Countertop/Countertop.tscn" type="PackedScene" id=10]
@@ -76,6 +77,9 @@ position = Vector2( 297, 181 )
 
 [node name="Countertop" parent="YSort/Furniture" index="10" instance=ExtResource( 10 )]
 position = Vector2( 232, 129 )
+
+[node name="Mop" parent="YSort/Furniture" index="11" instance=ExtResource( 5 )]
+position = Vector2( 250, 101 )
 
 [node name="Characters" type="YSort" parent="YSort" index="1"]
 
