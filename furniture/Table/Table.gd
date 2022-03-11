@@ -8,7 +8,7 @@ func _ready():
         GameItemGroup.new(SimpleBottleOpener.new()),
         GameItemGroup.new(Drain.new()),
         GameItemGroup.new(Tap.new()),
-        GameItemGroup.new(Ocean.new(), randi() % 4),
+        GameItemGroup.new(Ocean.new(), randi() % 3 + 1),
     ]
     self._inventory = Inventory.new(items, 4*4)
     
