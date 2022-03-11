@@ -84,7 +84,7 @@ position = Vector2( 250, 101 )
 [node name="Characters" type="YSort" parent="YSort" index="1"]
 
 [node name="KsvKark" parent="YSort/Characters" index="0" instance=ExtResource( 12 )]
-position = Vector2( 143, 131 )
+position = Vector2( 118, 154 )
 
 [node name="KsvPikmets" parent="YSort/Characters" index="1" instance=ExtResource( 15 )]
 position = Vector2( 266, 114 )
