@@ -22,3 +22,4 @@ func _change_location(location_name: int):
 
     player.position = spawn.position
     _current_location.add_player(player)
+    CanvasModulate

@@ -2,7 +2,7 @@
 
 [ext_resource path="res://furniture/Fridge/Fridge.gd" type="Script" id=1]
 [ext_resource path="res://furniture/InteractBox.tscn" type="PackedScene" id=2]
-[ext_resource path="res://lights/CfeLamp/gradient-light.png" type="Texture" id=3]
+[ext_resource path="res://lights/gradient-light.png" type="Texture" id=3]
 
 [sub_resource type="StreamTexture" id=1]
 load_path = "res://.import/fridge.png-9076ed9299ee21068b5931feb4058e4a.stex"

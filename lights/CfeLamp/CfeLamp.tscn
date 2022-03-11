@@ -2,7 +2,7 @@
 
 [ext_resource path="res://lights/CfeLamp/cfe-lamp.png" type="Texture" id=1]
 [ext_resource path="res://lights/CfeLamp/CfeLamp.gd" type="Script" id=2]
-[ext_resource path="res://lights/CfeLamp/gradient-light.png" type="Texture" id=3]
+[ext_resource path="res://lights/gradient-light.png" type="Texture" id=3]
 
 [node name="CfeLamp" type="Sprite"]
 position = Vector2( 0, -12 )
