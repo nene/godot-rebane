@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=2]
+[gd_scene load_steps=17 format=2]
 
 [ext_resource path="res://bg/BackgroundTiles.tres" type="TileSet" id=1]
 [ext_resource path="res://paintings/polonia-cartel.png" type="Texture" id=2]
@@ -15,6 +15,7 @@
 [ext_resource path="res://furniture/WallSection/WallSection.tscn" type="PackedScene" id=13]
 [ext_resource path="res://lights/CfeLamp/CfeLamp.tscn" type="PackedScene" id=14]
 [ext_resource path="res://lights/LightSwitch/LightSwitch.tscn" type="PackedScene" id=15]
+[ext_resource path="res://lights/LightGroup/LightGroup.tscn" type="PackedScene" id=16]
 
 [node name="CfeHall" instance=ExtResource( 4 )]
 
@@ -43,13 +44,15 @@ texture = ExtResource( 7 )
 position = Vector2( 23, 19 )
 texture = ExtResource( 8 )
 
-[node name="CfeLamp" parent="Paintings" index="4" instance=ExtResource( 14 )]
+[node name="LightGroup" parent="Paintings" index="4" instance=ExtResource( 16 )]
+
+[node name="CfeLamp" parent="Paintings/LightGroup" index="0" instance=ExtResource( 14 )]
 position = Vector2( 153, 16 )
 
-[node name="CfeLamp2" parent="Paintings" index="5" instance=ExtResource( 14 )]
+[node name="CfeLamp2" parent="Paintings/LightGroup" index="1" instance=ExtResource( 14 )]
 position = Vector2( 104, 16 )
 
-[node name="CfeLamp3" parent="Paintings" index="6" instance=ExtResource( 14 )]
+[node name="CfeLamp3" parent="Paintings/LightGroup" index="2" instance=ExtResource( 14 )]
 position = Vector2( 38, 16 )
 
 [node name="YSort" type="YSort" parent="." index="2"]
@@ -77,6 +80,7 @@ position = Vector2( 313, 64 )
 
 [node name="LightSwitch" parent="YSort" index="7" instance=ExtResource( 15 )]
 position = Vector2( 216, 64 )
+light_group = NodePath("../../Paintings/LightGroup")
 
 [node name="StaircaseDoorDown" parent="." index="3" instance=ExtResource( 6 )]
 position = Vector2( 241, 160 )
