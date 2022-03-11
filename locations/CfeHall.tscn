@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=2]
+[gd_scene load_steps=18 format=2]
 
 [ext_resource path="res://bg/BackgroundTiles.tres" type="TileSet" id=1]
 [ext_resource path="res://paintings/polonia-cartel.png" type="Texture" id=2]
@@ -16,6 +16,7 @@
 [ext_resource path="res://lights/CfeLamp/CfeLamp.tscn" type="PackedScene" id=14]
 [ext_resource path="res://lights/LightSwitch/LightSwitch.tscn" type="PackedScene" id=15]
 [ext_resource path="res://lights/LightGroup/LightGroup.tscn" type="PackedScene" id=16]
+[ext_resource path="res://paintings/door.png" type="Texture" id=17]
 
 [node name="CfeHall" instance=ExtResource( 4 )]
 
@@ -44,7 +45,11 @@ texture = ExtResource( 7 )
 position = Vector2( 23, 19 )
 texture = ExtResource( 8 )
 
-[node name="LightGroup" parent="Paintings" index="4" instance=ExtResource( 16 )]
+[node name="Door" type="Sprite" parent="Paintings" index="4"]
+position = Vector2( 250, 48 )
+texture = ExtResource( 17 )
+
+[node name="LightGroup" parent="Paintings" index="5" instance=ExtResource( 16 )]
 
 [node name="CfeLamp" parent="Paintings/LightGroup" index="0" instance=ExtResource( 14 )]
 position = Vector2( 153, 16 )
