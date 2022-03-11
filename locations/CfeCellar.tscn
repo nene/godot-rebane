@@ -1,10 +1,11 @@
-[gd_scene load_steps=23 format=2]
+[gd_scene load_steps=24 format=2]
 
 [ext_resource path="res://bg/BackgroundTiles.tres" type="TileSet" id=1]
 [ext_resource path="res://locations/Location.tscn" type="PackedScene" id=2]
 [ext_resource path="res://furniture/SpawnPoint.tscn" type="PackedScene" id=3]
 [ext_resource path="res://characters/KsvSass.tscn" type="PackedScene" id=4]
 [ext_resource path="res://furniture/Mop/Mop.tscn" type="PackedScene" id=5]
+[ext_resource path="res://lights/gradient-light.png" type="Texture" id=6]
 [ext_resource path="res://furniture/KitchenSink/KitchenSink.tscn" type="PackedScene" id=7]
 [ext_resource path="res://paintings/bulletin-board.png" type="Texture" id=8]
 [ext_resource path="res://furniture/Countertop/Countertop.tscn" type="PackedScene" id=10]
@@ -112,3 +113,10 @@ from_location = 1
 
 [node name="CanvasModulate" type="CanvasModulate" parent="." index="3"]
 color = Color( 0.415686, 0.482353, 0.592157, 1 )
+
+[node name="Light2D" type="Light2D" parent="." index="4"]
+position = Vector2( 155, 140 )
+texture = ExtResource( 6 )
+texture_scale = 3.0
+color = Color( 0.819608, 0.807843, 0.745098, 1 )
+energy = 0.8
