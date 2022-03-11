@@ -49,13 +49,25 @@ tracks/0/keys = {
 "update": 0,
 "values": [ 2.0 ]
 }
+tracks/1/type = "value"
+tracks/1/path = NodePath("Light2D:energy")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ 0.8 ]
+}
 
 [sub_resource type="Animation" id=9]
 resource_name = "light"
 loop = true
 tracks/0/type = "value"
-tracks/0/path = NodePath("Light2D:texture_scale")
-tracks/0/interp = 1
+tracks/0/path = NodePath("Light2D:energy")
+tracks/0/interp = 2
 tracks/0/loop_wrap = true
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -63,7 +75,7 @@ tracks/0/keys = {
 "times": PoolRealArray( 0, 0.5 ),
 "transitions": PoolRealArray( 1, 1 ),
 "update": 0,
-"values": [ 2.0, 2.2 ]
+"values": [ 0.8, 0.85 ]
 }
 
 [node name="Fireplace" type="StaticBody2D"]
