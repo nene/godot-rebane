@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=2]
+[gd_scene load_steps=16 format=2]
 
 [ext_resource path="res://bg/BackgroundTiles.tres" type="TileSet" id=1]
 [ext_resource path="res://paintings/polonia-cartel.png" type="Texture" id=2]
@@ -14,6 +14,7 @@
 [ext_resource path="res://furniture/BookCabinet/BookCabinet.tscn" type="PackedScene" id=12]
 [ext_resource path="res://furniture/WallSection/WallSection.tscn" type="PackedScene" id=13]
 [ext_resource path="res://lights/CfeLamp/CfeLamp.tscn" type="PackedScene" id=14]
+[ext_resource path="res://lights/LightSwitch/LightSwitch.tscn" type="PackedScene" id=15]
 
 [node name="CfeHall" instance=ExtResource( 4 )]
 
@@ -73,6 +74,9 @@ position = Vector2( 313, 73 )
 
 [node name="WallSection" parent="YSort" index="6" instance=ExtResource( 13 )]
 position = Vector2( 313, 64 )
+
+[node name="LightSwitch" parent="YSort" index="7" instance=ExtResource( 15 )]
+position = Vector2( 216, 64 )
 
 [node name="StaircaseDoorDown" parent="." index="3" instance=ExtResource( 6 )]
 position = Vector2( 241, 160 )
