@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=2]
+[gd_scene load_steps=11 format=2]
 
 [ext_resource path="res://bg/BackgroundTiles.tres" type="TileSet" id=1]
 [ext_resource path="res://paintings/polonia-cartel.png" type="Texture" id=2]
@@ -8,6 +8,8 @@
 [ext_resource path="res://furniture/StaircaseDoor/StaircaseDoorDown.tscn" type="PackedScene" id=6]
 [ext_resource path="res://paintings/door-large.png" type="Texture" id=7]
 [ext_resource path="res://paintings/savo-coat-of-arms.png" type="Texture" id=8]
+[ext_resource path="res://furniture/Pianino/Pianino.tscn" type="PackedScene" id=9]
+[ext_resource path="res://furniture/BoardTable/BoardTable.tscn" type="PackedScene" id=10]
 
 [node name="CfeHall" instance=ExtResource( 4 )]
 
@@ -40,6 +42,12 @@ texture = ExtResource( 8 )
 
 [node name="SpawnPoint" parent="YSort" index="0" instance=ExtResource( 5 )]
 position = Vector2( 241, 138 )
+
+[node name="Pianino" parent="YSort" index="1" instance=ExtResource( 9 )]
+position = Vector2( 178, 57 )
+
+[node name="BoardTable" parent="YSort" index="2" instance=ExtResource( 10 )]
+position = Vector2( 75, 67 )
 
 [node name="StaircaseDoorDown" parent="." index="3" instance=ExtResource( 6 )]
 position = Vector2( 241, 160 )
