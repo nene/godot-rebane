@@ -252,6 +252,7 @@ ui_inventory={
 2d_physics/layer_2="MouseCursor"
 2d_physics/layer_3="PlayerCloseby"
 2d_physics/layer_4="Door"
+2d_physics/layer_5="BottleOpener"
 
 [physics]
 
