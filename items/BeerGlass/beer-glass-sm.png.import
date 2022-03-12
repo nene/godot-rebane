@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/beer-glass-lg.png-734eccacfa9eb21e40601d6c3f1c57b2.stex"
+path="res://.import/beer-glass-sm.png-1cdab6d9af8c548369b42d0945bbf5ef.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://items/beer-glass-lg.png"
-dest_files=[ "res://.import/beer-glass-lg.png-734eccacfa9eb21e40601d6c3f1c57b2.stex" ]
+source_file="res://items/BeerGlass/beer-glass-sm.png"
+dest_files=[ "res://.import/beer-glass-sm.png-1cdab6d9af8c548369b42d0945bbf5ef.stex" ]
 
 [params]
 
@@ -31,5 +31,5 @@ process/invert_color=false
 process/normal_map_invert_y=false
 stream=false
 size_limit=0
-detect_3d=true
+detect_3d=false
 svg/scale=1.0

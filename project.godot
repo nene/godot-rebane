@@ -12,7 +12,7 @@ _global_script_classes=[ {
 "base": "GameItem",
 "class": "BeerGlass",
 "language": "GDScript",
-"path": "res://items/BeerGlass.gd"
+"path": "res://items/BeerGlass/BeerGlass.gd"
 }, {
 "base": "GameItem",
 "class": "Book",

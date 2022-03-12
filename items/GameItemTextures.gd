@@ -3,8 +3,8 @@ class_name GameItemTextures
 
 const textures = [
     preload("res://items/items.png"),
-    preload("res://items/beer-glass-lg.png"),
-    preload("res://items/beer-glass-sm.png"),
+    preload("res://items/BeerGlass/beer-glass-lg.png"),
+    preload("res://items/BeerGlass/beer-glass-sm.png"),
 ]
 
 enum {
