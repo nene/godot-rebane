@@ -34,5 +34,6 @@ func _create_tip():
 
 func _destroy_tip():
     $Timer.stop()
-    remove_child(_tip)
-    _tip = null
+    if _tip:
+        remove_child(_tip)
+        _tip = null
