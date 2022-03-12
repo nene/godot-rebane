@@ -19,7 +19,10 @@ func get_name():
     if is_empty():
         return "Tühi pudel"
     else:
-        return Drink.get_drink(drink_type)["name"]
+        return Drink.get_drink(drink_type)["name"] + _cap_state_suffix()
+
+func _cap_state_suffix():
+    return " (avatud)" if is_open() else ""
 
 func get_texture():
     if is_empty():
@@ -27,6 +30,9 @@ func get_texture():
     else:
         var drink = Drink.get_drink(drink_type)
         return TextureUtils.from_atlas(BEER_BOTTLE_TEXTURE, Vector2(cap_state, drink["bottleSpriteIndex"]))
+
+func is_open():
+    return cap_state == CapState.OPEN
 
 func is_empty():
     return drink_type == null

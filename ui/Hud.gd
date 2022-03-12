@@ -5,7 +5,7 @@ var hotbar_items = [
     GameItemGroup.new(BeerGlass.new(Drink.ALEXANDER, BeerGlass.EMPTY)),
     GameItemGroup.new(BeerGlass.new(Drink.PORTER, BeerGlass.HALF_FULL)),
     GameItemGroup.new(BeerBottle.new(Drink.BOCK)),
-    GameItemGroup.new(BeerBottle.new(Drink.HEINEKEN)),
+    GameItemGroup.new(BeerBottle.new(Drink.HEINEKEN, BeerBottle.CapState.OPEN)),
     GameItemGroup.new(BeerBottle.new(), 4),
 ]
 
