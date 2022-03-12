@@ -26,9 +26,14 @@ func _input(event):
     self.global_position = get_global_mouse_position()
 
 func _allow_interact():
-    $Cursor.texture = cursor_hand
-    $Cursor.position = Vector2(2,6)
+    if _holding_group:
+        $HoldingItemView.highlighted = true
+    else:
+        $Cursor.texture = cursor_hand
+        $Cursor.position = Vector2(2,6)
+
 
 func _forbid_interact():
+    $HoldingItemView.highlighted = false
     $Cursor.texture = cursor_arrow
     $Cursor.position = Vector2(4,6)

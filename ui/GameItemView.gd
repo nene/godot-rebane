@@ -15,7 +15,9 @@ func _set_group(grp: GameItemGroup):
         $Label.text = String(group.count())
 
 func _get_item_texture() -> Texture:
-    if highlighted:
+    if !group:
+        return null
+    elif highlighted:
         return group.item().get_highlighted_texture()
     else:
         return group.item().get_texture()
