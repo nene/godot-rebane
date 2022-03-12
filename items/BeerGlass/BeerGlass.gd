@@ -51,5 +51,5 @@ func max_stack_size():
         return 1
 
 func is_groupable_with(item: GameItem) -> bool:
-    var BeerGlassClass = load("res://items/BeerGlass.gd")
+    var BeerGlassClass = load("res://items/BeerGlass/BeerGlass.gd")
     return item is BeerGlassClass && item.is_empty() && self.is_empty()
