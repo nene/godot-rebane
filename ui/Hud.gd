@@ -4,6 +4,8 @@ var hotbar_items = [
     GameItemGroup.new(BeerGlass.new(Drink.PILSNER, BeerGlass.FULL)),
     GameItemGroup.new(BeerGlass.new(Drink.ALEXANDER, BeerGlass.EMPTY)),
     GameItemGroup.new(BeerGlass.new(Drink.PORTER, BeerGlass.HALF_FULL)),
+    GameItemGroup.new(BeerBottle.new(Drink.BOCK)),
+    GameItemGroup.new(BeerBottle.new(Drink.HEINEKEN)),
 ]
 
 var _dialog = null
