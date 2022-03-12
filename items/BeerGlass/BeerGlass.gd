@@ -2,6 +2,7 @@ extends GameItem
 class_name BeerGlass
 
 const BEER_GLASS_LG_TEXTURE = preload("res://items/BeerGlass/beer-glass-lg.png")
+const BEER_GLASS_LG_OUTLINE_TEXTURE = preload("res://items/BeerGlass/beer-glass-lg-outline.png")
 const BEER_GLASS_SM_TEXTURE = preload("res://items/BeerGlass/beer-glass-sm.png")
 
 enum {
@@ -23,7 +24,10 @@ func get_name():
     return "Šoppen"
 
 func get_texture():
-    return _get_texture_of_type(BEER_GLASS_LG_TEXTURE, Vector2(16, 16))
+    return _get_texture_of_type(BEER_GLASS_LG_TEXTURE, Vector2(18, 18))
+
+func get_highlighted_texture():
+    return _get_texture_of_type(BEER_GLASS_LG_OUTLINE_TEXTURE, Vector2(18, 18))
 
 func get_small_texture():
     return _get_texture_of_type(BEER_GLASS_SM_TEXTURE, Vector2(10, 10))
