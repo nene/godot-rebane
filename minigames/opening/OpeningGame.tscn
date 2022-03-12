@@ -21,10 +21,10 @@ __meta__ = {
 }
 
 [node name="Bottle" parent="." instance=ExtResource( 2 )]
-position = Vector2( 95, 85 )
+position = Vector2( 100, 100 )
 
 [node name="BottleCap" parent="." instance=ExtResource( 5 )]
-position = Vector2( 95, 85 )
+position = Vector2( 100, 100 )
 
 [node name="Opener" parent="." instance=ExtResource( 3 )]
 position = Vector2( 219, 147 )
