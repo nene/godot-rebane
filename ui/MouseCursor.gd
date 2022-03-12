@@ -17,7 +17,7 @@ func _ready():
 func _set_holding_group(group: GameItemGroup):
     _holding_group = group
     if _holding_group:
-        $HoldingItemView.set_group(_holding_group)
+        $HoldingItemView.group = _holding_group
         $HoldingItemView.show()
     else:
         $HoldingItemView.hide()

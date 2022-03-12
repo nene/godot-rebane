@@ -3,22 +3,22 @@ class_name GameItemView
 
 var highlighted = false setget _set_highlighted
 
-var _group: GameItemGroup
+var group: GameItemGroup = null setget _set_group
 
-func set_group(group: GameItemGroup):
-    _group = group
+func _set_group(grp: GameItemGroup):
+    group = grp
     $TextureRect.texture = _get_item_texture()
 
-    if _group.count() == 1:
+    if group.count() == 1:
         $Label.text = ""
     else:
-        $Label.text = String(_group.count())
+        $Label.text = String(group.count())
 
 func _get_item_texture() -> Texture:
     if highlighted:
-        return _group.item().get_highlighted_texture()
+        return group.item().get_highlighted_texture()
     else:
-        return _group.item().get_texture()
+        return group.item().get_texture()
 
 func _set_highlighted(hl: bool):
     highlighted = hl

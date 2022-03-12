@@ -29,7 +29,7 @@ func make_texture_slice(rect: Rect2) -> StyleBoxTexture:
 func set_group(group: GameItemGroup):
     _group = group
     if group:
-        $GameItemView.set_group(group)
+        $GameItemView.group = group
         $GameItemView.show()
         $Tooltip.show()
         $Tooltip.text = group.item().get_name()
