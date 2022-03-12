@@ -1,5 +1,7 @@
 extends Node2D
 
+const PhysicalBottleCap = preload("res://minigames/opening/PhysicalBottleCap.tscn")
+
 const BOTTLE_START_POSITION = Vector2(100, 100)
 const BOTTLE_MAX_MOVEMENT = Vector2(150, 150)
 
@@ -20,7 +22,7 @@ var _cap_state = CAP_ON_BOTTLE
 
 func _ready():
     _noise.seed = randi()
-    _noise.period = 2
+    _noise.period = 4
 
 func _process(delta):
     _time += delta
@@ -51,6 +53,11 @@ func _try_to_open():
 func _release_cap():
     if _cap_state == CAP_IN_OPENER:
         _cap_state = CAP_FREE
+        _bottle_cap.queue_free()
+        _bottle_cap = PhysicalBottleCap.instance()
+        _bottle_cap.position = get_global_mouse_position()
+        _bottle_cap.apply_impulse(Vector2.ZERO, Vector2(1,-1) * 200)
+        add_child(_bottle_cap)
 
 func _on_background_input(event):
     if event is InputEventMouseButton && event.button_index == BUTTON_LEFT:

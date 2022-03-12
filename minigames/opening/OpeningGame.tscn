@@ -1,10 +1,13 @@
-[gd_scene load_steps=6 format=2]
+[gd_scene load_steps=7 format=2]
 
 [ext_resource path="res://minigames/opening/opening-game-bg.png" type="Texture" id=1]
 [ext_resource path="res://minigames/opening/Bottle.tscn" type="PackedScene" id=2]
 [ext_resource path="res://minigames/opening/Opener.tscn" type="PackedScene" id=3]
 [ext_resource path="res://minigames/opening/OpeningGame.gd" type="Script" id=4]
 [ext_resource path="res://minigames/opening/BottleCap.tscn" type="PackedScene" id=5]
+
+[sub_resource type="RectangleShape2D" id=1]
+extents = Vector2( 160, 10 )
 
 [node name="OpeningGame" type="Node2D"]
 script = ExtResource( 4 )
@@ -28,6 +31,12 @@ position = Vector2( 100, 100 )
 
 [node name="Opener" parent="." instance=ExtResource( 3 )]
 position = Vector2( 219, 147 )
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2( 160, 210 )
+shape = SubResource( 1 )
 
 [connection signal="gui_input" from="Background" to="." method="_on_background_input"]
 [connection signal="ready_to_open_change" from="BottleCap" to="." method="_on_bottlecap_ready_to_open_change"]
