@@ -4,8 +4,8 @@ class_name BeerBottle
 const BEER_BOTTLE_TEXTURE = preload("res://items/BeerBottle/bottle.png")
 
 enum CapState {
-    CLOSED,
-    OPEN,
+    CLOSED = 1,
+    OPEN = 2,
 }
 
 var drink_type = Drink.WATER
@@ -23,10 +23,10 @@ func get_name():
 
 func get_texture():
     if is_empty():
-        return TextureUtils.from_atlas(BEER_BOTTLE_TEXTURE, Vector2(cap_state + 1, 0))
+        return TextureUtils.from_atlas(BEER_BOTTLE_TEXTURE, Vector2(cap_state, 0))
     else:
         var drink = Drink.get_drink(drink_type)
-        return TextureUtils.from_atlas(BEER_BOTTLE_TEXTURE, Vector2(cap_state + 1, drink["bottleSpriteIndex"]))
+        return TextureUtils.from_atlas(BEER_BOTTLE_TEXTURE, Vector2(cap_state, drink["bottleSpriteIndex"]))
 
 func is_empty():
     return drink_type == null
