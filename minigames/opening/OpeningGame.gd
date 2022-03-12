@@ -13,6 +13,7 @@ var _time = 0
 enum {
     CAP_ON_BOTTLE,
     CAP_IN_OPENER,
+    CAP_FREE,
 }
 
 var _cap_state = CAP_ON_BOTTLE
@@ -47,8 +48,13 @@ func _try_to_open():
     if _ready_to_open:
         _cap_state = CAP_IN_OPENER
 
-func _on_background_input(event):
-    if event is InputEventMouseButton:
-        if event.button_index == BUTTON_LEFT && event.pressed:
-            _try_to_open()
+func _release_cap():
+    if _cap_state == CAP_IN_OPENER:
+        _cap_state = CAP_FREE
 
+func _on_background_input(event):
+    if event is InputEventMouseButton && event.button_index == BUTTON_LEFT:
+        if event.pressed:
+            _try_to_open()
+        else:
+            _release_cap()
