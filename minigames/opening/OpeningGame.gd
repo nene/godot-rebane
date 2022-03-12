@@ -10,6 +10,13 @@ var _ready_to_open = false
 var _noise = OpenSimplexNoise.new()
 var _time = 0
 
+enum {
+    CAP_ON_BOTTLE,
+    CAP_IN_OPENER,
+}
+
+var _cap_state = CAP_ON_BOTTLE
+
 func _ready():
     _noise.seed = randi()
     _noise.period = 2
@@ -25,17 +32,20 @@ func _bottle_offset() -> Vector2:
 
 func _set_bottle_position(position: Vector2):
     _bottle.position = position
-    _bottle_cap.position = position
+    if _cap_state == CAP_ON_BOTTLE:
+        _bottle_cap.position = position
 
 func _input(event):
     _opener.position = get_global_mouse_position()
+    if _cap_state == CAP_IN_OPENER:
+        _bottle_cap.position = _opener.position
 
 func _on_bottlecap_ready_to_open_change(ready: bool):
     _ready_to_open = ready
 
 func _try_to_open():
     if _ready_to_open:
-        _bottle_cap.hide()
+        _cap_state = CAP_IN_OPENER
 
 func _on_background_input(event):
     if event is InputEventMouseButton:
