@@ -1,6 +1,9 @@
 extends GameItem
 class_name BeerGlass
 
+const BEER_GLASS_LG_TEXTURE = preload("res://items/BeerGlass/beer-glass-lg.png")
+const BEER_GLASS_SM_TEXTURE = preload("res://items/BeerGlass/beer-glass-sm.png")
+
 enum {
     EMPTY,
     ALMOST_EMPTY,
@@ -20,14 +23,14 @@ func get_name():
     return "Šoppen"
 
 func get_texture():
-    return _get_texture_of_type(GameItemTextures.BEER_GLASS_LG, Vector2(16, 16))
+    return _get_texture_of_type(BEER_GLASS_LG_TEXTURE, Vector2(16, 16))
 
 func get_small_texture():
-    return _get_texture_of_type(GameItemTextures.BEER_GLASS_SM, Vector2(10, 10))
+    return _get_texture_of_type(BEER_GLASS_SM_TEXTURE, Vector2(10, 10))
 
-func _get_texture_of_type(texture_type: int, size: Vector2):
+func _get_texture_of_type(texture: Texture, size: Vector2):
     var color = Drink.get_drink(drink_type)["color"]
-    return GameItemTextures.create(texture_type, Vector2(level, color), size)
+    return GameItemTextures.texture_from_atlas(texture, Vector2(level, color), size)
 
 # Reduces the amount of drink in glass
 func sip():
