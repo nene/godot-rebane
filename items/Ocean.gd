@@ -7,7 +7,7 @@ func get_name():
     return "Ooken"
     
 func get_texture():
-    return GameItemTextures.texture_from_atlas(ITEMS_TEXTURE, Vector2(4, 0))
+    return TextureUtils.from_atlas(ITEMS_TEXTURE, Vector2(4, 0))
 
 func max_stack_size():
     return 99

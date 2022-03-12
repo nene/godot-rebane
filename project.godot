@@ -44,11 +44,6 @@ _global_script_classes=[ {
 "language": "GDScript",
 "path": "res://items/GameItemGroup.gd"
 }, {
-"base": "Reference",
-"class": "GameItemTextures",
-"language": "GDScript",
-"path": "res://items/GameItemTextures.gd"
-}, {
 "base": "Node2D",
 "class": "GameItemView",
 "language": "GDScript",
@@ -127,7 +122,6 @@ _global_script_class_icons={
 "Frater": "",
 "GameItem": "",
 "GameItemGroup": "",
-"GameItemTextures": "",
 "GameItemView": "",
 "InteractEvent": "",
 "Inventory": "",
@@ -157,6 +151,7 @@ InteractionState="*res://InteractionState.gd"
 Global="*res://Global.gd"
 TerminologyQuestion="*res://questions/TerminologyQuestion.gd"
 GameEvents="*res://GameEvents.gd"
+TextureUtils="*res://TextureUtils.gd"
 
 [debug]
 

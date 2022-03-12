@@ -7,4 +7,4 @@ func get_name():
     return "Konvendi avaja"
 
 func get_texture():
-    return GameItemTextures.texture_from_atlas(ITEMS_TEXTURE, Vector2(2, 0))
+    return TextureUtils.from_atlas(ITEMS_TEXTURE, Vector2(2, 0))
