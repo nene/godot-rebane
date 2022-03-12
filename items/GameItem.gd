@@ -7,6 +7,9 @@ func get_name() -> String:
 func get_texture() -> Texture:
     return Texture.new()
 
+func get_highlighted_texture() -> Texture:
+    return get_texture()
+
 func max_stack_size() -> int:
     return 1
 
