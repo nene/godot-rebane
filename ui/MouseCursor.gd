@@ -22,9 +22,6 @@ func _set_holding_group(group: GameItemGroup):
     else:
         $HoldingItemView.hide()
 
-func _get_holding_item() -> GameItem:
-    return _holding_group.item() if _holding_group else null
-
 func _input(event):
     self.global_position = get_global_mouse_position()
 
