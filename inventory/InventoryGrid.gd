@@ -22,6 +22,7 @@ func set_grid_size(size: Vector2):
 
     for child in self.get_children():
         self.remove_child(child)
+        child.queue_free()
 
     self.columns = int(grid_size.x)
     for i in range(grid_size.x * grid_size.y):

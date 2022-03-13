@@ -11,6 +11,5 @@ func _start_minigame(game: MiniGame):
     add_child(_minigame)
 
 func _end_minigame():
-    remove_child(_minigame)
     _minigame.queue_free()
     _minigame = null

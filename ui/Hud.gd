@@ -20,7 +20,7 @@ func _ready():
     GameEvents.connect("add_to_player_inventory", self, "_add_to_player_inventory")
 
 func _hide_dialog():
-    $Dialogs.remove_child(_dialog)
+    _dialog.queue_free()
     _dialog = null
     $Overlay.hide()
     get_tree().paused = false
