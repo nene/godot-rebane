@@ -1,22 +1,27 @@
-[gd_scene load_steps=3 format=2]
+[gd_scene load_steps=4 format=2]
 
 [ext_resource path="res://minigames/opening/bottle-cap-xl.png" type="Texture" id=2]
+
+[sub_resource type="PhysicsMaterial" id=3]
+bounce = 0.2
 
 [sub_resource type="RectangleShape2D" id=2]
 extents = Vector2( 7.12679, 2.89352 )
 
 [node name="PhysicalBottleCap" type="RigidBody2D"]
+rotation = -0.785398
 collision_layer = 32
 collision_mask = 32
+physics_material_override = SubResource( 3 )
 gravity_scale = 13.0
 contacts_reported = 1
 contact_monitor = true
 
 [node name="Sprite" type="Sprite" parent="."]
+rotation = 0.785398
 texture = ExtResource( 2 )
 hframes = 2
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2( 0.0733512, -0.00544462 )
-rotation = -0.785398
 shape = SubResource( 2 )
