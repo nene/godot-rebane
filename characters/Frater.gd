@@ -3,9 +3,12 @@ class_name Frater
 
 const Direction = preload("res://Direction.gd")
 
+# warning-ignore:unused_class_variable
 export var character_name = ""
+# warning-ignore:unused_class_variable
 export(Resource) var photo
 
+# warning-ignore:unused_class_variable
 onready var animationState = $AnimationTree.get("parameters/playback")
 var _state: State
 

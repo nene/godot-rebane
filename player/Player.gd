@@ -1,6 +1,7 @@
 extends KinematicBody2D
 class_name Player
 
+# warning-ignore:unused_class_variable
 onready var animationState = $AnimationTree.get("parameters/playback")
 var _state: State
 

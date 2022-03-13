@@ -6,10 +6,8 @@ export var grid_size: Vector2 = Vector2(4, 4) setget set_grid_size
 # Dependency injection
 var inventory: Inventory setget _set_inventory
 
-var GameItemViewNode = preload("res://ui/GameItemView.tscn")
 var SlotNode = preload("res://inventory/Slot.tscn")
 
-var _inventory: Inventory
 var _holding_group: GameItemGroup
 
 func _ready():
