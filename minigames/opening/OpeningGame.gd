@@ -58,6 +58,8 @@ func _release_cap():
     _bottle_cap.apply_impulse(Vector2.ZERO, Vector2(1,-1) * 200)
     add_child(_bottle_cap)
     $OpenBeerSound.play()
+    $OpeningParticles.position = _bottle.position
+    $OpeningParticles.emitting = true
 
 func _on_background_input(event):
     if event is InputEventMouseButton && event.button_index == BUTTON_LEFT:
