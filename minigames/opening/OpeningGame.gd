@@ -60,7 +60,10 @@ func _release_cap():
 func _on_background_input(event):
     if event is InputEventMouseButton && event.button_index == BUTTON_LEFT:
         if event.pressed:
+            _opener.rotation_degrees = 15
             _try_to_open()
+        else:
+            _opener.rotation_degrees = 0
 
 func _bottle_cap_dropped(_body):
     $DropCapSound.play()
