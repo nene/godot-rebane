@@ -56,11 +56,10 @@ func _release_cap():
         _bottle_cap.queue_free()
         _bottle_cap = PhysicalBottleCap.instance()
         _bottle_cap.position = get_global_mouse_position()
+        _bottle_cap.connect("body_entered", self, "_bottle_cap_dropped", [], CONNECT_ONESHOT)
         _bottle_cap.apply_impulse(Vector2.ZERO, Vector2(1,-1) * 200)
         add_child(_bottle_cap)
         $OpenBeerSound.play()
-        yield(get_tree().create_timer(3), "timeout")
-        emit_signal("finished")
 
 func _on_background_input(event):
     if event is InputEventMouseButton && event.button_index == BUTTON_LEFT:
@@ -68,3 +67,10 @@ func _on_background_input(event):
             _try_to_open()
         else:
             _release_cap()
+
+func _bottle_cap_dropped(_body):
+    $DropCapSound.play()
+
+func _on_drop_cap_sound_finished():
+    yield(get_tree().create_timer(1), "timeout")
+    emit_signal("finished")

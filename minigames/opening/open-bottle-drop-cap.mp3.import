@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/open-bottle-drop-cap.mp3-1c15d382c25c8fb58fc092ddc5125a16.mp3str"
+
+[deps]
+
+source_file="res://minigames/opening/open-bottle-drop-cap.mp3"
+dest_files=[ "res://.import/open-bottle-drop-cap.mp3-1c15d382c25c8fb58fc092ddc5125a16.mp3str" ]
+
+[params]
+
+loop=false
+loop_offset=0
