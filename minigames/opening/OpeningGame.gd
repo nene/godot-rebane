@@ -58,6 +58,7 @@ func _release_cap():
     _bottle_cap.apply_impulse(Vector2.ZERO, Vector2(1,-1) * 200)
     add_child(_bottle_cap)
     $OpenBeerSound.play()
+    _bottle.rotation_degrees = -15
     $OpeningParticles.position = _bottle.position
     $OpeningParticles.emitting = true
 
