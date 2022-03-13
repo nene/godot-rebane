@@ -16,6 +16,9 @@ func _init(drink_type = null, cap_state: int = CapState.CLOSED):
     self.drink_type = drink_type
     self.cap_state = cap_state
 
+func get_type():
+    return "beer_bottle"
+
 func get_name():
     if is_empty():
         return "Tühi pudel"

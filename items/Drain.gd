@@ -3,6 +3,9 @@ class_name Drain
 
 const TEXTURE = preload("res://items/drain.png")
 
+func get_type():
+    return "drain"
+
 func get_name():
     return "Valamu"
 

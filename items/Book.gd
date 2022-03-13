@@ -3,6 +3,9 @@ class_name Book
 
 const TEXTURE = preload("res://items/book.png")
 
+func get_type():
+    return "book"
+
 func get_name():
     return "Majaraamat"
     

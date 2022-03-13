@@ -1,6 +1,9 @@
 extends Reference
 class_name GameItem
 
+func get_type() -> String:
+    return "unknown"
+
 func get_name() -> String:
     return ""
 

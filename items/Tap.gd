@@ -3,6 +3,9 @@ class_name Tap
 
 const TEXTURE = preload("res://items/tap.png")
 
+func get_type():
+    return "tap"
+
 func get_name():
     return "Kraan"
 

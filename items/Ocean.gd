@@ -3,6 +3,9 @@ class_name Ocean
 
 const TEXTURE = preload("res://items/ocean.png")
 
+func get_type():
+    return "ocean"
+
 func get_name():
     return "Ooken"
 

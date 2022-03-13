@@ -3,6 +3,9 @@ class_name LockedBottleOpener
 
 const TEXTURE = preload("res://items/bottle-opener.png")
 
+func get_type():
+    return "bottle_opener"
+
 func get_name():
     return "Konvendi avaja"
 

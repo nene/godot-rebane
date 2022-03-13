@@ -20,6 +20,9 @@ func _init(drink: int, lvl: int = EMPTY):
     drink_type = drink
     level = lvl
 
+func get_type():
+    return "beer_glass"
+
 func get_name():
     return "Šoppen"
 
