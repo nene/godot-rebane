@@ -28,7 +28,7 @@ func physics_update(delta):
     _owner.move_and_slide(direction * _speed)
 
 func is_interactable(group: GameItemGroup = null):
-    return group != null && group.item() is BeerGlass
+    return group != null && group.item().type() == "beer_glass"
 
 func handle_input(event):
     if event is InteractEvent:

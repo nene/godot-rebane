@@ -36,7 +36,7 @@ func _ocean_count() -> int:
     return Fp.sum(Fp.map(funcref(self, "_item_count"), oceans))
 
 func _is_ocean(group: GameItemGroup) -> bool:
-    return group.item() is Ocean
+    return group.item().type() == "ocean"
 
 func _item_count(group: GameItemGroup) -> int:
     return group.count()
