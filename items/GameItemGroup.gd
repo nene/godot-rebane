@@ -47,4 +47,8 @@ func is_groupable_with(group: GameItemGroup) -> bool:
     return self.item().is_groupable_with(group.item()) && !is_full()
 
 func combine(holding_group: GameItemGroup) -> Combination:
+    # For now only allow combining single items
+    if self.count() > 1 || holding_group.count() > 1:
+        return null
+
     return self.item().combine(holding_group.item())
