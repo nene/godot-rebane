@@ -127,10 +127,10 @@ func _notify_slot_not_combinable(slot_index: int):
     GameEvents.emit_signal("forbid_combine")
 
 func _combination_success(combination: Combination, slot_index: int):
-    if combination.item_in_hand():
-        _set_holding_group(GameItemGroup.new(combination.item_in_hand()))
-    if combination.item_in_slot() && !inventory.is_locked():
-        inventory.put_at(slot_index, GameItemGroup.new(combination.item_in_slot()))
+    if combination.item_in_hand:
+        _set_holding_group(GameItemGroup.new(combination.item_in_hand))
+    if combination.item_in_slot && !inventory.is_locked():
+        inventory.put_at(slot_index, GameItemGroup.new(combination.item_in_slot))
 
     # Refresh UI (e.g. removing highlighting after combining completed)
     _check_slot_combinability(slot_index)
