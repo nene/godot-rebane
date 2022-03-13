@@ -1,11 +1,12 @@
 extends GameItem
 class_name BeerBottle
 
-const BEER_BOTTLE_TEXTURE = preload("res://items/BeerBottle/bottle.png")
+const BEER_BOTTLE_LG_TEXTURE = preload("res://items/BeerBottle/bottle-lg.png")
+const BEER_BOTTLE_LG_OUTLINE_TEXTURE = preload("res://items/BeerBottle/bottle-lg-outline.png")
 
 enum CapState {
-    CLOSED = 1,
-    OPEN = 2,
+    CLOSED,
+    OPEN,
 }
 
 var drink_type = Drink.WATER
@@ -25,11 +26,17 @@ func _cap_state_suffix():
     return " (avatud)" if is_open() else ""
 
 func get_texture():
+    return _get_from_atlas_texture(BEER_BOTTLE_LG_TEXTURE)
+
+func get_highlighted_texture():
+    return _get_from_atlas_texture(BEER_BOTTLE_LG_OUTLINE_TEXTURE)
+
+func _get_from_atlas_texture(atlas: Texture):
     if is_empty():
-        return TextureUtils.from_atlas(BEER_BOTTLE_TEXTURE, Vector2(cap_state, 0))
+        return TextureUtils.from_atlas(atlas, Vector2(cap_state, 0), Vector2(18, 18))
     else:
         var drink = Drink.get_drink(drink_type)
-        return TextureUtils.from_atlas(BEER_BOTTLE_TEXTURE, Vector2(cap_state, drink["bottleSpriteIndex"]))
+        return TextureUtils.from_atlas(atlas, Vector2(cap_state, drink["bottleSpriteIndex"]), Vector2(18, 18))
 
 func is_open():
     return cap_state == CapState.OPEN

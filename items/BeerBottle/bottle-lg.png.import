@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/bottle.png-6d923f8b0bf009c4b5860dd629ec5357.stex"
+path="res://.import/bottle-lg.png-69f248d72a260fd92b39a9a241e84761.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://items/BeerBottle/bottle.png"
-dest_files=[ "res://.import/bottle.png-6d923f8b0bf009c4b5860dd629ec5357.stex" ]
+source_file="res://items/BeerBottle/bottle-lg.png"
+dest_files=[ "res://.import/bottle-lg.png-69f248d72a260fd92b39a9a241e84761.stex" ]
 
 [params]
 
