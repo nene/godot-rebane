@@ -118,7 +118,7 @@ func _slot_right_clicked(slot_index: int):
 func _check_slot_combinability(slot_index: int):
     var slot_group := inventory.at(slot_index)
     if slot_group && _holding_group:
-        if slot_group.item().combine(_holding_group.item()):
+        if slot_group.combine(_holding_group):
             GameEvents.emit_signal("allow_combine")
             return
     GameEvents.emit_signal("forbid_combine")
