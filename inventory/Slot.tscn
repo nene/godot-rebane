@@ -15,9 +15,6 @@ margin_bottom = 16.0
 rect_min_size = Vector2( 16, 16 )
 custom_styles/panel = SubResource( 1 )
 script = ExtResource( 2 )
-__meta__ = {
-"_edit_use_anchors_": false
-}
 
 [node name="GameItemView" parent="." instance=ExtResource( 3 )]
 visible = false

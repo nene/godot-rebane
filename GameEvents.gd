@@ -18,3 +18,6 @@ signal add_to_player_inventory(group)
 
 signal allow_interact
 signal forbid_interact
+
+signal allow_combine
+signal forbid_combine

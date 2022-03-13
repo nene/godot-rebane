@@ -26,6 +26,8 @@ func set_grid_size(size: Vector2):
         self.add_child(slot)
         if !Engine.editor_hint:
             slot.connect("gui_input", self, "_slot_gui_input", [i])
+            slot.connect("mouse_entered", self, "_slot_mouse_entered", [i])
+            slot.connect("mouse_exited", self, "_slot_mouse_exited", [i])
 
 func _set_inventory(inv: Inventory):
     if inv.size() != grid_size.x * grid_size.y:
@@ -103,6 +105,15 @@ func _slot_right_clicked(slot_index: int):
             _slot_clicked(slot_index)
 
     _refresh_slots()
+
+func _slot_mouse_entered(slot_index: int):
+    var slot_group := inventory.at(slot_index)
+    if slot_group && _holding_group:
+        if slot_group.item().combine(_holding_group.item()):
+            GameEvents.emit_signal("allow_combine")
+
+func _slot_mouse_exited(slot_index: int):
+    GameEvents.emit_signal("forbid_combine")
 
 func _set_holding_group(group: GameItemGroup, emit = true):
     _holding_group = group

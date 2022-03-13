@@ -9,6 +9,3 @@ custom_constants/vseparation = 1
 custom_constants/hseparation = 1
 columns = 4
 script = ExtResource( 1 )
-__meta__ = {
-"_edit_use_anchors_": false
-}

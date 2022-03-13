@@ -10,9 +10,6 @@ margin_right = 320.0
 margin_bottom = 200.0
 mouse_filter = 2
 script = ExtResource( 1 )
-__meta__ = {
-"_edit_use_anchors_": false
-}
 
 [node name="Overlay" parent="." instance=ExtResource( 5 )]
 visible = false
