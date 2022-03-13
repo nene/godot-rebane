@@ -51,15 +51,20 @@ func _slot_gui_input(event: InputEvent, slot_index: int):
             _slot_right_clicked(slot_index)
 
 func _slot_clicked(slot_index: int):
+    var slot_group = inventory.at(slot_index)
+
+    # Combining can be performed even with locked inventory
+    if _holding_group && slot_group && slot_group.combine(_holding_group):
+        var combination = slot_group.combine(_holding_group)
+        combination.connect("success", self, "_combination_success", [slot_index])
+        combination.execute()
+        return
+
     if inventory.is_locked():
         return
-    var slot_group = inventory.at(slot_index)
+
     if _holding_group:
-        if slot_group && slot_group.combine(_holding_group):
-            var combination = slot_group.combine(_holding_group)
-            combination.connect("success", self, "_combination_success", [slot_index])
-            combination.execute()
-        elif slot_group && slot_group.is_groupable_with(_holding_group):
+        if slot_group && slot_group.is_groupable_with(_holding_group):
             match slot_group.merge(_holding_group):
                 [var sum]:
                     inventory.put_at(slot_index, sum)
@@ -124,7 +129,7 @@ func _notify_slot_not_combinable(slot_index: int):
 func _combination_success(combination: Combination, slot_index: int):
     if combination.item_in_hand():
         _set_holding_group(GameItemGroup.new(combination.item_in_hand()))
-    if combination.item_in_slot():
+    if combination.item_in_slot() && !inventory.is_locked():
         inventory.put_at(slot_index, GameItemGroup.new(combination.item_in_slot()))
 
     # Refresh UI (e.g. removing highlighting after combining completed)
