@@ -59,7 +59,7 @@ func _slot_clicked(slot_index: int):
             var combination = slot_group.item().combine(_holding_group.item())
             combination.connect("success", self, "_combination_success", [slot_index])
             combination.execute()
-        elif slot_group && slot_group.item().is_groupable_with(_holding_group.item()) && !slot_group.is_full():
+        elif slot_group && slot_group.is_groupable_with(_holding_group):
             match slot_group.merge(_holding_group):
                 [var sum]:
                     inventory.put_at(slot_index, sum)
@@ -84,7 +84,7 @@ func _slot_right_clicked(slot_index: int):
     var slot_group = inventory.at(slot_index)
     if _holding_group:
         # Place single item into slot
-        if slot_group && slot_group.item().is_groupable_with(_holding_group.item()) && !slot_group.is_full() && _holding_group.count() > 1:
+        if slot_group && slot_group.item().is_groupable_with(_holding_group.item()) && _holding_group.count() > 1:
             var groups = _holding_group.split(1)
             match slot_group.merge(groups[0]):
                 [var sum]:

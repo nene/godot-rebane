@@ -42,3 +42,6 @@ func split(nr: int) -> Array:
 
 func is_full() -> bool:
     return _count == _item.max_stack_size()
+
+func is_groupable_with(group: GameItemGroup) -> bool:
+    return self.item().is_groupable_with(group.item()) && !is_full()
