@@ -16,10 +16,10 @@ func _init(drink_type = null, cap_state: int = CapState.CLOSED):
     self.drink_type = drink_type
     self.cap_state = cap_state
 
-func get_type():
+func type():
     return "beer_bottle"
 
-func get_name():
+func name():
     if is_empty():
         return "Tühi pudel"
     else:
@@ -28,10 +28,10 @@ func get_name():
 func _cap_state_suffix():
     return " (avatud)" if is_open() else ""
 
-func get_texture():
+func texture():
     return _get_from_atlas_texture(BEER_BOTTLE_LG_TEXTURE)
 
-func get_highlighted_texture():
+func highlighted_texture():
     return _get_from_atlas_texture(BEER_BOTTLE_LG_OUTLINE_TEXTURE)
 
 func _get_from_atlas_texture(atlas: Texture):

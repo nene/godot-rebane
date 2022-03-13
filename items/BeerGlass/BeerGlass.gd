@@ -20,16 +20,16 @@ func _init(drink: int, lvl: int = EMPTY):
     drink_type = drink
     level = lvl
 
-func get_type():
+func type():
     return "beer_glass"
 
-func get_name():
+func name():
     return "Šoppen"
 
-func get_texture():
+func texture():
     return _get_texture_of_type(BEER_GLASS_LG_TEXTURE, Vector2(18, 18))
 
-func get_highlighted_texture():
+func highlighted_texture():
     return _get_texture_of_type(BEER_GLASS_LG_OUTLINE_TEXTURE, Vector2(18, 18))
 
 func get_small_texture():

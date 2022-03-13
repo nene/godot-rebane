@@ -1,20 +1,20 @@
 extends Reference
 class_name GameItem
 
-func get_type() -> String:
+func type() -> String:
     return "unknown"
 
-func get_name() -> String:
+func name() -> String:
     return ""
 
-func get_texture() -> Texture:
+func texture() -> Texture:
     return Texture.new()
 
-func get_highlighted_texture() -> Texture:
-    return get_texture()
+func highlighted_texture() -> Texture:
+    return texture()
 
 func max_stack_size() -> int:
     return 1
 
 func is_groupable_with(_item: GameItem) -> bool:
-    return self.get_name() == _item.get_name()
+    return self.name() == _item.name()

@@ -32,7 +32,7 @@ func set_group(group: GameItemGroup):
         $GameItemView.group = group
         $GameItemView.show()
         $Tooltip.show()
-        $Tooltip.text = group.item().get_name()
+        $Tooltip.text = group.item().name()
     else:
         $Tooltip.hide()
         $GameItemView.hide()

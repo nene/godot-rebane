@@ -18,9 +18,9 @@ func _get_item_texture() -> Texture:
     if !group:
         return null
     elif highlighted:
-        return group.item().get_highlighted_texture()
+        return group.item().highlighted_texture()
     else:
-        return group.item().get_texture()
+        return group.item().texture()
 
 func _set_highlighted(hl: bool):
     highlighted = hl
