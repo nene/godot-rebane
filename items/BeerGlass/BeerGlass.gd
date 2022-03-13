@@ -44,6 +44,9 @@ func sip():
     if level > EMPTY:
         level -= 1
 
+func empty():
+    level = EMPTY
+
 func is_empty() -> bool:
     return level == EMPTY
 
