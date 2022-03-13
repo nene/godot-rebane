@@ -14,3 +14,9 @@ func texture():
 
 func highlighted_texture():
     return TextureUtils.from_atlas(TEXTURE, Vector2(1, _opener_sprite_row()), Vector2(18, 18))
+
+func combine(item: GameItem) -> Combination:
+    if item.type() == "beer_bottle":
+        return item.combine(self)
+    else:
+        return null

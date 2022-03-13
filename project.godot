@@ -25,6 +25,16 @@ _global_script_classes=[ {
 "path": "res://items/Book.gd"
 }, {
 "base": "GameItem",
+"class": "BottleOpener",
+"language": "GDScript",
+"path": "res://items/BottleOpener.gd"
+}, {
+"base": "Reference",
+"class": "Combination",
+"language": "GDScript",
+"path": "res://items/combinations/Combination.gd"
+}, {
+"base": "GameItem",
 "class": "Drain",
 "language": "GDScript",
 "path": "res://items/Drain.gd"
@@ -69,7 +79,7 @@ _global_script_classes=[ {
 "language": "GDScript",
 "path": "res://locations/Location.gd"
 }, {
-"base": "GameItem",
+"base": "BottleOpener",
 "class": "LockedBottleOpener",
 "language": "GDScript",
 "path": "res://items/LockedBottleOpener.gd"
@@ -94,7 +104,7 @@ _global_script_classes=[ {
 "language": "GDScript",
 "path": "res://player/Player.gd"
 }, {
-"base": "GameItem",
+"base": "BottleOpener",
 "class": "SimpleBottleOpener",
 "language": "GDScript",
 "path": "res://items/SimpleBottleOpener.gd"
@@ -123,6 +133,8 @@ _global_script_class_icons={
 "BeerBottle": "",
 "BeerGlass": "",
 "Book": "",
+"BottleOpener": "",
+"Combination": "",
 "Drain": "",
 "Drink": "",
 "Frater": "",
