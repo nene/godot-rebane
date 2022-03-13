@@ -14,7 +14,6 @@ var _time = 0
 
 enum {
     CAP_ON_BOTTLE,
-    CAP_IN_OPENER,
     CAP_FREE,
 }
 
@@ -40,33 +39,28 @@ func _set_bottle_position(position: Vector2):
 
 func _input(event):
     _opener.position = get_global_mouse_position()
-    if _cap_state == CAP_IN_OPENER:
-        _bottle_cap.position = _opener.position
 
 func _on_bottlecap_ready_to_open_change(ready: bool):
     _ready_to_open = ready
 
 func _try_to_open():
     if _ready_to_open:
-        _cap_state = CAP_IN_OPENER
+        _cap_state = CAP_FREE
+        _release_cap()
 
 func _release_cap():
-    if _cap_state == CAP_IN_OPENER:
-        _cap_state = CAP_FREE
-        _bottle_cap.queue_free()
-        _bottle_cap = PhysicalBottleCap.instance()
-        _bottle_cap.position = get_global_mouse_position()
-        _bottle_cap.connect("body_entered", self, "_bottle_cap_dropped", [], CONNECT_ONESHOT)
-        _bottle_cap.apply_impulse(Vector2.ZERO, Vector2(1,-1) * 200)
-        add_child(_bottle_cap)
-        $OpenBeerSound.play()
+    _bottle_cap.queue_free()
+    _bottle_cap = PhysicalBottleCap.instance()
+    _bottle_cap.position = get_global_mouse_position()
+    _bottle_cap.connect("body_entered", self, "_bottle_cap_dropped", [], CONNECT_ONESHOT)
+    _bottle_cap.apply_impulse(Vector2.ZERO, Vector2(1,-1) * 200)
+    add_child(_bottle_cap)
+    $OpenBeerSound.play()
 
 func _on_background_input(event):
     if event is InputEventMouseButton && event.button_index == BUTTON_LEFT:
         if event.pressed:
             _try_to_open()
-        else:
-            _release_cap()
 
 func _bottle_cap_dropped(_body):
     $DropCapSound.play()
