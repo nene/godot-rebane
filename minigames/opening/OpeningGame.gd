@@ -24,6 +24,8 @@ func _ready():
     _noise.period = 4
 
 func _process(delta):
+    if _cap_state == CAP_FREE:
+        return
     _time += delta
     _set_bottle_position(BOTTLE_START_POSITION + _bottle_offset())
 
