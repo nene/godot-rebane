@@ -14,7 +14,12 @@ var cap_state = CapState.CLOSED
 
 func _init(drink_type = null, cap_state: int = CapState.CLOSED):
     self.drink_type = drink_type
-    self.cap_state = cap_state
+
+    if drink_type:
+        self.cap_state = cap_state
+    else:
+        # empty bottles (drink_type=null) cannot be closed
+        self.cap_state = CapState.OPEN
 
 func type():
     return "beer_bottle"
@@ -49,6 +54,7 @@ func is_empty():
 
 func empty():
     drink_type = null
+    cap_state = CapState.OPEN
 
 func max_stack_size():
     return 9 if is_empty() else 1
