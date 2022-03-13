@@ -55,7 +55,11 @@ func _slot_clicked(slot_index: int):
         return
     var slot_group = inventory.at(slot_index)
     if _holding_group:
-        if slot_group && slot_group.item().is_groupable_with(_holding_group.item()) && !slot_group.is_full():
+        if slot_group && slot_group.item().combine(_holding_group.item()):
+            var combination = slot_group.item().combine(_holding_group.item())
+            combination.connect("success", self, "_combination_success", [slot_index])
+            combination.execute()
+        elif slot_group && slot_group.item().is_groupable_with(_holding_group.item()) && !slot_group.is_full():
             match slot_group.merge(_holding_group):
                 [var sum]:
                     inventory.put_at(slot_index, sum)
@@ -114,6 +118,12 @@ func _slot_mouse_entered(slot_index: int):
 
 func _slot_mouse_exited(slot_index: int):
     GameEvents.emit_signal("forbid_combine")
+
+func _combination_success(combination: Combination, slot_index: int):
+    if combination.item_in_hand():
+        _set_holding_group(GameItemGroup.new(combination.item_in_hand()))
+    if combination.item_in_slot():
+        inventory.put_at(slot_index, GameItemGroup.new(combination.item_in_slot()))
 
 func _set_holding_group(group: GameItemGroup, emit = true):
     _holding_group = group

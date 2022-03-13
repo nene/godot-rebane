@@ -49,6 +49,9 @@ func _get_from_atlas_texture(atlas: Texture):
 func is_open():
     return cap_state == CapState.OPEN
 
+func open():
+    cap_state = CapState.OPEN
+
 func is_empty():
     return drink_type == null
 
@@ -59,9 +62,9 @@ func empty():
 func max_stack_size():
     return 9 if is_empty() else 1
 
-func combine(item: GameItem) -> Combination:
-    if item.type() == "bottle_opener" && !is_open():
+func combine(item_in_hand: GameItem) -> Combination:
+    if item_in_hand.type() == "bottle_opener" && !is_open():
         var OpenBottle = load("res://items/combinations/OpenBottle.gd")
-        return OpenBottle.new(item, self)
+        return OpenBottle.new(item_in_hand, self)
     else:
         return null
