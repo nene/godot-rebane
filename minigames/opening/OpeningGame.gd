@@ -58,6 +58,7 @@ func _release_cap():
         _bottle_cap.position = get_global_mouse_position()
         _bottle_cap.apply_impulse(Vector2.ZERO, Vector2(1,-1) * 200)
         add_child(_bottle_cap)
+        $OpenBeerSound.play()
         yield(get_tree().create_timer(3), "timeout")
         emit_signal("finished")
 
