@@ -21,3 +21,6 @@ signal forbid_interact
 
 signal allow_combine
 signal forbid_combine
+
+# -- (game: MiniGame)
+signal start_minigame(game)

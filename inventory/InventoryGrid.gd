@@ -10,6 +10,9 @@ var SlotNode = preload("res://inventory/Slot.tscn")
 
 var _holding_group: GameItemGroup
 
+# Store active Combination here to avoid it being garbage-collected 
+var _active_combination: Combination = null
+
 func _ready():
     GameEvents.connect("change_holding_group", self, "_set_holding_group", [false])
     set_grid_size(grid_size)
@@ -55,9 +58,9 @@ func _slot_clicked(slot_index: int):
 
     # Combining can be performed even with locked inventory
     if _holding_group && slot_group && slot_group.combine(_holding_group):
-        var combination = slot_group.combine(_holding_group)
-        combination.connect("success", self, "_combination_success", [slot_index])
-        combination.execute()
+        _active_combination = slot_group.combine(_holding_group)
+        _active_combination.connect("success", self, "_combination_success", [slot_index])
+        _active_combination.execute()
         return
 
     if inventory.is_locked():
@@ -131,6 +134,7 @@ func _combination_success(combination: Combination, slot_index: int):
         _set_holding_group(GameItemGroup.new(combination.item_in_hand))
     if combination.item_in_slot && !inventory.is_locked():
         inventory.put_at(slot_index, GameItemGroup.new(combination.item_in_slot))
+    _active_combination = null
 
     # Refresh UI (e.g. removing highlighting after combining completed)
     _check_slot_combinability(slot_index)

@@ -32,6 +32,8 @@ func _show_dialog(dialog, cfg: Dictionary = {}):
     $Dialogs.add_child(_dialog)
     $Overlay.show()
     get_tree().paused = true
+    # Keep physics working while game is paused (so minigames can make use of physics)
+    Physics2DServer.set_active(true)
     if cfg.has("hide_hotbar"):
         $HotBar.hide()
 

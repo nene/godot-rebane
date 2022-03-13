@@ -90,6 +90,11 @@ _global_script_classes=[ {
 "path": "res://inventory/LockedInventory.gd"
 }, {
 "base": "Node2D",
+"class": "MiniGame",
+"language": "GDScript",
+"path": "res://minigames/MiniGame.gd"
+}, {
+"base": "Node2D",
 "class": "MouseCursor",
 "language": "GDScript",
 "path": "res://ui/MouseCursor.gd"
@@ -146,6 +151,7 @@ _global_script_class_icons={
 "Location": "",
 "LockedBottleOpener": "",
 "LockedInventory": "",
+"MiniGame": "",
 "MouseCursor": "",
 "Ocean": "",
 "Player": "",
