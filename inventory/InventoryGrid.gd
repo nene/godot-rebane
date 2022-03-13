@@ -26,8 +26,8 @@ func set_grid_size(size: Vector2):
         self.add_child(slot)
         if !Engine.editor_hint:
             slot.connect("gui_input", self, "_slot_gui_input", [i])
-            slot.connect("mouse_entered", self, "_slot_mouse_entered", [i])
-            slot.connect("mouse_exited", self, "_slot_mouse_exited", [i])
+            slot.connect("mouse_entered", self, "_check_slot_combinability", [i])
+            slot.connect("mouse_exited", self, "_notify_slot_not_combinable", [i])
 
 func _set_inventory(inv: Inventory):
     if inv.size() != grid_size.x * grid_size.y:
@@ -110,13 +110,15 @@ func _slot_right_clicked(slot_index: int):
 
     _refresh_slots()
 
-func _slot_mouse_entered(slot_index: int):
+func _check_slot_combinability(slot_index: int):
     var slot_group := inventory.at(slot_index)
     if slot_group && _holding_group:
         if slot_group.item().combine(_holding_group.item()):
             GameEvents.emit_signal("allow_combine")
+            return
+    GameEvents.emit_signal("forbid_combine")
 
-func _slot_mouse_exited(slot_index: int):
+func _notify_slot_not_combinable(slot_index: int):
     GameEvents.emit_signal("forbid_combine")
 
 func _combination_success(combination: Combination, slot_index: int):
@@ -124,6 +126,9 @@ func _combination_success(combination: Combination, slot_index: int):
         _set_holding_group(GameItemGroup.new(combination.item_in_hand()))
     if combination.item_in_slot():
         inventory.put_at(slot_index, GameItemGroup.new(combination.item_in_slot()))
+
+    # Refresh UI (e.g. removing highlighting after combining completed)
+    _check_slot_combinability(slot_index)
 
 func _set_holding_group(group: GameItemGroup, emit = true):
     _holding_group = group
