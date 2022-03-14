@@ -1,7 +1,7 @@
 extends GameItem
 class_name BottleOpener
 
-const TEXTURE = preload("res://items/bottle-opener.png")
+const TEXTURE = preload("res://items/BottleOpener/bottle-opener.png")
 
 func type():
     return "bottle_opener"

@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/bottle-opener.png-05384497b5e2ffd32f74a911031c6378.stex"
+path="res://.import/tap.png-6b48b3282a2309c7e62c453a18215137.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://items/bottle-opener.png"
-dest_files=[ "res://.import/bottle-opener.png-05384497b5e2ffd32f74a911031c6378.stex" ]
+source_file="res://items/Tap/tap.png"
+dest_files=[ "res://.import/tap.png-6b48b3282a2309c7e62c453a18215137.stex" ]
 
 [params]
 

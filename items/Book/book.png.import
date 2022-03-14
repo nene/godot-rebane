@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/ocean.png-e7c4d94cfec7837bb85619695022afcc.stex"
+path="res://.import/book.png-27ba654ad57b7650a77da798b16d2b12.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://items/ocean.png"
-dest_files=[ "res://.import/ocean.png-e7c4d94cfec7837bb85619695022afcc.stex" ]
+source_file="res://items/Book/book.png"
+dest_files=[ "res://.import/book.png-27ba654ad57b7650a77da798b16d2b12.stex" ]
 
 [params]
 

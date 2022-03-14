@@ -1,7 +1,7 @@
 extends GameItem
 class_name Drain
 
-const TEXTURE = preload("res://items/drain.png")
+const TEXTURE = preload("res://items/Drain/drain.png")
 
 func type():
     return "drain"

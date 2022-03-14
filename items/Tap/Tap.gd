@@ -1,7 +1,7 @@
 extends GameItem
 class_name Tap
 
-const TEXTURE = preload("res://items/tap.png")
+const TEXTURE = preload("res://items/Tap/tap.png")
 
 func type():
     return "tap"

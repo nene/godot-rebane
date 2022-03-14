@@ -22,12 +22,12 @@ _global_script_classes=[ {
 "base": "GameItem",
 "class": "Book",
 "language": "GDScript",
-"path": "res://items/Book.gd"
+"path": "res://items/Book/Book.gd"
 }, {
 "base": "GameItem",
 "class": "BottleOpener",
 "language": "GDScript",
-"path": "res://items/BottleOpener.gd"
+"path": "res://items/BottleOpener/BottleOpener.gd"
 }, {
 "base": "Reference",
 "class": "Combination",
@@ -37,7 +37,7 @@ _global_script_classes=[ {
 "base": "GameItem",
 "class": "Drain",
 "language": "GDScript",
-"path": "res://items/Drain.gd"
+"path": "res://items/Drain/Drain.gd"
 }, {
 "base": "Reference",
 "class": "Drink",
@@ -82,7 +82,7 @@ _global_script_classes=[ {
 "base": "BottleOpener",
 "class": "LockedBottleOpener",
 "language": "GDScript",
-"path": "res://items/LockedBottleOpener.gd"
+"path": "res://items/BottleOpener/LockedBottleOpener.gd"
 }, {
 "base": "Inventory",
 "class": "LockedInventory",
@@ -102,7 +102,7 @@ _global_script_classes=[ {
 "base": "GameItem",
 "class": "Ocean",
 "language": "GDScript",
-"path": "res://items/Ocean.gd"
+"path": "res://items/Ocean/Ocean.gd"
 }, {
 "base": "KinematicBody2D",
 "class": "Player",
@@ -112,7 +112,7 @@ _global_script_classes=[ {
 "base": "BottleOpener",
 "class": "SimpleBottleOpener",
 "language": "GDScript",
-"path": "res://items/SimpleBottleOpener.gd"
+"path": "res://items/BottleOpener/SimpleBottleOpener.gd"
 }, {
 "base": "Panel",
 "class": "Slot",
@@ -132,7 +132,7 @@ _global_script_classes=[ {
 "base": "GameItem",
 "class": "Tap",
 "language": "GDScript",
-"path": "res://items/Tap.gd"
+"path": "res://items/Tap/Tap.gd"
 } ]
 _global_script_class_icons={
 "BeerBottle": "",
