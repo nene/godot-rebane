@@ -44,6 +44,10 @@ func sip():
     if level > EMPTY:
         level -= 1
 
+func fill(drink: int, lvl: int):
+    drink_type = drink
+    level = lvl
+
 func empty():
     level = EMPTY
 
@@ -58,3 +62,10 @@ func max_stack_size():
 
 func is_groupable_with(item: GameItem) -> bool:
     return item.type() == "beer_glass" && item.is_empty() && self.is_empty()
+
+func combine(item_in_hand: GameItem) -> Combination:
+    if item_in_hand.type() == "beer_bottle" && !item_in_hand.is_empty() && item_in_hand.is_open() && is_empty():
+        var PourToGlass = load("res://items/combinations/PourToGlass.gd")
+        return PourToGlass.new(item_in_hand, self)
+    else:
+        return null
