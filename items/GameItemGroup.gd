@@ -46,9 +46,12 @@ func is_full() -> bool:
 func is_groupable_with(group: GameItemGroup) -> bool:
     return self.item().is_groupable_with(group.item()) && !is_full()
 
-func combine(holding_group: GameItemGroup) -> Combination:
-    # For now only allow combining single items
-    if self.count() > 1 || holding_group.count() > 1:
+func combine(holding_group: GameItemGroup) -> CombinationGroup:
+    var combination = self.item().combine(holding_group.item())
+    if combination:
+        var combination_group = CombinationGroup.new(combination)
+        combination_group.in_hand_count = holding_group.count()
+        combination_group.in_slot_count = self.count()
+        return combination_group
+    else:
         return null
-
-    return self.item().combine(holding_group.item())

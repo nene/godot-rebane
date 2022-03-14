@@ -10,8 +10,8 @@ var SlotNode = preload("res://inventory/Slot.tscn")
 
 var _holding_group: GameItemGroup
 
-# Store active Combination here to avoid it being garbage-collected 
-var _active_combination: Combination = null
+# Store active CombinationGroup here to avoid it being garbage-collected 
+var _active_combination: CombinationGroup = null
 
 func _ready():
     GameEvents.connect("change_holding_group", self, "_set_holding_group", [false])
@@ -130,16 +130,10 @@ func _check_slot_combinability(slot_index: int):
 func _notify_slot_not_combinable(slot_index: int):
     GameEvents.emit_signal("forbid_combine")
 
-func _combination_success(combination: Combination, slot_index: int):
-    if combination.item_in_hand:
-        _set_holding_group(GameItemGroup.new(combination.item_in_hand))
-    else:
-        _set_holding_group(null)
+func _combination_success(combination: CombinationGroup, slot_index: int):
+    _set_holding_group(combination.group_in_hand())
     if !inventory.is_locked():
-        if combination.item_in_slot:
-            inventory.put_at(slot_index, GameItemGroup.new(combination.item_in_slot))
-        else:
-            inventory.put_at(slot_index, null)
+        inventory.put_at(slot_index, combination.group_in_slot())
     _active_combination = null
 
     # Refresh UI (e.g. removing highlighting after combining completed)
