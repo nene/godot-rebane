@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=2]
+[gd_scene load_steps=13 format=2]
 
 [ext_resource path="res://minigames/opening/opening-game-bg.png" type="Texture" id=1]
 [ext_resource path="res://minigames/opening/Bottle.tscn" type="PackedScene" id=2]
@@ -8,7 +8,7 @@
 [ext_resource path="res://minigames/opening/open-bottle.mp3" type="AudioStream" id=6]
 [ext_resource path="res://minigames/opening/open-bottle-drop-cap.mp3" type="AudioStream" id=7]
 [ext_resource path="res://minigames/opening/particle.png" type="Texture" id=8]
-[ext_resource path="res://minigames/opening/SmoothPath.gd" type="Script" id=9]
+[ext_resource path="res://minigames/opening/Ribbon.tscn" type="PackedScene" id=9]
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 160, 10 )
@@ -19,11 +19,6 @@ _data = [ Vector2( 0, 0.198198 ), 0.0, 3.22024, 0, 0, Vector2( 0.629464, 0.94594
 [sub_resource type="Gradient" id=2]
 offsets = PoolRealArray( 0, 0.3525 )
 colors = PoolColorArray( 0.992157, 0.992157, 0.992157, 0.541176, 0.215686, 0.15671, 0, 0 )
-
-[sub_resource type="Curve2D" id=4]
-_data = {
-"points": PoolVector2Array( 0, 0, 0, 0, 343, 211, 16.5047, 38.5539, -16.5047, -38.5539, 274, 157, 0, 0, 0, 0, 185, 121 )
-}
 
 [node name="OpeningGame" type="Node2D"]
 pause_mode = 2
@@ -42,6 +37,11 @@ position = Vector2( 100, 100 )
 
 [node name="BottleCap" parent="." instance=ExtResource( 5 )]
 position = Vector2( 100, 100 )
+
+[node name="Ribbon" parent="." instance=ExtResource( 9 )]
+from = Vector2( 175, 125 )
+to = Vector2( 320, 200 )
+color = Color( 0.368627, 0.0823529, 0.027451, 1 )
 
 [node name="Opener" parent="." instance=ExtResource( 3 )]
 position = Vector2( 159, 109 )
@@ -77,14 +77,6 @@ initial_velocity_random = 0.15
 scale_amount = 5.0
 scale_amount_curve = SubResource( 3 )
 color_ramp = SubResource( 2 )
-
-[node name="SmoothPath" type="Path2D" parent="."]
-self_modulate = Color( 0.501961, 0.6, 1, 1 )
-position = Vector2( -10, 4 )
-curve = SubResource( 4 )
-script = ExtResource( 9 )
-_color = Color( 0.501961, 0.0862745, 0.0156863, 1 )
-_width = 4.0
 
 [connection signal="gui_input" from="Background" to="." method="_on_background_input"]
 [connection signal="ready_to_open_change" from="BottleCap" to="." method="_on_bottlecap_ready_to_open_change"]
