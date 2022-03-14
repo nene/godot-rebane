@@ -61,13 +61,3 @@ func empty():
 
 func max_stack_size():
     return 9 if is_empty() else 1
-
-func combine(item_in_hand: GameItem) -> Combination:
-    if item_in_hand.type() == "bottle_opener" && !is_open():
-        var OpenBottle = load("res://items/combinations/OpenBottle.gd")
-        return OpenBottle.new(item_in_hand, self)
-    elif item_in_hand.type() == "beer_glass" && item_in_hand.is_empty() && is_open() && !is_empty():
-        var PourToGlass = load("res://items/combinations/PourToGlass.gd")
-        return PourToGlass.new(item_in_hand, self)
-    else:
-        return null

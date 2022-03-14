@@ -47,7 +47,7 @@ func is_groupable_with(group: GameItemGroup) -> bool:
     return self.item().is_groupable_with(group.item()) && !is_full()
 
 func combine(holding_group: GameItemGroup) -> CombinationGroup:
-    var combination = self.item().combine(holding_group.item())
+    var combination = Combiner.combine(holding_group.item(), self.item())
     if combination:
         var combination_group = CombinationGroup.new(combination)
         combination_group.in_hand_count = holding_group.count()

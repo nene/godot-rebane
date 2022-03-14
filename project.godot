@@ -182,6 +182,7 @@ Global="*res://Global.gd"
 TerminologyQuestion="*res://questions/TerminologyQuestion.gd"
 GameEvents="*res://GameEvents.gd"
 TextureUtils="*res://TextureUtils.gd"
+Combiner="*res://items/combinations/Combiner.gd"
 
 [debug]
 

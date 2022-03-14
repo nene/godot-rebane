@@ -18,6 +18,3 @@ func max_stack_size() -> int:
 
 func is_groupable_with(_item: GameItem) -> bool:
     return self.name() == _item.name()
-
-func combine(_item_in_hand: GameItem): # -> Combination:
-    return null
