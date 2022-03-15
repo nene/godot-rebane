@@ -59,5 +59,9 @@ func empty():
     drink_type = null
     cap_state = CapState.OPEN
 
+func fill(drink: int):
+    drink_type = drink
+    cap_state = CapState.OPEN
+
 func max_stack_size():
     return 9 if is_empty() else 1

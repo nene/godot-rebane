@@ -28,7 +28,7 @@ func _combine_items(item_in_hand: GameItem, item_in_slot: GameItem):
     if reverse_pair in possible_combinations:
         var cls_name = possible_combinations[reverse_pair]
         if call("_can_" + cls_name, item_in_slot, item_in_hand):
-            return _load_combination_class(cls_name).new(item_in_hand, item_in_slot)
+            return FlippedCombination.new(_load_combination_class(cls_name).new(item_in_slot, item_in_hand))
 
     return null
 

@@ -49,6 +49,11 @@ _global_script_classes=[ {
 "language": "GDScript",
 "path": "res://items/Drink.gd"
 }, {
+"base": "Reference",
+"class": "FlippedCombination",
+"language": "GDScript",
+"path": "res://items/combinations/FlippedCombination.gd"
+}, {
 "base": "KinematicBody2D",
 "class": "Frater",
 "language": "GDScript",
@@ -148,6 +153,7 @@ _global_script_class_icons={
 "CombinationGroup": "",
 "Drain": "",
 "Drink": "",
+"FlippedCombination": "",
 "Frater": "",
 "GameItem": "",
 "GameItemGroup": "",
