@@ -12,7 +12,7 @@ export var drink_type = Drink.PILSNER
 
 onready var _bottle = $Bottle
 onready var _bottle_cap = $BottleCap
-onready var _opener = $Opener
+onready var _opener_node = $Opener
 onready var _ribbon = $Ribbon
 var _ready_to_open = false
 var _noise = OpenSimplexNoise.new()
@@ -54,11 +54,11 @@ func _set_bottle_position(position: Vector2):
         _bottle_cap.position = position
 
 func _input(event):
-    _opener.position = get_global_mouse_position()
+    _opener_node.position = get_global_mouse_position()
     _update_ribbon_position()
 
 func _update_ribbon_position():
-    if _opener.rotation_degrees > 0:
+    if _opener_node.rotation_degrees > 0:
         _ribbon.from = get_global_mouse_position() + OPENER_TILTED_SIZE
     else:
         _ribbon.from = get_global_mouse_position() + OPENER_SIZE
@@ -86,10 +86,10 @@ func _release_cap():
 func _on_background_input(event):
     if event is InputEventMouseButton && event.button_index == BUTTON_LEFT:
         if event.pressed:
-            _opener.rotation_degrees = 15
+            _opener_node.rotation_degrees = 15
             _try_to_open()
         else:
-            _opener.rotation_degrees = 0
+            _opener_node.rotation_degrees = 0
         _update_ribbon_position()
 
 func _bottle_cap_dropped(_body):
