@@ -6,3 +6,6 @@ func name():
 
 func _opener_sprite_row() -> int:
     return 1
+
+func has_ribbon():
+    return true

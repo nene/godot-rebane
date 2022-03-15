@@ -7,6 +7,8 @@ const BOTTLE_MAX_MOVEMENT = Vector2(150, 150)
 const OPENER_SIZE = Vector2(18,18)
 const OPENER_TILTED_SIZE = OPENER_SIZE + Vector2(-5,2)
 
+export var ribbon_visible = false
+
 onready var _bottle = $Bottle
 onready var _bottle_cap = $BottleCap
 onready var _opener = $Opener
@@ -25,6 +27,7 @@ var _cap_state = CAP_ON_BOTTLE
 func _ready():
     _noise.seed = randi()
     _noise.period = 4
+    _ribbon.visible = ribbon_visible
 
 func _process(delta):
     if _cap_state == CAP_FREE:

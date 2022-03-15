@@ -7,6 +7,7 @@ func _init(in_hand, in_slot).(in_hand, in_slot):
 
 func _execute(opener: BottleOpener, bottle: BeerBottle):
     var opening_game = OpeningGame.instance()
+    opening_game.ribbon_visible = opener.has_ribbon()
     opening_game.connect("finished", self, "_finished", [opener, bottle])
     GameEvents.emit_signal("start_minigame", opening_game)
 
