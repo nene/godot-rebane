@@ -58,8 +58,8 @@ func _slot_clicked(slot_index: int):
     var slot_group = inventory.at(slot_index)
 
     # Combining can be performed even with locked inventory
-    if _holding_group && slot_group && slot_group.combine(_holding_group):
-        _active_combination = slot_group.combine(_holding_group)
+    if _holding_group && slot_group && Combiner.combine(_holding_group, slot_group):
+        _active_combination = Combiner.combine(_holding_group, slot_group)
         _active_combination.connect("success", self, "_combination_success", [slot_index])
         _active_combination.execute()
         return
@@ -122,7 +122,7 @@ func _slot_right_clicked(slot_index: int):
 func _check_slot_combinability(slot_index: int):
     var slot_group := inventory.at(slot_index)
     if slot_group && _holding_group:
-        if slot_group.combine(_holding_group):
+        if Combiner.combine(_holding_group, slot_group):
             GameEvents.emit_signal("allow_combine")
             return
     GameEvents.emit_signal("forbid_combine")

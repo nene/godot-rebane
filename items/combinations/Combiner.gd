@@ -10,7 +10,17 @@ var possible_combinations = {
     ["tap", "beer_glass"]: "FillFromTap",
 }
 
-func combine(item_in_hand: GameItem, item_in_slot: GameItem):
+func combine(group_in_hand: GameItemGroup, group_in_slot: GameItemGroup) -> CombinationGroup:
+    var combination = combine_items(group_in_hand.item(), group_in_slot.item())
+    if combination:
+        var combination_group = CombinationGroup.new(combination)
+        combination_group.in_hand_count = group_in_hand.count()
+        combination_group.in_slot_count = group_in_slot.count()
+        return combination_group
+    else:
+        return null
+
+func combine_items(item_in_hand: GameItem, item_in_slot: GameItem):
     var pair = [item_in_hand.type(), item_in_slot.type()]
     if pair in possible_combinations:
         var cls_name = possible_combinations[pair]
