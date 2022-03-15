@@ -7,7 +7,7 @@ const BOTTLE_MAX_MOVEMENT = Vector2(150, 150)
 const OPENER_SIZE = Vector2(18,18)
 const OPENER_TILTED_SIZE = OPENER_SIZE + Vector2(-5,2)
 
-export var ribbon_visible = false
+var bottle_opener = SimpleBottleOpener.new()
 export var drink_type = Drink.PILSNER
 
 onready var _bottle = $Bottle
@@ -28,7 +28,7 @@ var _cap_state = CAP_ON_BOTTLE
 func _ready():
     _noise.seed = randi()
     _noise.period = _noise_period()
-    _ribbon.visible = ribbon_visible
+    _ribbon.visible = bottle_opener.has_ribbon()
 
 func _noise_period() -> float:
     var cap_strength = Drink.get_drink(drink_type)["capStrength"]
