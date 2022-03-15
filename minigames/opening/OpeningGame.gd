@@ -5,6 +5,7 @@ const PhysicalBottleCap = preload("res://minigames/opening/PhysicalBottleCap.tsc
 const BOTTLE_START_POSITION = Vector2(100, 100)
 const BOTTLE_MAX_MOVEMENT = Vector2(150, 150)
 const OPENER_SIZE = Vector2(18,18)
+const OPENER_TILTED_SIZE = OPENER_SIZE + Vector2(-5,2)
 
 onready var _bottle = $Bottle
 onready var _bottle_cap = $BottleCap
@@ -43,7 +44,13 @@ func _set_bottle_position(position: Vector2):
 
 func _input(event):
     _opener.position = get_global_mouse_position()
-    _ribbon.from = get_global_mouse_position() + OPENER_SIZE
+    _update_ribbon_position()
+
+func _update_ribbon_position():
+    if _opener.rotation_degrees > 0:
+        _ribbon.from = get_global_mouse_position() + OPENER_TILTED_SIZE
+    else:
+        _ribbon.from = get_global_mouse_position() + OPENER_SIZE
 
 func _on_bottlecap_ready_to_open_change(ready: bool):
     _ready_to_open = ready
@@ -72,6 +79,7 @@ func _on_background_input(event):
             _try_to_open()
         else:
             _opener.rotation_degrees = 0
+        _update_ribbon_position()
 
 func _bottle_cap_dropped(_body):
     $DropCapSound.play()
