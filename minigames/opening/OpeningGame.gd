@@ -8,6 +8,7 @@ const OPENER_SIZE = Vector2(18,18)
 const OPENER_TILTED_SIZE = OPENER_SIZE + Vector2(-5,2)
 
 export var ribbon_visible = false
+export var drink_type = Drink.PILSNER
 
 onready var _bottle = $Bottle
 onready var _bottle_cap = $BottleCap
@@ -26,8 +27,15 @@ var _cap_state = CAP_ON_BOTTLE
 
 func _ready():
     _noise.seed = randi()
-    _noise.period = 4
+    _noise.period = _noise_period()
     _ribbon.visible = ribbon_visible
+
+func _noise_period() -> float:
+    var cap_strength = Drink.get_drink(drink_type)["capStrength"]
+    if cap_strength > 0:
+        return 4 / float(cap_strength)
+    else:
+        return 1000.0
 
 func _process(delta):
     if _cap_state == CAP_FREE:
