@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/pouring-water.mp3-842e3671d85ce2dc397578bc42225068.mp3str"
+
+[deps]
+
+source_file="res://sounds/pouring-water.mp3"
+dest_files=[ "res://.import/pouring-water.mp3-842e3671d85ce2dc397578bc42225068.mp3str" ]
+
+[params]
+
+loop=false
+loop_offset=0

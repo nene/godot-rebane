@@ -8,4 +8,5 @@ func _execute(drain: Drain, item: GameItem):
         (item as BeerBottle).empty()
     elif item.type() == "beer_glass":
         (item as BeerGlass).empty()
+    GameEvents.emit_signal("sound_play", "PouringWater")
     emit_signal("success", self)

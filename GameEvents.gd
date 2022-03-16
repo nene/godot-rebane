@@ -24,3 +24,7 @@ signal forbid_combine
 
 # -- (game: MiniGame)
 signal start_minigame(game)
+
+# -- (sound: String)
+signal sound_play(sound)
+signal sound_finished(sound)
