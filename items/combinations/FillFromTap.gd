@@ -8,4 +8,5 @@ func _execute(tap: Tap, item: GameItem):
         (item as BeerBottle).fill(Drink.WATER)
     elif item.type() == "beer_glass":
         (item as BeerGlass).fill(Drink.WATER, BeerGlass.FULL)
+    GameEvents.emit_signal("sound_play", "PouringWater")
     emit_signal("success", self)
