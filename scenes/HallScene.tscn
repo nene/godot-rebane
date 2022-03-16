@@ -1,0 +1,25 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://GameWorld.tscn" type="PackedScene" id=1]
+[ext_resource path="res://characters/Vanamees.tscn" type="PackedScene" id=2]
+[ext_resource path="res://player/Player.tscn" type="PackedScene" id=3]
+
+[node name="HallScene" type="Node2D"]
+
+[node name="GameWorld" parent="." instance=ExtResource( 1 )]
+
+[node name="Player" parent="GameWorld/CfeHall/YSort" index="2" instance=ExtResource( 3 )]
+position = Vector2( 178, 104 )
+
+[node name="Camera2D" type="Camera2D" parent="GameWorld/CfeHall/YSort/Player"]
+current = true
+drag_margin_h_enabled = true
+drag_margin_v_enabled = true
+
+[node name="Characters" type="YSort" parent="GameWorld/CfeHall/YSort" index="3"]
+
+[node name="Vanamees" parent="GameWorld/CfeHall/YSort/Characters" instance=ExtResource( 2 )]
+position = Vector2( 98, 107 )
+
+[editable path="GameWorld"]
+[editable path="GameWorld/CfeHall"]

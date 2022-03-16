@@ -62,30 +62,32 @@ position = Vector2( 38, 16 )
 
 [node name="YSort" type="YSort" parent="." index="2"]
 
-[node name="SpawnPoint" parent="YSort" index="0" instance=ExtResource( 5 )]
-position = Vector2( 241, 138 )
+[node name="Furniture" type="YSort" parent="YSort" index="0"]
 
-[node name="Pianino" parent="YSort" index="1" instance=ExtResource( 9 )]
+[node name="Pianino" parent="YSort/Furniture" index="0" instance=ExtResource( 9 )]
 position = Vector2( 178, 57 )
 
-[node name="BoardTable" parent="YSort" index="2" instance=ExtResource( 10 )]
+[node name="BoardTable" parent="YSort/Furniture" index="1" instance=ExtResource( 10 )]
 position = Vector2( 75, 67 )
 
-[node name="Table" parent="YSort" index="3" instance=ExtResource( 11 )]
+[node name="Table" parent="YSort/Furniture" index="2" instance=ExtResource( 11 )]
 position = Vector2( 50, 102 )
 
-[node name="Table2" parent="YSort" index="4" instance=ExtResource( 11 )]
+[node name="Table2" parent="YSort/Furniture" index="3" instance=ExtResource( 11 )]
 position = Vector2( 101, 142 )
 
-[node name="BookCabinet" parent="YSort" index="5" instance=ExtResource( 12 )]
+[node name="BookCabinet" parent="YSort/Furniture" index="4" instance=ExtResource( 12 )]
 position = Vector2( 313, 73 )
 
-[node name="WallSection" parent="YSort" index="6" instance=ExtResource( 13 )]
+[node name="WallSection" parent="YSort/Furniture" index="5" instance=ExtResource( 13 )]
 position = Vector2( 313, 64 )
 
-[node name="LightSwitch" parent="YSort" index="7" instance=ExtResource( 15 )]
+[node name="LightSwitch" parent="YSort/Furniture" index="6" instance=ExtResource( 15 )]
 position = Vector2( 216, 64 )
-light_group = NodePath("../../Paintings/LightGroup")
+light_group = NodePath("../../../Paintings/LightGroup")
+
+[node name="SpawnPoint" parent="YSort" index="1" instance=ExtResource( 5 )]
+position = Vector2( 241, 138 )
 
 [node name="StaircaseDoorDown" parent="." index="3" instance=ExtResource( 6 )]
 position = Vector2( 241, 160 )
