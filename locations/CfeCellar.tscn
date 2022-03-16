@@ -1,25 +1,19 @@
-[gd_scene load_steps=24 format=2]
+[gd_scene load_steps=18 format=2]
 
 [ext_resource path="res://bg/BackgroundTiles.tres" type="TileSet" id=1]
 [ext_resource path="res://locations/Location.tscn" type="PackedScene" id=2]
 [ext_resource path="res://furniture/SpawnPoint.tscn" type="PackedScene" id=3]
-[ext_resource path="res://characters/KsvSass.tscn" type="PackedScene" id=4]
 [ext_resource path="res://furniture/Mop/Mop.tscn" type="PackedScene" id=5]
 [ext_resource path="res://lights/gradient-light.png" type="Texture" id=6]
 [ext_resource path="res://furniture/KitchenSink/KitchenSink.tscn" type="PackedScene" id=7]
 [ext_resource path="res://paintings/bulletin-board.png" type="Texture" id=8]
 [ext_resource path="res://furniture/Countertop/Countertop.tscn" type="PackedScene" id=10]
 [ext_resource path="res://furniture/BeerCabinet/BeerCabinet.tscn" type="PackedScene" id=11]
-[ext_resource path="res://characters/KsvKark.tscn" type="PackedScene" id=12]
-[ext_resource path="res://characters/KsvKoppel.tscn" type="PackedScene" id=13]
 [ext_resource path="res://furniture/StaircaseDoor/StaircaseDoor.tscn" type="PackedScene" id=14]
-[ext_resource path="res://characters/KsvPikmets.tscn" type="PackedScene" id=15]
-[ext_resource path="res://characters/Vanamees.tscn" type="PackedScene" id=16]
 [ext_resource path="res://furniture/Fridge/Fridge.tscn" type="PackedScene" id=17]
 [ext_resource path="res://paintings/color-shield.png" type="Texture" id=18]
 [ext_resource path="res://furniture/BeerBox/BeerBox.tscn" type="PackedScene" id=19]
 [ext_resource path="res://furniture/PoolTable/PoolTable.tscn" type="PackedScene" id=22]
-[ext_resource path="res://player/Player.tscn" type="PackedScene" id=23]
 [ext_resource path="res://furniture/Fireplace/Fireplace.tscn" type="PackedScene" id=24]
 [ext_resource path="res://furniture/Sofa/Sofa.tscn" type="PackedScene" id=25]
 [ext_resource path="res://furniture/Table/Table.tscn" type="PackedScene" id=26]
@@ -82,32 +76,7 @@ position = Vector2( 232, 129 )
 [node name="Mop" parent="YSort/Furniture" index="11" instance=ExtResource( 5 )]
 position = Vector2( 250, 101 )
 
-[node name="Characters" type="YSort" parent="YSort" index="1"]
-
-[node name="KsvKark" parent="YSort/Characters" index="0" instance=ExtResource( 12 )]
-position = Vector2( 118, 154 )
-
-[node name="KsvPikmets" parent="YSort/Characters" index="1" instance=ExtResource( 15 )]
-position = Vector2( 266, 114 )
-
-[node name="Vanamees" parent="YSort/Characters" index="2" instance=ExtResource( 16 )]
-position = Vector2( 80, 95 )
-
-[node name="KsvKoppel" parent="YSort/Characters" index="3" instance=ExtResource( 13 )]
-position = Vector2( 199, 84 )
-
-[node name="KsvSass" parent="YSort/Characters" index="4" instance=ExtResource( 4 )]
-position = Vector2( 40, 146 )
-
-[node name="Player" parent="YSort" index="2" instance=ExtResource( 23 )]
-position = Vector2( 187, 109 )
-
-[node name="Camera2D" type="Camera2D" parent="YSort/Player" index="5"]
-current = true
-drag_margin_h_enabled = true
-drag_margin_v_enabled = true
-
-[node name="SpawnPoint" parent="YSort" index="3" instance=ExtResource( 3 )]
+[node name="SpawnPoint" parent="YSort" index="1" instance=ExtResource( 3 )]
 position = Vector2( 192, 24 )
 from_location = 1
 
