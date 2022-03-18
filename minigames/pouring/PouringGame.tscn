@@ -1,0 +1,28 @@
+[gd_scene load_steps=6 format=2]
+
+[ext_resource path="res://minigames/pouring/PouringGame.gd" type="Script" id=1]
+[ext_resource path="res://minigames/pouring/cfe-bg-lg.png" type="Texture" id=2]
+[ext_resource path="res://minigames/pouring/BeerGlass.tscn" type="PackedScene" id=3]
+[ext_resource path="res://minigames/opening/Bottle.tscn" type="PackedScene" id=4]
+[ext_resource path="res://minigames/pouring/beer-flow-particle.png" type="Texture" id=5]
+
+[node name="PouringGame" type="Node2D"]
+script = ExtResource( 1 )
+
+[node name="Background" type="TextureRect" parent="."]
+margin_right = 320.0
+margin_bottom = 200.0
+mouse_filter = 0
+texture = ExtResource( 2 )
+stretch_mode = 2
+
+[node name="Particles" type="CPUParticles2D" parent="."]
+position = Vector2( 145, 46 )
+amount = 32
+lifetime = 2.0
+texture = ExtResource( 5 )
+
+[node name="BeerGlass" parent="." instance=ExtResource( 3 )]
+
+[node name="Bottle" parent="." instance=ExtResource( 4 )]
+position = Vector2( 145, 46 )
