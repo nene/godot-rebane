@@ -292,6 +292,7 @@ ui_inventory={
 2d_physics/layer_4="Door"
 2d_physics/layer_5="BottleOpener"
 2d_physics/layer_6="MinigamePhysics"
+2d_physics/layer_7="MinigamePhysicsRigid"
 
 [physics]
 
