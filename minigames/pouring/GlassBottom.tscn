@@ -1,0 +1,15 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://minigames/pouring/GlassBottom.gd" type="Script" id=1]
+
+[sub_resource type="RectangleShape2D" id=18]
+extents = Vector2( 22.5, 5.5 )
+
+[node name="GlassBottom" type="StaticBody2D"]
+collision_layer = 64
+collision_mask = 0
+script = ExtResource( 1 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2( 158.5, 183.5 )
+shape = SubResource( 18 )

@@ -2,6 +2,7 @@ extends RigidBody2D
 
 const Splash = preload("res://minigames/pouring/Splash.tscn")
 const TableEdge = preload("res://minigames/pouring/TableEdge.gd")
+const GlassBottom = preload("res://minigames/pouring/GlassBottom.gd")
 
 var pouring_game: Node
 
@@ -9,7 +10,13 @@ func _on_timeout():
     queue_free()
 
 func _on_body_entered(body: Node):
+    if body is GlassBottom:
+        body.emit_signal("droplet_hit")
+    else:
+        _create_splash(body)
     queue_free()
+
+func _create_splash(body: Node):
     var splash = Splash.instance()
     splash.position = self.position
     splash.emitting = true
