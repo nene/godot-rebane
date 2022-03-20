@@ -24,6 +24,7 @@ func _input(event):
     if event is InputEventMouseButton && event.button_index == BUTTON_LEFT:
         if event.pressed:
             _is_mouse_down = true
+            $PouringBeerSound.play()
         else:
             _is_mouse_down = false
 
