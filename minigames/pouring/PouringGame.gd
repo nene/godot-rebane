@@ -1,16 +1,19 @@
 extends MiniGame
 
 const Droplet = preload("res://minigames/pouring/Droplet.tscn")
+const PouringLogic = preload("res://minigames/pouring/PouringLogic.gd")
 
 onready var _bottle = $Bottle
+onready var _glass = $BeerGlass
 onready var _droplets = $Droplets
 onready var _splashes = $Splashes
 var _is_pouring = false
 var _droplet_frequency = 1.0/40.0  # droplets/second
 var _poured_time = 0
+var _pouring_logic: PouringLogic
 
 func _ready():
-    pass
+    _pouring_logic = PouringLogic.new({ "min": 0.05, "max": 0.20 })
 
 func _input(event):
     _bottle.position = get_global_mouse_position()
@@ -40,3 +43,8 @@ func _random_offset() -> Vector2:
 
 func add_splash(node: Node):
     _splashes.add_child(node)
+
+func _pour_to_glass():
+    _pouring_logic.pour_to_glass(0.5)
+    _glass.beer_level = _pouring_logic.get_liquid_in_glass()
+    _glass.foam_level = _pouring_logic.get_foam_in_glass()
