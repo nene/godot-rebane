@@ -12,7 +12,7 @@ func _init(foam: Dictionary):
 
 # Pours some amount of beer to glass
 func pour_to_glass(flow_rate: float, amount: float):
-    if _is_glass_full():
+    if is_glass_full():
         return
 
     match _split_beer_and_foam(flow_rate, amount):
@@ -72,7 +72,7 @@ func get_total_in_glass() -> float:
 func is_bottle_empty() -> bool:
     return _liquid_in_bottle <= 0.0001
 
-func _is_glass_full() -> bool:
+func is_glass_full() -> bool:
     return _liquid_in_glass + _foam_in_glass >= _glass_size - 0.0001
 
 # How full is the glass: 0..1

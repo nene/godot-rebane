@@ -25,6 +25,8 @@ func _input(event):
         if event.pressed:
             _is_mouse_down = true
             $PouringBeerSound.play()
+            if _pouring_logic.is_bottle_empty() || _pouring_logic.is_glass_full():
+                emit_signal("finished")
         else:
             _is_mouse_down = false
 
