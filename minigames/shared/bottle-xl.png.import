@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/bottle-xl.png-163ece1b59a99c78dd76f43ea74416d4.stex"
+path="res://.import/bottle-xl.png-c43964c869d58aca209a6344add920ab.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://minigames/opening/bottle-xl.png"
-dest_files=[ "res://.import/bottle-xl.png-163ece1b59a99c78dd76f43ea74416d4.stex" ]
+source_file="res://minigames/shared/bottle-xl.png"
+dest_files=[ "res://.import/bottle-xl.png-c43964c869d58aca209a6344add920ab.stex" ]
 
 [params]
 

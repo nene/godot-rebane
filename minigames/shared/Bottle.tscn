@@ -1,6 +1,6 @@
 [gd_scene load_steps=2 format=2]
 
-[ext_resource path="res://minigames/opening/bottle-xl.png" type="Texture" id=1]
+[ext_resource path="res://minigames/shared/bottle-xl.png" type="Texture" id=1]
 
 [node name="Bottle" type="Node2D"]
 

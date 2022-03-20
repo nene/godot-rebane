@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/opening-game-bg.png-58f869b5c4b01232f372f55664f8898d.stex"
+path="res://.import/table-bg.png-a17984ec9196c0988f9e65397f997b5f.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://minigames/opening/opening-game-bg.png"
-dest_files=[ "res://.import/opening-game-bg.png-58f869b5c4b01232f372f55664f8898d.stex" ]
+source_file="res://minigames/shared/table-bg.png"
+dest_files=[ "res://.import/table-bg.png-a17984ec9196c0988f9e65397f997b5f.stex" ]
 
 [params]
 
