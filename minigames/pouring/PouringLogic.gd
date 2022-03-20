@@ -10,33 +10,35 @@ var _foam: Dictionary
 func _init(foam: Dictionary):
     _foam = foam
 
-# Pours beer at certain rate: 0.01 .. 1
-func pour_to_glass(flow_rate: float):
-    if is_finished():
+# Pours some amount of beer to glass
+func pour_to_glass(flow_rate: float, amount: float):
+    if _is_glass_full():
         return
-
-    var amount = _take_from_bottle(_flow_to_amount(flow_rate))
-    _liquid_in_bottle -= amount
 
     match _split_beer_and_foam(flow_rate, amount):
         [var beer, var foam]:
             _liquid_in_glass = min(_glass_size - _foam_in_glass, _liquid_in_glass + beer)
             _foam_in_glass = min(_glass_size - _liquid_in_glass, _foam_in_glass + foam)
 
-func pour_to_ground(flow_rate: float):
-    _liquid_in_bottle = _take_from_bottle(_flow_to_amount(flow_rate))
+# Extracts some amount of beer from bottle at certain flow-rate
+func take_from_bottle(flow_rate: float) -> float:
+    if _is_bottle_empty():
+        return 0.0
+
+    var amount = _flow_to_amount(flow_rate)
+    if amount > _liquid_in_bottle:
+        var old_liquid_in_bottle = _liquid_in_bottle
+        _liquid_in_bottle = 0.0
+        return old_liquid_in_bottle
+    else:
+        _liquid_in_bottle -= amount
+        return amount
 
 # How much beer flows out of bottle at certain rate
 # - Fastest rate: 3 sec ->  30 ticks (amount 1/30)
 # - Slowest rate: 60sec -> 600 ticks (amount 1/600)
 func _flow_to_amount(flow_rate: float) -> float:
     return 1.0 / _scale_to_range(flow_rate, 600, 30)
-
-func _take_from_bottle(amount: float) -> float:
-    if amount > _liquid_in_bottle:
-        return _liquid_in_bottle
-    else:
-        return amount
 
 # Foam will take 3x the same volume as beer it was generated from
 func _split_beer_and_foam(flow_rate: float, amount: float) -> Array:

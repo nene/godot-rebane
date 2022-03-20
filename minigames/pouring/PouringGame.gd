@@ -41,6 +41,7 @@ func _is_pouring():
 func _add_droplet():
     var droplet = Droplet.instance()
     droplet.flow_rate = _flow_rate()
+    droplet.amount = _pouring_logic.take_from_bottle(_flow_rate())
     droplet.position = get_global_mouse_position() + _random_offset()
     droplet.connect("hit_target", self, "_pour_to_glass")
     droplet.connect("splash", self, "_add_splash")
@@ -56,8 +57,8 @@ func _add_splash(position: Vector2, direction: Vector2):
     splash.direction = direction
     _splashes.add_child(splash)
 
-func _pour_to_glass(flow_rate: float):
-    _pouring_logic.pour_to_glass(flow_rate)
+func _pour_to_glass(flow_rate: float, amount: float):
+    _pouring_logic.pour_to_glass(flow_rate, amount)
     _glass.beer_level = _pouring_logic.get_liquid_in_glass()
     _glass.foam_level = _pouring_logic.get_foam_in_glass()
 
