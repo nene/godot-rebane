@@ -7,6 +7,7 @@ func _init(in_hand, in_slot).(in_hand, in_slot):
 
 func _execute(glass: BeerGlass, bottle: BeerBottle):
     var pouring_game = PouringGame.instance()
+    pouring_game.drink_type = bottle.drink_type
     pouring_game.connect("finished", self, "_finished", [glass, bottle])
     GameEvents.emit_signal("start_minigame", pouring_game)
 

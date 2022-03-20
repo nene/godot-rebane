@@ -6,6 +6,8 @@ const PouringLogic = preload("res://minigames/pouring/PouringLogic.gd")
 
 const GLASS_TOP_POSITION = Vector2(131, 90)
 
+var drink_type := Drink.ALEXANDER
+
 onready var _bottle = $Bottle
 onready var _glass = $BeerGlass
 onready var _droplets = $Droplets
@@ -16,7 +18,7 @@ var _poured_time = 0
 var _pouring_logic: PouringLogic
 
 func _ready():
-    _pouring_logic = PouringLogic.new({ "min": 0.05, "max": 0.20 })
+    _pouring_logic = PouringLogic.new(Drink.get_drink(drink_type)["foam"])
 
 func _input(event):
     _bottle.position = get_global_mouse_position()
