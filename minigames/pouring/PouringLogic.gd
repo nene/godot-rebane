@@ -22,7 +22,7 @@ func pour_to_glass(flow_rate: float, amount: float):
 
 # Extracts some amount of beer from bottle at certain flow-rate
 func take_from_bottle(flow_rate: float) -> float:
-    if _is_bottle_empty():
+    if is_bottle_empty():
         return 0.0
 
     var amount = _flow_to_amount(flow_rate)
@@ -69,10 +69,7 @@ func get_liquid_in_bottle() -> float:
 func get_total_in_glass() -> float:
     return _liquid_in_glass + _foam_in_glass / 3
 
-func is_finished() -> bool:
-    return _is_glass_full() || _is_bottle_empty()
-
-func _is_bottle_empty() -> bool:
+func is_bottle_empty() -> bool:
     return _liquid_in_bottle <= 0.0001
 
 func _is_glass_full() -> bool:

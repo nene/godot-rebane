@@ -36,7 +36,7 @@ func _physics_process(delta):
             _add_droplet()
 
 func _is_pouring():
-    return _is_mouse_down && !_pouring_logic.is_finished()
+    return _is_mouse_down && !_pouring_logic.is_bottle_empty()
 
 func _add_droplet():
     var droplet = Droplet.instance()
