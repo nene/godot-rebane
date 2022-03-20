@@ -103,17 +103,19 @@ position = Vector2( 169, 144 )
 texture = ExtResource( 1 )
 
 [node name="LeftEdge" type="StaticBody2D" parent="."]
+position = Vector2( 135, 98 )
 collision_layer = 64
 collision_mask = 32
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="LeftEdge"]
-position = Vector2( 135, 159 )
+position = Vector2( 0, 61 )
 shape = SubResource( 17 )
 
 [node name="RightEdge" type="StaticBody2D" parent="."]
+position = Vector2( 182, 98 )
 collision_layer = 64
 collision_mask = 32
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="RightEdge"]
-position = Vector2( 182, 159 )
+position = Vector2( 0, 61 )
 shape = SubResource( 17 )
