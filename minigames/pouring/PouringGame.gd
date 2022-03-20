@@ -6,6 +6,8 @@ onready var _bottle = $Bottle
 onready var _droplets = $Droplets
 onready var _splashes = $Splashes
 var _is_pouring = false
+var _droplet_frequency = 1.0/40.0  # droplets/second
+var _poured_time = 0
 
 func _ready():
     pass
@@ -21,7 +23,10 @@ func _input(event):
 
 func _physics_process(delta):
     if _is_pouring:
-        for i in 5:
+        _poured_time += delta
+        var droplet_count = floor(_poured_time / _droplet_frequency)
+        _poured_time -= droplet_count * _droplet_frequency
+        for i in droplet_count:
             _add_droplet()
 
 func _add_droplet():
