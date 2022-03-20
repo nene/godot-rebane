@@ -83,3 +83,15 @@ func _flow_rate() -> float:
     var range_y = glass_top - ceiling_y
     var bottle_pos = bottle_y - ceiling_y
     return max(0.01, 1 - bottle_pos / range_y)
+
+func beer_level_in_glass() -> int:
+    if _pouring_logic.get_total_in_glass() > 0.9:
+        return BeerGlass.FULL
+    if _pouring_logic.get_total_in_glass() > 0.75:
+        return BeerGlass.ALMOST_FULL
+    if _pouring_logic.get_total_in_glass() > 0.5:
+        return BeerGlass.HALF_FULL
+    if _pouring_logic.get_total_in_glass() > 0.25:
+        return BeerGlass.ALMOST_EMPTY
+    else:
+        return BeerGlass.EMPTY
