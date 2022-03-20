@@ -1,6 +1,7 @@
 extends MiniGame
 
 const Droplet = preload("res://minigames/pouring/Droplet.tscn")
+const Splash = preload("res://minigames/pouring/Splash.tscn")
 const PouringLogic = preload("res://minigames/pouring/PouringLogic.gd")
 
 const GLASS_TOP_POSITION = Vector2(131, 90)
@@ -39,15 +40,20 @@ func _is_pouring():
 
 func _add_droplet():
     var droplet = Droplet.instance()
-    droplet.pouring_game = self
     droplet.position = get_global_mouse_position() + _random_offset()
+    droplet.connect("hit_target", self, "_pour_to_glass")
+    droplet.connect("splash", self, "_add_splash")
     _droplets.add_child(droplet)
 
 func _random_offset() -> Vector2:
     return Vector2(randf(), randf())
 
-func add_splash(node: Node):
-    _splashes.add_child(node)
+func _add_splash(position: Vector2, direction: Vector2):
+    var splash = Splash.instance()
+    splash.position = position
+    splash.emitting = true
+    splash.direction = direction
+    _splashes.add_child(splash)
 
 func _pour_to_glass():
     _pouring_logic.pour_to_glass(_flow_rate())

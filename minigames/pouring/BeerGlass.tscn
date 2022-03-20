@@ -132,5 +132,3 @@ shape = SubResource( 17 )
 position = Vector2( 66, 176 )
 
 [node name="GlassBottom" parent="." instance=ExtResource( 6 )]
-
-[connection signal="droplet_hit" from="GlassBottom" to="." method="_on_glass_bottom_droplet_hit"]

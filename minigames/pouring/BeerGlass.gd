@@ -1,7 +1,5 @@
 extends Node2D
 
-signal pour_to_glass
-
 const MIN_LEVEL = Vector2(135, 176)
 const MAX_LEVEL = Vector2(135, 105)
 const MAX_BEER_HEIGHT = MIN_LEVEL.y - MAX_LEVEL.y
@@ -29,6 +27,3 @@ func _update_positions():
     var foam_height = floor(foam_level * MAX_BEER_HEIGHT)
     _beer.position = MIN_LEVEL - Vector2(0, beer_height)
     _foam.position = MIN_LEVEL - Vector2(0, beer_height + foam_height)
-
-func _on_glass_bottom_droplet_hit():
-    emit_signal("pour_to_glass")

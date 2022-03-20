@@ -23,5 +23,3 @@ stretch_mode = 2
 position = Vector2( 145, 46 )
 
 [node name="Splashes" type="Node2D" parent="."]
-
-[connection signal="pour_to_glass" from="BeerGlass" to="." method="_pour_to_glass"]
