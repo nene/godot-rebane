@@ -21,3 +21,5 @@ stretch_mode = 2
 
 [node name="Bottle" parent="." instance=ExtResource( 4 )]
 position = Vector2( 145, 46 )
+
+[node name="Splashes" type="Node2D" parent="."]

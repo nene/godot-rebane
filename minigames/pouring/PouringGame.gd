@@ -4,6 +4,7 @@ const Droplet = preload("res://minigames/pouring/Droplet.tscn")
 
 onready var _bottle = $Bottle
 onready var _droplets = $Droplets
+onready var _splashes = $Splashes
 var _is_pouring = false
 
 func _ready():
@@ -25,8 +26,12 @@ func _physics_process(delta):
 
 func _add_droplet():
     var droplet = Droplet.instance()
+    droplet.pouring_game = self
     droplet.position = get_global_mouse_position() + _random_offset()
     _droplets.add_child(droplet)
 
 func _random_offset() -> Vector2:
     return Vector2(randf(), randf())
+
+func add_splash(node: Node):
+    _splashes.add_child(node)
