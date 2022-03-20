@@ -104,8 +104,9 @@ expand = true
 stretch_mode = 2
 
 [node name="Glass" type="Sprite" parent="."]
-position = Vector2( 169, 144 )
+position = Vector2( 131, 98 )
 texture = ExtResource( 1 )
+centered = false
 
 [node name="LeftEdge" type="StaticBody2D" parent="."]
 position = Vector2( 135, 98 )

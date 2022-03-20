@@ -3,6 +3,8 @@ extends MiniGame
 const Droplet = preload("res://minigames/pouring/Droplet.tscn")
 const PouringLogic = preload("res://minigames/pouring/PouringLogic.gd")
 
+const GLASS_TOP_POSITION = Vector2(131, 90)
+
 onready var _bottle = $Bottle
 onready var _glass = $BeerGlass
 onready var _droplets = $Droplets
@@ -48,6 +50,19 @@ func add_splash(node: Node):
     _splashes.add_child(node)
 
 func _pour_to_glass():
-    _pouring_logic.pour_to_glass(0.5)
+    _pouring_logic.pour_to_glass(_flow_rate())
     _glass.beer_level = _pouring_logic.get_liquid_in_glass()
     _glass.foam_level = _pouring_logic.get_foam_in_glass()
+
+func _flow_rate() -> float:
+    var glass_top = GLASS_TOP_POSITION.y
+    var bottle_y = _bottle.position.y
+    var ceiling_y = 32.0
+    if bottle_y >= glass_top:
+        return 0.01
+    if bottle_y <= ceiling_y:
+        return 1.0
+
+    var range_y = glass_top - ceiling_y
+    var bottle_pos = bottle_y - ceiling_y
+    return max(0.01, 1 - bottle_pos / range_y)
