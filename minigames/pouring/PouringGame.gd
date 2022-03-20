@@ -7,7 +7,7 @@ onready var _bottle = $Bottle
 onready var _glass = $BeerGlass
 onready var _droplets = $Droplets
 onready var _splashes = $Splashes
-var _is_pouring = false
+var _is_mouse_down = false
 var _droplet_frequency = 1.0/40.0  # droplets/second
 var _poured_time = 0
 var _pouring_logic: PouringLogic
@@ -20,17 +20,20 @@ func _input(event):
 
     if event is InputEventMouseButton && event.button_index == BUTTON_LEFT:
         if event.pressed:
-            _is_pouring = true
+            _is_mouse_down = true
         else:
-            _is_pouring = false
+            _is_mouse_down = false
 
 func _physics_process(delta):
-    if _is_pouring:
+    if _is_pouring():
         _poured_time += delta
         var droplet_count = floor(_poured_time / _droplet_frequency)
         _poured_time -= droplet_count * _droplet_frequency
         for i in droplet_count:
             _add_droplet()
+
+func _is_pouring():
+    return _is_mouse_down && !_pouring_logic.is_finished()
 
 func _add_droplet():
     var droplet = Droplet.instance()
