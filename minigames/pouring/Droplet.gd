@@ -11,6 +11,10 @@ var flow_rate: float = 0.0
 # The amount of beer
 var amount: float = 0.0
 
+func _ready():
+    $Sprite.scale = Vector2(flow_rate, flow_rate)
+    $CollisionShape2D.scale = Vector2(flow_rate, flow_rate)
+
 func _on_timeout():
     queue_free()
 
