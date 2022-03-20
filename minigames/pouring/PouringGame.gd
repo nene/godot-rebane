@@ -40,15 +40,19 @@ func _is_pouring():
 
 func _add_droplet():
     var droplet = Droplet.instance()
-    droplet.flow_rate = _flow_rate()
-    droplet.amount = _pouring_logic.take_from_bottle(_flow_rate())
-    droplet.position = get_global_mouse_position() + _random_offset()
+    var flow_rate = _flow_rate()
+    droplet.flow_rate = flow_rate
+    droplet.amount = _pouring_logic.take_from_bottle(flow_rate)
+    droplet.position = get_global_mouse_position() + _random_offset() + _flow_rate_offset(flow_rate)
     droplet.connect("hit_target", self, "_pour_to_glass")
     droplet.connect("splash", self, "_add_splash")
     _droplets.add_child(droplet)
 
 func _random_offset() -> Vector2:
     return Vector2(randf(), randf())
+
+func _flow_rate_offset(flow_rate: float) -> Vector2:
+    return Vector2(-4 + (4 * flow_rate), 0)
 
 func _add_splash(position: Vector2, direction: Vector2):
     var splash = Splash.instance()
