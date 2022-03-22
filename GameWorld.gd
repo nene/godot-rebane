@@ -3,6 +3,7 @@ extends Node
 onready var _locations = {
     Global.Location.CFE_CELLAR: $CfeCellar,
     Global.Location.CFE_HALL: $CfeHall,
+    Global.Location.OUTDOORS: $Outdoors,
 }
 
 var _current_location_name: int
