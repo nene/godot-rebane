@@ -2,7 +2,7 @@ extends Node2D
 class_name Location
 
 func has_player() -> bool:
-    return get_node("YSort/Player") != null
+    return has_node("YSort/Player")
 
 func add_player(player):
     get_node("YSort").add_child(player)
