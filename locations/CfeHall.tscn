@@ -86,8 +86,12 @@ position = Vector2( 313, 64 )
 position = Vector2( 216, 64 )
 light_group = NodePath("../../../Paintings/LightGroup")
 
-[node name="SpawnPoint" parent="YSort" index="1" instance=ExtResource( 5 )]
+[node name="FromCellar" parent="YSort" index="1" instance=ExtResource( 5 )]
 position = Vector2( 241, 138 )
+
+[node name="FromOutdoors" parent="YSort" index="2" instance=ExtResource( 5 )]
+position = Vector2( 312, 162 )
+from_location = 0
 
 [node name="StaircaseDoorDown" parent="." index="3" instance=ExtResource( 6 )]
 position = Vector2( 241, 160 )
