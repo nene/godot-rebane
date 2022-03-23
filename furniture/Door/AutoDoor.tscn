@@ -2,7 +2,7 @@
 
 [ext_resource path="res://furniture/Door/AutoDoor.gd" type="Script" id=1]
 
-[node name="DoorBox" type="Area2D"]
+[node name="AutoDoor" type="Area2D"]
 collision_layer = 8
 collision_mask = 8
 script = ExtResource( 1 )

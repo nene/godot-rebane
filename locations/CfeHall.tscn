@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=2]
+[gd_scene load_steps=20 format=2]
 
 [ext_resource path="res://bg/BackgroundTiles.tres" type="TileSet" id=1]
 [ext_resource path="res://paintings/polonia-cartel.png" type="Texture" id=2]
@@ -17,6 +17,10 @@
 [ext_resource path="res://lights/LightSwitch/LightSwitch.tscn" type="PackedScene" id=15]
 [ext_resource path="res://lights/LightGroup/LightGroup.tscn" type="PackedScene" id=16]
 [ext_resource path="res://paintings/door.png" type="Texture" id=17]
+[ext_resource path="res://furniture/Door/AutoDoor.tscn" type="PackedScene" id=18]
+
+[sub_resource type="RectangleShape2D" id=1]
+extents = Vector2( 24, 3 )
 
 [node name="CfeHall" instance=ExtResource( 4 )]
 
@@ -89,6 +93,13 @@ light_group = NodePath("../../../Paintings/LightGroup")
 [node name="StaircaseDoorDown" parent="YSort/Furniture" index="7" instance=ExtResource( 6 )]
 position = Vector2( 241, 160 )
 z_index = 1
+
+[node name="AutoDoor" parent="YSort/Furniture" index="8" instance=ExtResource( 18 )]
+to_location = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="YSort/Furniture/AutoDoor" index="0"]
+position = Vector2( 313, 178 )
+shape = SubResource( 1 )
 
 [node name="FromCellar" parent="YSort" index="1" instance=ExtResource( 5 )]
 position = Vector2( 241, 138 )

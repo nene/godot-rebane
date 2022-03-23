@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=2]
+[gd_scene load_steps=9 format=2]
 
 [ext_resource path="res://locations/Location.tscn" type="PackedScene" id=1]
 [ext_resource path="res://bg/BackgroundTiles.tres" type="TileSet" id=2]
@@ -6,6 +6,7 @@
 [ext_resource path="res://bg/GrassTiles.tres" type="TileSet" id=4]
 [ext_resource path="res://furniture/Fence/CfeFence.tscn" type="PackedScene" id=5]
 [ext_resource path="res://furniture/Door/ManualDoor.tscn" type="PackedScene" id=6]
+[ext_resource path="res://furniture/SpawnPoint.tscn" type="PackedScene" id=7]
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 11.5, 17 )
@@ -49,3 +50,7 @@ to_location = 2
 [node name="CollisionShape2D" type="CollisionShape2D" parent="YSort/Furniture/CfeDoor" index="0"]
 position = Vector2( 222.5, 125 )
 shape = SubResource( 1 )
+
+[node name="FromCfe" parent="YSort" index="1" instance=ExtResource( 7 )]
+position = Vector2( 223, 149 )
+from_location = 2
