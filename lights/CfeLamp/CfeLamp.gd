@@ -1,7 +1,7 @@
 extends Sprite
 
 func _ready():
-    $Light2D.hide()
+    toggle(false)
 
 func toggle(active: bool):
     if active:
