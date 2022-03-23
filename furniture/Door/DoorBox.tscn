@@ -1,6 +1,6 @@
 [gd_scene load_steps=2 format=2]
 
-[ext_resource path="res://furniture/DoorBox.gd" type="Script" id=1]
+[ext_resource path="res://furniture/Door/DoorBox.gd" type="Script" id=1]
 
 [node name="DoorBox" type="Area2D"]
 collision_layer = 8
