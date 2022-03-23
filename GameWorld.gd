@@ -29,6 +29,10 @@ func _hide_all_locations():
         _locations[name].hide()
 
 func _change_location(location_name: int):
+    if location_name == _current_location_name:
+        print("ERROR: Can't change location to current location")
+        return
+
     var old_location_name = _current_location_name
     var player = _current_location.remove_player()
     _current_location.hide()
