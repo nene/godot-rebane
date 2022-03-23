@@ -1,0 +1,13 @@
+[gd_resource type="Resource" load_steps=2 format=2]
+
+[ext_resource path="res://items/drinks/DrinkStats.gd" type="Script" id=1]
+
+[resource]
+script = ExtResource( 1 )
+name = "Tõmmu hiid"
+description = "Vana vilistlase rammujook."
+bottle_sprite_index = 5
+alcohol = 1.87
+foam = 4
+cap_strength = 2
+color = 3

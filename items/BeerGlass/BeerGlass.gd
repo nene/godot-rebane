@@ -36,7 +36,7 @@ func get_small_texture():
     return _get_texture_of_type(BEER_GLASS_SM_TEXTURE, Vector2(10, 10))
 
 func _get_texture_of_type(texture: Texture, size: Vector2):
-    var color = Drink.get_drink(drink_type)["color"]
+    var color = Drink.get_drink(drink_type).color
     return TextureUtils.from_atlas(texture, Vector2(level, color), size)
 
 # Reduces the amount of drink in glass

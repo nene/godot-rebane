@@ -1,0 +1,13 @@
+[gd_resource type="Resource" load_steps=2 format=2]
+
+[ext_resource path="res://items/drinks/DrinkStats.gd" type="Script" id=1]
+
+[resource]
+script = ExtResource( 1 )
+name = "Heineken"
+description = "Väljamaine rüübe rohelises pudelis."
+bottle_sprite_index = 2
+alcohol = 1.6
+foam = 1
+cap_strength = 3
+color = 2

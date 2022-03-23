@@ -1,0 +1,13 @@
+[gd_resource type="Resource" load_steps=2 format=2]
+
+[ext_resource path="res://items/drinks/DrinkStats.gd" type="Script" id=1]
+
+[resource]
+script = ExtResource( 1 )
+name = "Kriek"
+description = "Seda hõrku nestet libistavad ka naiskorporandid."
+bottle_sprite_index = 6
+alcohol = 0.8
+foam = 4
+cap_strength = 5
+color = 4

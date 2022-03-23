@@ -5,10 +5,12 @@ var _liquid_in_glass := 0.0
 var _liquid_in_bottle := 1.0
 # Must be > 1 (1 means the glass can contain 1 bottle of beer, but no foam)
 var _glass_size = 1.2 # 90% of beer + 30% of foam
-var _foam: Dictionary
+var _foam_min: float
+var _foam_max: float
 
-func _init(foam: Dictionary):
-    _foam = foam
+func _init(foam_min: float, foam_max: float):
+    _foam_min = foam_min
+    _foam_max = foam_max
 
 # Pours some amount of beer to glass
 func pour_to_glass(flow_rate: float, amount: float):
@@ -42,7 +44,7 @@ func _flow_to_amount(flow_rate: float) -> float:
 
 # Foam will take 3x the same volume as beer it was generated from
 func _split_beer_and_foam(flow_rate: float, amount: float) -> Array:
-    var foam_ratio = _scale_to_range(flow_rate, _foam["min"], _foam["max"])
+    var foam_ratio = _scale_to_range(flow_rate, _foam_min, _foam_max)
     var foam_part = amount * foam_ratio
     var liquid_part = amount - foam_part
     return [liquid_part, foam_part * 3]

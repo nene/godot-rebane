@@ -1,0 +1,13 @@
+[gd_resource type="Resource" load_steps=2 format=2]
+
+[ext_resource path="res://items/drinks/DrinkStats.gd" type="Script" id=1]
+
+[resource]
+script = ExtResource( 1 )
+name = "Vesi"
+description = "Seda tuleb kraanist lõputult."
+bottle_sprite_index = 11
+alcohol = 0.0
+foam = 0
+cap_strength = 0
+color = 0

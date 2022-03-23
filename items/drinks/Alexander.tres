@@ -1,0 +1,13 @@
+[gd_resource type="Resource" load_steps=2 format=2]
+
+[ext_resource path="res://items/drinks/DrinkStats.gd" type="Script" id=1]
+
+[resource]
+script = ExtResource( 1 )
+name = "Alexander"
+description = "Sassi läheb kui loed mitu pudelit sai joodud."
+bottle_sprite_index = 1
+alcohol = 2.0
+foam = 2
+cap_strength = 2
+color = 2

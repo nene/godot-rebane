@@ -18,7 +18,8 @@ var _poured_time = 0
 var _pouring_logic: PouringLogic
 
 func _ready():
-    _pouring_logic = PouringLogic.new(Drink.get_drink(drink_type)["foam"])
+    var drink = Drink.get_drink(drink_type)
+    _pouring_logic = PouringLogic.new(drink.foam_min(), drink.foam_max())
 
 func _input(event):
     _bottle.position = get_global_mouse_position()

@@ -31,7 +31,7 @@ func _ready():
     _ribbon.visible = bottle_opener.has_ribbon()
 
 func _noise_period() -> float:
-    var cap_strength = Drink.get_drink(drink_type)["capStrength"]
+    var cap_strength = Drink.get_drink(drink_type).cap_strength
     if cap_strength > 0:
         return 4 / float(cap_strength)
     else:
