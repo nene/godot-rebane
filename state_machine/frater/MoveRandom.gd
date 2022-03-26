@@ -24,7 +24,7 @@ func _change_direction():
 
 func physics_update(delta):
     if direction != Vector2.ZERO:
-        _owner.set_animation_direction(direction)
+        _owner.animation_direction = direction
         _owner.animation = "Walk"
     else:
         _owner.animation = "Idle"

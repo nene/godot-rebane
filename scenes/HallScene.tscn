@@ -31,6 +31,18 @@ tracks/1/keys = {
 "update": 0,
 "values": [ "Walk" ]
 }
+tracks/2/type = "value"
+tracks/2/path = NodePath("GameWorld/CfeHall/YSort/Characters/Vanamees:animation_direction")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( 1, 0 ) ]
+}
 
 [sub_resource type="Animation" id=2]
 resource_name = "animation"
@@ -59,6 +71,18 @@ tracks/1/keys = {
 "update": 1,
 "values": [ "Walk", "Idle" ]
 }
+tracks/2/type = "value"
+tracks/2/path = NodePath("GameWorld/CfeHall/YSort/Characters/Vanamees:animation_direction")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0, 2 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ Vector2( 1, 0 ), Vector2( 0, 1 ) ]
+}
 
 [node name="HallScene" type="Node2D"]
 script = ExtResource( 4 )
@@ -78,6 +102,7 @@ drag_margin_v_enabled = true
 [node name="Vanamees" parent="GameWorld/CfeHall/YSort/Characters" instance=ExtResource( 2 )]
 position = Vector2( 98, 107 )
 animation = "Walk"
+animation_direction = Vector2( 1, 0 )
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 anims/RESET = SubResource( 1 )

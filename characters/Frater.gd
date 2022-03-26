@@ -8,17 +8,19 @@ export var character_name = ""
 # warning-ignore:unused_class_variable
 export(Resource) var photo
 
-export(String, "Idle", "Walk", "Callout") var animation setget _set_animation
+export(String, "Idle", "Walk", "Callout") var animation = "Idle" setget _set_animation
+export(Vector2) var animation_direction = Vector2.DOWN setget _set_animation_direction
 
 # warning-ignore:unused_class_variable
-onready var animationState = $AnimationTree.get("parameters/playback")
+onready var animation_tree = $AnimationTree
+onready var animationState = animation_tree.get("parameters/playback")
 var _state: State
 
 func _ready():
     _state = _create_state_machine()
     _state.enter()
-    set_animation_direction(Vector2.DOWN)
-    $AnimationTree.active = true
+    animation_tree.active = true
+    _set_animation_direction(animation_direction)
     _set_animation(animation)
 
 func _create_state_machine() -> State:
@@ -32,9 +34,11 @@ func _physics_process(delta):
 func _unhandled_input(event):
     _state.handle_input(event)
 
-func set_animation_direction(direction: Vector2):
-    $AnimationTree.set("parameters/Idle/blend_position", direction)
-    $AnimationTree.set("parameters/Walk/blend_position", direction)
+func _set_animation_direction(direction: Vector2):
+    animation_direction = direction
+    if animation_tree:
+        animation_tree.set("parameters/Idle/blend_position", direction)
+        animation_tree.set("parameters/Walk/blend_position", direction)
 
 func _set_animation(name: String):
     animation = name
