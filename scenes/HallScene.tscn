@@ -1,10 +1,67 @@
-[gd_scene load_steps=4 format=2]
+[gd_scene load_steps=7 format=2]
 
 [ext_resource path="res://GameWorld.tscn" type="PackedScene" id=1]
 [ext_resource path="res://characters/Vanamees.tscn" type="PackedScene" id=2]
 [ext_resource path="res://player/Player.tscn" type="PackedScene" id=3]
+[ext_resource path="res://scenes/HallScene.gd" type="Script" id=4]
+
+[sub_resource type="Animation" id=1]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/path = NodePath("GameWorld/CfeHall/YSort/Characters/Vanamees:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( 98, 107 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("GameWorld/CfeHall/YSort/Characters/Vanamees:animation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ "Walk" ]
+}
+
+[sub_resource type="Animation" id=2]
+resource_name = "animation"
+length = 2.0
+tracks/0/type = "value"
+tracks/0/path = NodePath("GameWorld/CfeHall/YSort/Characters/Vanamees:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 2 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector2( 98, 107 ), Vector2( 162, 103 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("GameWorld/CfeHall/YSort/Characters/Vanamees:animation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 2 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ "Walk", "Idle" ]
+}
 
 [node name="HallScene" type="Node2D"]
+script = ExtResource( 4 )
 
 [node name="GameWorld" parent="." instance=ExtResource( 1 )]
 
@@ -20,6 +77,11 @@ drag_margin_v_enabled = true
 
 [node name="Vanamees" parent="GameWorld/CfeHall/YSort/Characters" instance=ExtResource( 2 )]
 position = Vector2( 98, 107 )
+animation = "Walk"
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+anims/RESET = SubResource( 1 )
+anims/animation = SubResource( 2 )
 
 [editable path="GameWorld"]
 [editable path="GameWorld/CfeHall"]

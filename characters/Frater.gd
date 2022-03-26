@@ -8,6 +8,8 @@ export var character_name = ""
 # warning-ignore:unused_class_variable
 export(Resource) var photo
 
+export(String, "Idle", "Walk", "callout") var animation setget _set_animation
+
 # warning-ignore:unused_class_variable
 onready var animationState = $AnimationTree.get("parameters/playback")
 var _state: State
@@ -17,6 +19,7 @@ func _ready():
     _state.enter()
     set_animation_direction(Vector2.DOWN)
     $AnimationTree.active = true
+    _set_animation(animation)
 
 func _create_state_machine() -> State:
     var StateStack = load("res://state_machine/StateStack.gd")
@@ -32,6 +35,11 @@ func _unhandled_input(event):
 func set_animation_direction(direction: Vector2):
     $AnimationTree.set("parameters/Idle/blend_position", direction)
     $AnimationTree.set("parameters/Walk/blend_position", direction)
+
+func _set_animation(name: String):
+    animation = name
+    if animationState:
+        animationState.travel(name)
 
 func _on_interact(event: InteractEvent):
     _state.handle_input(event)
