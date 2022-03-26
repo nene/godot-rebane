@@ -12,14 +12,14 @@ export(String, "Idle", "Walk", "Callout") var animation = "Idle" setget _set_ani
 export(Vector2) var animation_direction = Vector2.DOWN setget _set_animation_direction
 
 # warning-ignore:unused_class_variable
-onready var animation_tree = $AnimationTree
-onready var animation_state = animation_tree.get("parameters/playback")
+onready var _animation_tree = $AnimationTree
+onready var _animation_state = _animation_tree.get("parameters/playback")
 var _state: State
 
 func _ready():
     _state = _create_state_machine()
     _state.enter()
-    animation_tree.active = true
+    _animation_tree.active = true
     _set_animation_direction(animation_direction)
     _set_animation(animation)
 
@@ -36,14 +36,14 @@ func _unhandled_input(event):
 
 func _set_animation_direction(direction: Vector2):
     animation_direction = direction
-    if animation_tree:
-        animation_tree.set("parameters/Idle/blend_position", direction)
-        animation_tree.set("parameters/Walk/blend_position", direction)
+    if _animation_tree:
+        _animation_tree.set("parameters/Idle/blend_position", direction)
+        _animation_tree.set("parameters/Walk/blend_position", direction)
 
 func _set_animation(name: String):
     animation = name
-    if animation_state:
-        animation_state.travel(name)
+    if _animation_state:
+        _animation_state.travel(name)
 
 func _on_interact(event: InteractEvent):
     _state.handle_input(event)
