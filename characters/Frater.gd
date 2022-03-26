@@ -8,7 +8,7 @@ export var character_name = ""
 # warning-ignore:unused_class_variable
 export(Resource) var photo
 
-export(String, "Idle", "Walk", "callout") var animation setget _set_animation
+export(String, "Idle", "Walk", "Callout") var animation setget _set_animation
 
 # warning-ignore:unused_class_variable
 onready var animationState = $AnimationTree.get("parameters/playback")

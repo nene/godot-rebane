@@ -9,7 +9,7 @@ func _init(owner: Frater):
 
 func enter():
     _owner.toggle_callout(true)
-    _owner.animation = "callout"
+    _owner.animation = "Callout"
 
 func is_interactable(group: GameItemGroup = null):
     return group == null
