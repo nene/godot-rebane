@@ -13,7 +13,7 @@ export(Vector2) var animation_direction = Vector2.DOWN setget _set_animation_dir
 
 # warning-ignore:unused_class_variable
 onready var animation_tree = $AnimationTree
-onready var animationState = animation_tree.get("parameters/playback")
+onready var animation_state = animation_tree.get("parameters/playback")
 var _state: State
 
 func _ready():
@@ -42,8 +42,8 @@ func _set_animation_direction(direction: Vector2):
 
 func _set_animation(name: String):
     animation = name
-    if animationState:
-        animationState.travel(name)
+    if animation_state:
+        animation_state.travel(name)
 
 func _on_interact(event: InteractEvent):
     _state.handle_input(event)
